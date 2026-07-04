@@ -56,4 +56,11 @@ controls (groceries ≈ 0, banking < 0) shipped alongside the headline; an
 Exclusion Register that counts what the measure refuses to price; open code;
 hash-committed evidence snapshots; a public correction log.
 
-License: TBD. Contact: see the site's About page.
+**Building in the open:** this single repository is the project's public home —
+working documents, decision records, review dispositions, and internal drafts
+included, deliberately. Treat internal-sounding docs (discussant shortlist,
+budget memo) as process transparency, not published positions.
+
+License: code (`engine/`, `pipeline/`, `site/` markup) under [MIT](LICENSE);
+documents, data, and site text under [CC BY 4.0](LICENSE-CC-BY-4.0.md).
+Contact: see the site's About page.

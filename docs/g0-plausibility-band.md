@@ -1,7 +1,6 @@
 # Gate G0 — Pre-committed plausibility band
 
-`v0 · 2026-07-04 · workstream E · STATUS: committed before any retrospective computation (the git hash of this commit is the timestamp of record)`
-`Owner sign-off required before Phase 0 analysis begins; the band may be tightened before work starts, never after results exist`
+`v0 · 2026-07-04 · workstream E · STATUS: committed before any retrospective computation (the git hash of this commit is the timestamp of record) · SIGNED OFF by owner 2026-07-04, accepted as-is`
 
 ## What G0 tests
 
@@ -70,5 +69,7 @@ Restoration Gap over the matched-fare comparator for the same window.
 
 ## Sign-off
 
-- [ ] Owner reviewed and accepts the band (or tightens it) — required before
-      retrospective computation begins.
+- [x] **Owner reviewed and accepted the band as-is — 2026-07-04** (decision
+      recorded via session review). The band is now fully binding; retrospective
+      computation may begin once the input open-items in
+      `data/retro-2008-inputs.md` are closed.
