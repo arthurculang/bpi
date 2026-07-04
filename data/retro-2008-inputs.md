@@ -65,6 +65,32 @@ unverified). By Dec 2009 the modal first-bag price: $20 airport / $15 online.
   check-rate found — derive base-period incidence per `data/incidence-proxies.md`
   and document the assumption before the sector computation runs (G0 rule).
 
+## Pinned conventions (committed BEFORE any computation — required by the codebook)
+
+1. **Band tests 2–3 are computed as event contributions** — the profile's link
+   relative NET of the matched-fare comparator (ρ − π_fare) — consistent with
+   test 4's "event contribution" language and trigger rule T3 (pure scalar fare
+   moves, e.g. the 2008 fuel spike, are not the event's doing). Test 1's
+   measured line item is 2 × end-2009 first-bag fee as posted; the
+   fee-minus-offset variant is reported alongside solely for the B2 comparison.
+2. **Incidence (selected now, per codebook §8):** 2007 base-period share of
+   passengers checking ≥1 bag — primary **45%** (midpoint implied by GAO-10-785's
+   40–50% post-fee decline against the modern ~35–40% level), sensitivity grid
+   **[35%, 55%]**. Gate evaluation reports the full grid; the primary value was
+   chosen before any result existed (this commit).
+3. **Purchase-point:** per codebook §2.3, prepaid-online rates are primary
+   (end-2009: $15 online at UA/DL/CO/US); airport rates ($20; AA flat $20)
+   reported as sensitivity.
+4. **Fare anchors:** BTS average domestic itinerary fares; annual averages as
+   primary pending byte-verification, anchor sensitivity grid **[$250, $400]**
+   (the range the band itself contemplates). Q4/December-point anchors are a
+   refinement to pull (open item 7) since links run Dec-to-Dec.
+5. **Materiality:** open items 1–3 and 5–6 (Frontier, JetBlue, Delta second-bag
+   step, 2009 split dates, 2009 revenue) do not enter the four band tests,
+   which use the modal legacy schedule ($15 first bag end-2008; $15 online/$20
+   airport end-2009) — they block full sector coverage in the Phase 0 note, not
+   gate evaluation. Items 4 and 7 (fare anchors) are handled by the grid above.
+
 ## Open items (must close before computation; log every change)
 
 1. Frontier first-bag effective date/amount (Brueckner Table 1).
@@ -73,3 +99,5 @@ unverified). By Dec 2009 the modal first-bag price: $20 airport / $15 online.
 4. 2007 average fare (transtats).
 5. United's 2009 online/airport split announcement date; AA's Aug 2009 effective date.
 6. 2009 bag-fee revenue total (BTS Schedule P-1.2).
+7. Q4/December-point BTS average fares for 2007, 2008, 2009 (links run Dec-to-Dec;
+   annual averages carry the mid-2008 fuel spike).
