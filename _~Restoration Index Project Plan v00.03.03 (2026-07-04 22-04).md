@@ -1,6 +1,6 @@
 # Restoration Index — Project Plan
 
-`v00.03.02 · 2026-07-04 20-08 · internal working doc · companion to: Restoration Index Spec v00.01.00`
+`v00.03.03 · 2026-07-04 22-04 · internal working doc · companion to: Restoration Index Spec v00.02.00`
 
 ---
 
@@ -297,6 +297,8 @@ CONSTRAINTS
 ---
 
 ## Changelog
+
+- **v00.03.03** (2026-07-04 22-04) — Companion pointer updated to Spec v00.02.00 (P2 refined to menu-expansion monotonicity; engine v0 implements the spec's worked examples as 19 passing tests). Adversarial review of engine + P2 propagation applied in full: two engine blockers fixed (mixed-bundle route classification no longer launders tier upgrades through named fees; tier-gap interval re-baselined on today's menu per trigger rule T3), two serious (requirement-derived quantity bounds; fee-only route fall-through), plus consistency fixes to the codebook (§4 and governing-spec pointer), spec (§6 row 3, §11 row 1), G0 band wording (logged amendment, limits untouched), and the site. Root README and CLAUDE.md added.
 
 - **v00.03.02** (2026-07-04 20-08) — Sprint 0 / August pull-forward executed in-repo: codebook v0; **G0 band pre-committed at 57581d6 before any retrospective inputs**; CE quintile weights byte-verified from mirror (anchors exact, residual closes within $1) with reproducible builder; 2008–09 chronology input file (negative-print episode designated: US Airways beverage repeal 3/1/2009; open items listed with tie-breaker source = Brueckner Table 1); incidence proxy register (bag-check ~34–39%, fee-paying ~16–19%, United BE 16%, Disney+ ads 37%, Netflix ads ~45%; carry-on = flagged gap); discussant shortlist (12 candidates, trio: Fox / Greenlees / Jaravel); WS-H budget memo template (~$4–11k year-one cash); site deploy hygiene (favicon, 404, robots, OG tags). Execution-status note added to §9.
 

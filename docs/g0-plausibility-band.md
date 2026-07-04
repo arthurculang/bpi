@@ -44,8 +44,10 @@ Restoration Gap over the matched-fare comparator for the same window.
    zero, but within the same order of magnitude as B1 — a print above 6pp would
    indicate incidence or superset handling errors.
 4. **Sign tests (must both hold).**
-   - The zero-bag profile prints **0% event contribution** (option-introduction
-     invariance under the trigger rules).
+   - The zero-bag profile prints **0% event contribution** (menu-expansion
+     monotonicity under the trigger rules: no new option in the 2008-09 episode
+     weakly dominates the zero-bag profile at lower cost, so its print is exactly
+     0%; a dominated profile would print ≤ 0%, never > 0%).
    - The designated historical re-bundling episode (to be selected in the inputs
      file *before* computation, from candidates compiled independently) prints
      **≤ 0%**.
@@ -58,6 +60,13 @@ Restoration Gap over the matched-fare comparator for the same window.
 - MAY NOT: the band's numeric limits; the four tests; the definition of the
   profiles; the choice of comparator window. Any post-hoc case for revising
   these is, by definition, a G0 failure with a methods note — not a re-draw.
+
+## Amendment log
+
+- 2026-07-04: sign-test 4's parenthetical renamed from "option-introduction
+  invariance" to "menu-expansion monotonicity" following the spec v00.02.00 P2
+  refinement. Wording of rationale only — numeric limits, the four tests, the
+  profiles, and the comparator window are unchanged (permitted under "MAY").
 
 ## Sign-off
 

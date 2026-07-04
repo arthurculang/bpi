@@ -67,8 +67,48 @@ class TestS1PricePointTakeover(unittest.TestCase):
         self.assertFalse(rep.superset)
 
     def test_p2_bag_profile(self):
-        rho, _ = link_relative(P2, menu_s1(), UA)
+        rho, rep = link_relative(P2, menu_s1(), UA)
         self.assertAlmostEqual(rho, (385.0 + 90.0) / 370.0, places=4)  # +28.4%
+        # Post-review pin: a tier upgrade never launders through a named fee.
+        # Economy (superset) + bag fees is mixed -> a-la-carte, superset-flagged,
+        # with the tier interval published against today's non-superset baseline
+        # (Basic $300 + 2x$45 = $390): [0, 475-390] = [0, 85].
+        self.assertEqual(rep.route, "a-la-carte")
+        self.assertTrue(rep.superset)
+        self.assertEqual(rep.interval, (0.0, 85.0))
+
+    def test_interval_baselines_on_todays_menu_not_base_cost(self):
+        # Post-review pin (blocker 2): if Basic rises to $320 (a pure scalar
+        # move, excluded from the event by T3), the tier gap is 385-320 = $65,
+        # NOT cost - base_cost = $85.
+        menu = [
+            Item("basic", UA, 320.0, {"trip": 1}),
+            Item("economy", UA, 385.0, {"trip": 1, "carryon": 1, "seat_sel": 1}),
+            Item("bagfee", UA, 45.0, {"checked": 1}, kind="fee", targets=frozenset({"checked"})),
+        ]
+        _, rep = link_relative(P1, menu, UA)
+        self.assertEqual(rep.interval, (0.0, 65.0))
+
+    def test_quantity_bound_derives_from_requirement(self):
+        # Post-review pin (serious 3): needing 5 units must not read as
+        # infeasible under any fixed quantity cap.
+        base = Profile("fivebags", {"trip": 1, "checked": 5}, 500.0, 1.0)
+        rho, rep = link_relative(base, menu_s1(), UA)
+        self.assertIsNotNone(rho)
+        self.assertAlmostEqual(rep.cost, 300.0 + 5 * 45.0, places=6)
+
+    def test_broad_target_fee_is_not_a_named_fee_or_tier(self):
+        # Post-review pin (serious 4): a fee pricing a broader package than
+        # the restored attribute is neither "named-fee" nor "tier-spread".
+        b = "bank"
+        base = Profile("od", {"overdraft_cover": 1}, 35.0, 1.0)
+        menu = [Item("bundlefee", b, 20.0,
+                     {"overdraft_cover": 1, "wire_cover": 1},
+                     kind="fee", targets=frozenset({"overdraft_cover", "wire_cover"}))]
+        rho, rep = link_relative(base, menu, b)
+        self.assertAlmostEqual(rho, 20.0 / 35.0, places=6)
+        self.assertEqual(rep.route, "a-la-carte")
+        self.assertIsNone(rep.interval)  # no superset *product* => no tier interval
 
     def test_profile_weighted_sector(self):
         agg, _ = sector_relative([P1, P0, P2], menu_s1(), UA)

@@ -3,7 +3,8 @@
 `v0 draft · 2026-07-04 · workstream A · freezes as the public pre-registration with the Phase 0 note (Oct 2026)`
 `Amendment policy: versioned, append-only after pre-registration; no retroactive changes to conventions ever apply to already-published links`
 
-This codebook operationalizes Spec v00.01.00. Where the two disagree, the spec's
+This codebook operationalizes Spec v00.02.00 (P2 refined to menu-expansion
+monotonicity, 2026-07-04). Where the two disagree, the spec's
 formal statement governs and the discrepancy is logged as a codebook erratum.
 
 ---
@@ -79,9 +80,12 @@ A restoration event exists for profile e at t iff **all three** hold:
   change, not to a pure scalar price move (which flows through as ordinary price
   change, not an event).
 
-**Non-events (print 0% by rule):** downward tier introduction with the incumbent's
-price and inclusions unchanged; fee relabeling at constant all-in replication
-cost; pure price moves on an unchanged menu.
+**Non-events (no upward print, by rule):** downward tier introduction with the
+incumbent's price and inclusions unchanged — menu expansion can never raise the
+index; where the new tier weakly dominates a profile's frozen experience at
+lower cost, the decrease prints via the negative-event rule below (spec
+v00.02.00 P2 refinement, menu-expansion monotonicity); fee relabeling at
+constant all-in replication cost; pure price moves on an unchanged menu.
 **Negative events (must print):** re-bundling; fee elimination; a cheaper
 restoring path appearing.
 **Exits:** if T2 fails (no priced path at any cost), the item leaves the ledger,
