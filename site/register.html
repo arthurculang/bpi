@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exclusion Register — The Restoration Gap</title>
+<meta name="description" content="The census of unpriced degradation: what the index cannot price, it still counts.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">The Restoration&nbsp;<span class="gap">Gap</span></a>
+    <nav class="primary" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="releases.html">The Gap</a>
+      <a href="coverage.html">Coverage</a>
+      <a href="ledger.html">Inclusion Ledger</a>
+      <a href="register.html" class="active">Exclusion Register</a>
+      <a href="methods.html">Methods</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+<div class="status-strip"><div class="inner">register status: seeded · counted, never priced · the boundary is the credibility asset</div></div>
+
+<main>
+  <p class="eyebrow">Artifact 3 of 3 · live in every release</p>
+  <h1>The Exclusion Register</h1>
+  <p class="lede">The index prices only what has a price: a named fee, a tier spread, a unit-price delta on today's menu. Everything else that degrades the consumer experience goes here — counted, with the household dollars it touches, but never imputed into the number.</p>
+
+  <p>This boundary is what separates the measure from a vague "hidden inflation" claim. When no market price exists for a degradation, inventing one would re-enter the hedonic swamp that defeats everyone — so we don't. But refusing to price something is not the same as pretending it isn't happening. The Register makes the boundary visible, and makes it auditable when firms migrate across it (deleting the fee <em>and</em> the feature).</p>
+
+  <h2>Seed entries, July 2026</h2>
+  <div class="tablewrap">
+  <table>
+    <tr><th>Category</th><th>What is degrading</th><th>Why it can't be priced</th><th>Scale it touches</th></tr>
+    <tr><td>Healthcare — facility fees</td><td>Hospital facility fees appearing on formerly office-billed visits (~$100 added to a ~$116 average primary-care visit)</td><td>Billed after care, payer-specific, typically undisclosed beforehand — no posted menu price exists, and the patient's cost runs through plan cost-sharing. Paying the fee restores nothing.</td><td class="num">$6.0B Medicare Part B + $1.5B beneficiary cost-sharing (2021, site-neutral estimate)</td></tr>
+    <tr><td>Healthcare — coverage erosion</td><td>Deductibles and cost-sharing repricing last year's coverage (average single deductible +43% in 10 years)</td><td>The frozen experience is actuarial: model-imputed values, uncontractible networks and formularies; subsidy policy repriced coverage in 2026 with no firm menu event</td><td class="num">~9.7% of a bottom-40% budget</td></tr>
+    <tr><td>Connectivity — subsidy lapse</td><td>Affordable Connectivity Program ended June 2024; enrolled households lost up to $30/month</td><td>A government subsidy lapse, not a firm's menu change — no seller repriced anything; scope rule excludes it</td><td class="num">23M+ enrolled households, concentrated in the target population</td></tr>
+    <tr><td>Services — skimpflation proper</td><td>Housekeeping frequency, staffing levels, hold times, service speed, ad load within an unchanged tier</td><td>No priced alternative exists on the menu; even CPI has no hedonic models for airlines, hotels, or restaurants</td><td class="num">counted by category at first print</td></tr>
+    <tr><td>Apparel, personal care, education</td><td>Quality churn without restoration grammar</td><td>No named fees or tier spreads identify the delta</td><td class="num">~$2.4k/yr Q1 spend</td></tr>
+  </table>
+  </div>
+
+  <div class="placeholder">
+    <span class="mono">placeholder</span> — At first print each entry carries: affected bottom-40% base expenditure, an event count for the period, documentary sources, and the boundary-migration audit (fees deleted along with features). The Register ships beside the Gap in every release; the full consumer-experience story is the two together.
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p>The Restoration Gap is a research measure in development. Numbers shown pre-launch are verified event data, not index output. The measure is an upper bound on constant-experience cost growth by design; it is published as a spread over official CPI series and reconciled against them in every release.</p>
+    <p><span class="mono">scaffold v0 · 2026-07 ·</span> <a href="https://github.com/arthurculang/bpi">code &amp; working documents</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

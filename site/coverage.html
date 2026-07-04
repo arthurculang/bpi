@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coverage — The Restoration Gap</title>
+<meta name="description" content="The coverage map: which sectors of a bottom-40% household budget the measure prices, which it counts, and which it excludes — and why.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">The Restoration&nbsp;<span class="gap">Gap</span></a>
+    <nav class="primary" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="releases.html">The Gap</a>
+      <a href="coverage.html" class="active">Coverage</a>
+      <a href="ledger.html">Inclusion Ledger</a>
+      <a href="register.html">Exclusion Register</a>
+      <a href="methods.html">Methods</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+<div class="status-strip"><div class="inner">coverage basis: BLS Consumer Expenditure Survey, income-quintile tables (2024 release; 2023 detail where marked *)</div></div>
+
+<main>
+  <p class="eyebrow">The plan's spine</p>
+  <h1>Coverage: whose budget, which sectors</h1>
+  <p class="lede">The measure targets the bottom two income quintiles — households averaging $35,046 and $50,054 of annual spending in 2024. Sectors enter by budget weight times restoration-test fit, never by fee salience. What can't be priced is counted; what isn't covered is disclosed at a zero gap, never hidden.</p>
+
+  <div class="bignums" aria-label="Coverage trajectory">
+    <div><div class="n">≈2%</div><div class="l">restoration-priced coverage at first print (air travel + streaming)</div></div>
+    <div><div class="n">≈20%</div><div class="l">after Phase 2 (rent, wireless, internet, lodging enter)</div></div>
+    <div><div class="n">≈26%+</div><div class="l">Phase 3 target; monitored coverage incl. null controls reaches ≈36%</div></div>
+  </div>
+
+  <h2>The map</h2>
+  <p class="footnote">Q1/Q2 = lowest and second income quintiles, mean annual dollars (share of total spending). * marks 2023-vintage detail, shares on 2023 totals. Rows partially overlap the CE's published hierarchy; the exact non-overlapping map ships with the methods pre-registration.</p>
+
+  <div class="tablewrap">
+  <table>
+    <tr><th>Sector</th><th class="num">Q1 $/yr (share)</th><th class="num">Q2 $/yr (share)</th><th>Status</th></tr>
+    <tr><td>Shelter — rented dwellings</td><td class="num">5,781 (16.5%)</td><td class="num">6,225 (12.4%)</td><td><strong>Phase 2 flagship</strong> — mandatory-fee stack (trash, package/tech, convenience, lease-term parity); collection already running</td></tr>
+    <tr><td>Food at home</td><td class="num">3,843 (11.0%)</td><td class="num">4,952 (9.9%)</td><td><strong>Null control</strong> — CPI's per-unit machinery already captures shrinkflation; our gap here should be ≈ 0, and we publish that test</td></tr>
+    <tr><td>Healthcare</td><td class="num">3,445 (9.8%)</td><td class="num">4,826 (9.6%)</td><td><strong>Excluded, counted</strong> — no posted replication menu exists; see the <a href="register.html">Register</a></td></tr>
+    <tr><td>Utilities</td><td class="num">2,941 (8.7%)*</td><td class="num">3,987 (8.2%)*</td><td>Out for now — regulated tariffs; revisited if fixed-charge unbundling spreads</td></tr>
+    <tr><td>Transportation (vehicles, gasoline)</td><td class="num">4,938 (14.1%)</td><td class="num">8,156 (16.3%)</td><td>Out — commodity prices, no restoration grammar</td></tr>
+    <tr><td>— Airline fares</td><td class="num">167 (0.5%)*</td><td class="num">274 (0.6%)*</td><td><strong>Phase 1 methods lab</strong> — the sharpest verified events, deliberately small weight</td></tr>
+    <tr><td>Connectivity + subscription media</td><td class="num">≈1,540 (4.5%)*</td><td class="num">≈2,220 (4.4%)*</td><td><strong>Phase 1</strong> (streaming) + <strong>Phase 2</strong> (wireless, internet)</td></tr>
+    <tr><td>Food away from home / delivery</td><td class="num">1,655 (4.7%)</td><td class="num">2,448 (4.9%)</td><td>Phase 3 candidate — priced service fees, ambiguous baselines; scope memo first</td></tr>
+    <tr><td>Entertainment fees &amp; admissions</td><td class="num">168 (0.5%)*</td><td class="num">339 (0.7%)*</td><td>Phase 3 candidate — ticketing now FTC-disclosed all-in</td></tr>
+    <tr><td>Lodging on trips</td><td class="num">166 (0.5%)*</td><td class="num">338 (0.7%)*</td><td><strong>Phase 2</strong> — with a falsification test: if our seam is real, the FTC all-in rule should compress it</td></tr>
+    <tr><td>Banking fees</td><td class="num">n/a</td><td class="num">n/a</td><td><strong>Negative control</strong> — overdraft fees fell &gt;50% since 2019; the measure must print it</td></tr>
+    <tr><td>Apparel, personal care, education</td><td class="num">2,379</td><td class="num">2,394</td><td>Excluded, counted — no priced restoration grammar</td></tr>
+    <tr><td>All other (owned-dwelling shelter, furnishings, insurance &amp; pensions, contributions, misc.)</td><td class="num">≈8,000 (≈23%)</td><td class="num">—</td><td>Zero-imputed in any composite; itemized in every coverage statement</td></tr>
+  </table>
+  </div>
+
+  <h2>The rule that keeps this honest</h2>
+  <p>Sectors are chosen from a pre-registered frame — every Consumer Expenditure category above a bottom-40% budget-share threshold, screened by one question: <em>does a priced path back to last year's experience exist on today's menu?</em> Sectors where the answer is no are excluded and counted. Sectors where the expected gap is zero or negative (groceries, banking) are included <em>because</em> they can prove the method isn't a ratchet. The one thing this map never does is pick sectors because their fees make headlines.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p>The Restoration Gap is a research measure in development. Numbers shown pre-launch are verified event data, not index output. The measure is an upper bound on constant-experience cost growth by design; it is published as a spread over official CPI series and reconciled against them in every release.</p>
+    <p><span class="mono">scaffold v0 · 2026-07 ·</span> <a href="https://github.com/arthurculang/bpi">code &amp; working documents</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
