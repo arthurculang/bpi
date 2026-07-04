@@ -1,6 +1,6 @@
 # Restoration Index — Project Plan
 
-`v00.03.01 · 2026-07-04 19-39 · internal working doc · companion to: Restoration Index Spec v00.01.00`
+`v00.03.02 · 2026-07-04 20-08 · internal working doc · companion to: Restoration Index Spec v00.01.00`
 
 ---
 
@@ -188,6 +188,8 @@ Core team of two (one economics/methods, one data engineering), counsel hours fo
 
 ## 9. Next steps (the immediate answer)
 
+**Execution status (2026-07-04):** items 3–4 decided/ready (name adopted; Appendix C prompt awaiting your Cloudflare run); item 5 drafted (`docs/dot-nprm-comment-draft.md` — review and file); item 6 substantially drafted (`docs/codebook-v0.md`); item 7 partially done (major categories byte-verified in `data/cex-b40-quintiles.csv` + reproducible builder; detail cells and renter shares still need unblocked BLS/FRED access); item 8 drafted (`docs/ws-h-budget-memo-draft.md`, `docs/discussant-shortlist.md` with first-approach trio); item 9 partially done (incidence proxy register `data/incidence-proxies.md`; carry-on incidence flagged as a gap); item 11's band **already hash-committed** (`docs/g0-plausibility-band.md`, commit 57581d6, before any retrospective inputs) and the 2008–09 chronology inputs compiled (`data/retro-2008-inputs.md`, negative-print episode designated: US Airways beverage-fee repeal, 2009-03-01). Items 1–2 (captures) and the NPRM filing remain owner actions — the sandbox proxy blocks the target hosts.
+
 **This week (by July 13):**
 1. **Archive the T-Mobile pre-migration state** — legacy plan menus, "(Retired)" plan support pages, the plan-to-plan crosswalk, Experience-tier pricing. The before-state disappears when migration starts on bill cycles July 13. This is the single most time-critical task in the project.
 2. Stand up the snapshot pipeline v0 (timestamped, hash-committed) and point it at: rental listings (Zillow Total Price / Apartments.com fee fields, fixed unit sample), FCC broadband labels, streaming tier pages, all six carriers' bag-fee pages (B6 with its peak calendar).
@@ -295,6 +297,8 @@ CONSTRAINTS
 ---
 
 ## Changelog
+
+- **v00.03.02** (2026-07-04 20-08) — Sprint 0 / August pull-forward executed in-repo: codebook v0; **G0 band pre-committed at 57581d6 before any retrospective inputs**; CE quintile weights byte-verified from mirror (anchors exact, residual closes within $1) with reproducible builder; 2008–09 chronology input file (negative-print episode designated: US Airways beverage repeal 3/1/2009; open items listed with tie-breaker source = Brueckner Table 1); incidence proxy register (bag-check ~34–39%, fee-paying ~16–19%, United BE 16%, Disney+ ads 37%, Netflix ads ~45%; carry-on = flagged gap); discussant shortlist (12 candidates, trio: Fox / Greenlees / Jaravel); WS-H budget memo template (~$4–11k year-one cash); site deploy hygiene (favicon, 404, robots, OG tags). Execution-status note added to §9.
 
 - **v00.03.01** (2026-07-04 19-39) — Decisions P1–P15 recorded as adopted by owner; public brand confirmed as **The Restoration Gap** (restorationgap.org). Sprint 0 execution begun in-repo: snapshot pipeline v0 (`pipeline/`), Inclusion Ledger seed data (`data/ledger-events.json`), DOT NPRM comment draft (`docs/dot-nprm-comment-draft.md`).
 - **v00.03.00** (2026-07-04 19-17) — Public-artifact pivot: added WS-I (public site & brand); scaffolded the full site in `site/` (home, Gap/releases hub, coverage, Inclusion Ledger seeded with verified events, Exclusion Register, methods, about — placeholders labeled); added decisions P13 (retire "Better Price Index/BPI" for public use — collision scan verdict: blocked by Bank Policy Institute, Bullish Percent Index, ESPN BPI, British Phonographic Industry, and the OECD "Better ___ Index" family — adopt **"The Restoration Gap"**, which scanned clear), P14 (restorationgap.org primary + .com redirect, availability probable but confirmed only at purchase — registry checks blocked from this environment), and P15 (Cloudflare Pages from the repo's `site/` directory, no build step); added Appendix C (Claude-for-Chrome Cloudflare prompt with stop-if-unavailable and price-cap checkpoints); renumbered §9 with the naming/domain/deploy steps in the this-week block.
