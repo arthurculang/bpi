@@ -92,11 +92,12 @@
       "effective": "2026-07-13",
       "event_type": "menu-removal",
       "restoration_route": "tier-spread",
-      "line_item": "cheapest same-carrier current-menu plan weakly dominating the frozen plan-feature vector; published plan-to-plan crosswalk archived pre-migration",
+      "line_item": "cheapest same-carrier current-menu plan weakly dominating the frozen plan-feature vector; target menu captured (Experience Beyond $170/3ln, More $140/3ln, Essentials $90/3ln — data/captures/tmobile-premigration-2026-07-04.json); base-experience (legacy plan) feature vectors need Wayback recovery (the ONE 55+ page already redirects)",
       "superset_flag": true,
       "status": "verified-preprint",
       "verified": "2026-07-04",
-      "sources": ["t-mobile.com/customers/plan-update-vo-b2-2026", "tmo.report 2026-06-29 and crosswalk", "Android Authority 2026"]
+      "evidence_capture": "data/captures/tmobile-premigration-2026-07-04.json (browser-agent content capture; primary-source migration notice confirms up to +$6/line, 5-yr price guarantee on talk/text/5G data, bill in T-Life after 2026-07-13)",
+      "sources": ["t-mobile.com/customers/plan-update-vo-b2-2026 (primary, captured 2026-07-04)", "t-mobile.com/cell-phone-plans (target menu, captured 2026-07-04)", "tmo.report 2026-06-29 story + 2026-07-01 crosswalk", "Android Authority 2026"]
     },
     {
       "id": "streaming-disneyplus-202212",

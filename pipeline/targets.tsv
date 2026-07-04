@@ -24,9 +24,12 @@ netflix-extra-member	streaming	standing	https://help.netflix.com/en/node/120879
 disneyplus-plans	streaming	standing	https://help.disneyplus.com/article/disneyplus-price
 hulu-plans	streaming	standing	https://www.hulu.com/welcome
 # BROADBAND: FCC label pages (machine-readability faces 2H-2026 rollback — capture now)
-xfinity-broadband-labels	broadband	urgent	https://www.xfinity.com/learn/broadband-labels
-att-broadband-labels	broadband	urgent	https://www.att.com/broadbandlabels/
-spectrum-broadband-labels	broadband	urgent	https://www.spectrum.com/policies/broadband-labels
+# NOTE 2026-07-04: these three landing URLs 404 / redirect-to-TOS (Chrome capture).
+# FCC labels surface PER-PLAN inside the shopping/checkout flow, not at a labels
+# landing page. Correct per-plan label URLs still needed — do not trust these paths.
+xfinity-broadband-labels	broadband	needs-url	https://www.xfinity.com/learn/broadband-labels
+att-broadband-labels	broadband	needs-url	https://www.att.com/broadbandlabels/
+spectrum-broadband-labels	broadband	needs-url	https://www.spectrum.com/policies/broadband-labels
 # LODGING/RENTAL: listing-level fee capture needs the fixed unit sample from the
 # codebook (Aug); these are the policy/press anchors meanwhile.
 zillow-total-price-launch	rental	standing	https://zillow.mediaroom.com/2025-07-15-Summer-just-got-hotter-Zillow-debuts-five-powerful-new-features
