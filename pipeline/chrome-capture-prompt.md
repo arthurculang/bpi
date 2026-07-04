@@ -90,3 +90,68 @@ saved to `data/captures/tmobile-premigration-<date>.json` with a
 `method: browser-agent-extraction` provenance tag, the ledger's T-Mobile event
 (`wireless-tmobile-202607`) gains its pre-migration evidence, and the wireless
 attribute dictionary can freeze the base plan-feature vectors.
+
+---
+
+## Follow-up B — Wayback recovery of legacy plan feature vectors
+
+The live-site legacy plan pages are already vanishing (the ONE 55+ page redirects
+to the current menu as of 2026-07-04). The **base-experience (z) side** of the
+T-Mobile event — what customers are migrating FROM — must come from the Wayback
+Machine. A Wayback snapshot URL is permanently pinned and third-party-attestable,
+so **the archive URL itself is the citable evidence** (stronger than a live
+extraction). This is Phase 2 prep, not time-critical. Prompt for Claude for
+Chrome (Wayback is reachable from a browser; the project sandbox blocks it):
+
+```
+You are operating my Chrome browser (Claude for Chrome) on the Internet Archive's
+Wayback Machine (web.archive.org). Task: recover the feature vectors of retired
+T-Mobile consumer plans from archived snapshots, so I can reconstruct what
+customers were migrated away from. Read-only; do not log in anywhere.
+
+METHOD: for a target original URL, jumping to
+  https://web.archive.org/web/<YYYYMMDD>000000/<original-url>
+redirects to the nearest archived snapshot at or before that date. Use that to
+land on a snapshot from each plan generation. If a page 404s in the archive,
+use Wayback's URL search ( https://web.archive.org/web/*/t-mobile.com/cell-phone-plans* )
+to list archived plan sub-pages and pick relevant ones.
+
+CAPTURE these generations of the evergreen plan-menu page (the plan lineup
+changed over time, so different dates surface different legacy plans):
+  - Simple Choice era:  https://web.archive.org/web/20160601000000/https://www.t-mobile.com/cell-phone-plans
+  - T-Mobile ONE era:   https://web.archive.org/web/20180601000000/https://www.t-mobile.com/cell-phone-plans
+  - Magenta era:        https://web.archive.org/web/20210601000000/https://www.t-mobile.com/cell-phone-plans
+  - Just pre-migration: https://web.archive.org/web/20260601000000/https://www.t-mobile.com/cell-phone-plans
+And these segment / specific legacy pages (try each; use Wayback search if the
+direct URL isn't archived):
+  - Unlimited 55+:      https://web.archive.org/web/20260601000000/https://www.t-mobile.com/cell-phone-plans/55-older-plans
+  - the redirected one: https://web.archive.org/web/20260601000000/https://business.t-mobile.com/support/plans-features/one-plan-unlimited-55-plus
+  - Military:           https://web.archive.org/web/20260601000000/https://www.t-mobile.com/cell-phone-plans/military
+  - Magenta MAX:        https://web.archive.org/web/20220601000000/https://www.t-mobile.com/cell-phone-plans/premium-unlimited-data
+
+FOR EACH plan you find on any captured snapshot, record:
+  - plan_name (e.g., "Simple Choice", "T-Mobile ONE", "Magenta", "Magenta MAX",
+    "Unlimited 55+")
+  - wayback_url: the FULL permanent snapshot URL you are reading (with its
+    timestamp) — THIS IS THE EVIDENCE, capture it exactly
+  - snapshot_date: the archive capture date shown in the Wayback toolbar
+  - original_url
+  - monthly_price and lines_basis (e.g., "$70 for 1 line", "$140 for 2 lines"),
+    quoted VERBATIM
+  - features: high-speed/premium data, mobile hotspot GB, streaming perks
+    (Netflix/Apple TV/etc.), Canada/Mexico data, international data, taxes-in
+    vs taxes-extra — whatever the snapshot states, verbatim
+  - notes: anything odd (partial capture, price shown for a region, etc.)
+
+OUTPUT: return EXACTLY ONE fenced code block (start it with three backticks
+followed by the word json) containing a JSON array, one object per plan found,
+with fields: plan_name, wayback_url, snapshot_date, original_url, monthly_price,
+lines_basis, features, notes. If a target yielded no usable snapshot, include one
+object with plan_name, the attempted wayback_url, and notes:"no snapshot found".
+Do NOT fabricate prices or features — quote only what the archived page shows.
+Put nothing outside the code block except a one-line summary above it.
+```
+
+On paste-back this is ingested to `data/captures/tmobile-legacy-vectors-<date>.json`
+and becomes the frozen base (z) plan-feature vectors for the wireless module's
+Phase 2 build; the `wayback_url` per plan is its permanent citation.
