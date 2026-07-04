@@ -1,6 +1,6 @@
 # Restoration Index — Project Plan
 
-`v00.02.00 · 2026-07-04 18-49 · internal working doc · companion to: Restoration Index Spec v00.01.00`
+`v00.03.00 · 2026-07-04 19-17 · internal working doc · companion to: Restoration Index Spec v00.01.00`
 
 ---
 
@@ -28,7 +28,7 @@ The remainder is never hidden — it is priced at a zero gap in the composite an
 
 Bottom-two-quintile expenditures, BLS CE Table 1101 — 2024 vintage where available, 2023 detail otherwise (release USDL-25-1586, Dec 19, 2025; values cross-verified against two independent mirrors of BLS API/flat-file data). Q1 total: $35,046. Q2 total: $50,054. Expansion priority = budget weight × restoration-test fit — never fee salience.
 
-*Table caveats (fix scheduled in §9 item 5): asterisked cells are 2023 vintage and their shares are computed on 2023 quintile totals (Q1 ≈ $33.8k), not the 2024 header totals; rows partially overlap CE's published hierarchy (CE classes telephone services under utilities and pay-TV under entertainment — the connectivity row is a cross-cutting regrouping), so rows are not additive. The exact non-overlapping map ships with the August Table 1101 refresh.*
+*Table caveats (fix scheduled in §9 item 7): asterisked cells are 2023 vintage and their shares are computed on 2023 quintile totals (Q1 ≈ $33.8k), not the 2024 header totals; rows partially overlap CE's published hierarchy (CE classes telephone services under utilities and pay-TV under entertainment — the connectivity row is a cross-cutting regrouping), so rows are not additive. The exact non-overlapping map ships with the August Table 1101 refresh.*
 
 | Sector | Q1 $/yr (share) | Q2 $/yr (share) | Restoration-test fit | Disposition |
 |---|---|---|---|---|
@@ -56,7 +56,7 @@ Bottom-two-quintile expenditures, BLS CE Table 1101 — 2024 vintage where avail
 
 **Facts (web-verified).** CPI Rent of Primary Residence prices *contract rent* — all services the landlord provides in exchange for rent — and quality-adjusts for utility bundling changes and extra charges like pet fees. But one-time fees (application $50 typical, paid by 79% of recent renters; admin; move-in) have no home in the rent index, and separately billed mandatory recurring fees (valet trash, tech/package fees, RUBS utility billing, payment "convenience" fees) enter only if respondents report them as rent; the 6-month continuing-tenant panel structurally underweights fees loaded at new-lease events. The fee stack is litigated and large: FTC v. Invitation Homes ($48M, fees up to ~$1,700/yr on top of advertised rent), FTC & Colorado v. Greystar ($24M, Dec 2025, "hundreds of dollars more per month" — package delivery, trash, technology packages). Posting is being forced onto the menu: Zillow Cost of Renting Summary (2023) → Total Price display (July 15, 2025); Minnesota Total Monthly Payment law (2024); Colorado HB25-1090 (Jan 1, 2026); FTC rental-fee ANPRM (Mar 13, 2026 — comments closed Apr 13; no NPRM yet). ~53% of bottom-quintile households rent; 83% of <$30k renters are cost-burdened with median residual income of $250/month.
 
-**Module design (decision P5).** Target concept: **advertised-rent-plus-mandatory-fees** — this avoids double-counting against CPI's contract-rent concept and measures exactly the drip wedge. Components: the recurring mandatory-fee stack needed to reproduce last year's tenancy (trash service on the old basis, parking, fee-free payment, lease-term parity), plus amortized one-time fees at a forced re-search event. Always-separate fees (pet) and unpriced degradation route to the Register. A **posted-vs-realized audit** (paired secret-shopper applications vs listed fees) is mandatory, because fees were historically revealed at application, not in listings — the audit is budgeted, counsel-reviewed, and piloted in Q4 2026 so at least two waves land inside the Phase 2 panel year (§9 item 6; legal exposure logged in WS-G and §6). Backcasting before ~2023 leans on enforcement exhibits (Invitation Homes/Greystar complaints carry dated fee schedules), the FTC-2026-0266 docket corpus, and archived listings.
+**Module design (decision P5).** Target concept: **advertised-rent-plus-mandatory-fees** — this avoids double-counting against CPI's contract-rent concept and measures exactly the drip wedge. Components: the recurring mandatory-fee stack needed to reproduce last year's tenancy (trash service on the old basis, parking, fee-free payment, lease-term parity), plus amortized one-time fees at a forced re-search event. Always-separate fees (pet) and unpriced degradation route to the Register. A **posted-vs-realized audit** (paired secret-shopper applications vs listed fees) is mandatory, because fees were historically revealed at application, not in listings — the audit is budgeted, counsel-reviewed, and piloted in Q4 2026 so at least two waves land inside the Phase 2 panel year (§9 item 8; legal exposure logged in WS-G and §6). Backcasting before ~2023 leans on enforcement exhibits (Invitation Homes/Greystar complaints carry dated fee schedules), the FTC-2026-0266 docket corpus, and archived listings.
 
 **Implication.** The forward panel (Zillow Total Price + Apartments.com fee fields, fixed unit sample stratified by market and building class, monthly, hash-committed snapshots) starts in Sprint 0 even though publication is Phase 2. First fully in-sample 12-month rent link: **mid-2027**; the rent flagship release lands **H2 2027**.
 
@@ -100,6 +100,7 @@ Healthcare exhibits the project's phenomena at scale — facility fees add ~$100
 | F — Publication & review | External methods discussant (shortlist owned here); versioned publication with DOI (Zenodo or SSRN) + public code repository + snapshot archive under documented access rules; release template with bound language and limitations; correction protocol | Releases; correction log |
 | G — Legal & data rights | Scraping counsel covering **capture and redistribution** (access-on-request tier where ToS bars public release; WN = manual capture only); mystery-shopping legal review (rental audit: application-fee spend, misrepresentation/FCRA/state landlord-tenant exposure); ATPCO/ARC licensing decision; regulatory comments; continuity plan | Legal register |
 | H — Funding & operations | Budget and payer for: counsel hours, discussant honorarium, application-fee spend for the rental audit, scraper infrastructure, ATPCO/ARC contingency; first budget memo due **August 2026** | Budget; runway statement |
+| I — Public site & brand | The public-facing artifact, scaffolded from day one (`site/` in the repo: home, releases/Gap hub, coverage, Inclusion Ledger, Exclusion Register, methods, about — placeholders labeled, verified events seeded); name finalization (P13), domain (P14), hosting via Cloudflare Pages connected to the GitHub repo (P15); the site is the release vehicle from the Phase 0 note onward | The live site; brand decision record; Appendix C deployment prompt |
 
 ---
 
@@ -179,6 +180,9 @@ Reply **"go"** to adopt all, or **"go on rows …"** to adopt selectively. (Spec
 | P10 | Publication posture | Publish = versioned research note with DOI (Zenodo or SSRN) + public code repository + snapshot archive under documented access rules; self-published through Phase 2; institutional partnership explored at Phase 3, not before; pre-committed correction protocol; no news-cycle timing | Medium-High | Independence during the methods-proving phase; "publish" now has an operational definition; the receptive moment (4.2% CPI, alternative-gauge appetite) raises the value of discipline, not of speed |
 | P11 | Weights & comparator vintages | Pin weights to the R-CPI-I recipe with data through Dec 2024; treat the Mar 2026 update as delayed/unconfirmed; pre-register the comparator-continuity convention for CPI relatives spanning the never-published Oct 2025 index; footnote 2025 shutdown distortions on any 2025-vintage inputs | High | Verified: Oct 2025 CPI never published, CE Oct–Nov 2025 missing, 2025 CPI weights arrive Jan 2027 — both the weights *and the Gap's comparator* inherit the hole, and pretending otherwise would import silent irregularities |
 | P12 | Novelty claim wording | Claim the **procedure and the conditional-experience basket**, not the principle; cite EU Reg 2020/1148 ("changes in the conditions of a tariff shall be shown as price changes") as bounding prior art | High | The principle exists in EU law with no worked valuation procedure anywhere — precise wording preempts the "Eurostat already does this" rebuttal at the cost of one sentence |
+| P13 | Public name | **"The Restoration Gap"** as the public brand and site name; "Restoration Index (RX)" stays the formal measure name; **retire "Better Price Index / BPI" for public use** (repo codename `bpi` can stay) | High on retiring BPI; Medium-High on the replacement | Collision scan verdict: BPI is **blocked** — Bank Policy Institute (bpi.com, publishes economic research in exactly this space), Bullish Percent Index, ESPN Basketball Power Index, British Phonographic Industry, Building Performance Institute (bpi.org, active), and "Better ___ Index" reads as the OECD Better Life Index family; "Better" is also a superiority claim the methodology explicitly disclaims (spec row 14). "Restoration Gap" scanned **clear** in the economics/consumer space (only benign dentistry/ecology usage), names the shipped product (the Gap *is* the headline series per Knob 3), is provocative in substance (something was taken; here's the bill to get it back) while neutral in register, and is journalist-quotable ("the restoration gap widened to…"). Runner-up if overruled: "Fine Print Index" (clear scan, but reads fees-only — narrower than the tiering/menu-redesign scope) |
+| P14 | Domain | **restorationgap.org** primary (research register; .org signals non-commercial measurement), **restorationgap.com** registered defensively and 301-redirected to .org | Medium-High — both show no DNS and no site (likely available), but registry checks are blocked from this environment; final availability confirmed at purchase (Appendix C includes the stop-if-unavailable checkpoint) | .org is the right register for a methods-first research artifact; owning the .com prevents the confusing-neighbor problem cheaply (~$10–12/yr each at Cloudflare's at-cost pricing) |
+| P15 | Hosting architecture | Cloudflare Pages connected to the GitHub repo (`arthurculang/bpi`), build command none, output directory `site/`, production branch `main` (after merging the working branch); Cloudflare Registrar for the domain so DNS, registrar, and hosting live in one account | High | Static HTML with zero build step is the most durable, auditable, and cheapest option (free tier); the site deploys on every push, which makes the repo the single source of truth; matches the user's Cloudflare + GitHub setup |
 
 ---
 
@@ -187,21 +191,23 @@ Reply **"go"** to adopt all, or **"go on rows …"** to adopt selectively. (Spec
 **This week (by July 13):**
 1. **Archive the T-Mobile pre-migration state** — legacy plan menus, "(Retired)" plan support pages, the plan-to-plan crosswalk, Experience-tier pricing. The before-state disappears when migration starts on bill cycles July 13. This is the single most time-critical task in the project.
 2. Stand up the snapshot pipeline v0 (timestamped, hash-committed) and point it at: rental listings (Zillow Total Price / Apartments.com fee fields, fixed unit sample), FCC broadband labels, streaming tier pages, all six carriers' bag-fee pages (B6 with its peak calendar).
+3. **Close the naming decision (P13) and domain (P14)** — "go" on the rows or overrule; site scaffold is live in `site/` and rebrands with a find-and-replace either way.
+4. **Register the domain and deploy the site** — run the Appendix C prompt in Claude for Chrome on the Cloudflare dashboard (registers restorationgap.org/.com, connects Cloudflare Pages to this repo, attaches the domain). Merge the working branch to `main` first, or set the Pages production branch per the prompt's fallback.
 
 **By July 31 (hard deadline):**
-3. **File the DOT NPRM comment** (FR 2026-13294, full-fare advertising flexibility) — the posted all-in airfare is collection infrastructure for this project; say so in the docket.
+5. **File the DOT NPRM comment** (FR 2026-13294, full-fare advertising flexibility) — the posted all-in airfare is collection infrastructure for this project; say so in the docket.
 
 **August:**
-4. Ledger schema + codebook v0 (equivalence protocol, route hierarchy, trigger rules, link-year convention, comparator-continuity convention) — the pre-registration draft.
-5. Pull bottom-two-quintile weights from BLS API / CE Table 1101 (retrieval paths verified this session); refresh the nine 2023-vintage detail cells; build the non-overlapping coverage map; pull renter shares (CXUHOMEOWNLB0102M/0103M).
-6. **WS-H budget memo** (dollars, payer, honorarium, audit application-fee budget, infra); **shortlist and approach three discussant candidates** (owner: WS-F); design the rental posted-vs-realized audit protocol and obtain counsel review (mystery-shopping exposure) so a pilot wave can run Q4 2026.
-7. Build air-travel incidence proxies (BTS Form 41 acct 3906.2 ÷ T-100 enplanements); the first print uses proxy weights or published utilization bounds — never the spec §4.1 assumption shares.
-8. Re-quote all BLS factsheet language from an unblocked connection (byte-verification of the triangulated quotes).
-9. Begin Phase 0: **hash-commit the G0 plausibility band first**, then assemble the 2008–09 archives (Wayback fee tables, DB1B, Form 41 acct 3906.2).
+6. Ledger schema + codebook v0 (equivalence protocol, route hierarchy, trigger rules, link-year convention, comparator-continuity convention) — the pre-registration draft.
+7. Pull bottom-two-quintile weights from BLS API / CE Table 1101 (retrieval paths verified this session); refresh the nine 2023-vintage detail cells; build the non-overlapping coverage map; pull renter shares (CXUHOMEOWNLB0102M/0103M).
+8. **WS-H budget memo** (dollars, payer, honorarium, audit application-fee budget, infra, domain/site costs); **shortlist and approach three discussant candidates** (owner: WS-F); design the rental posted-vs-realized audit protocol and obtain counsel review (mystery-shopping exposure) so a pilot wave can run Q4 2026.
+9. Build air-travel incidence proxies (BTS Form 41 acct 3906.2 ÷ T-100 enplanements); the first print uses proxy weights or published utilization bounds — never the spec §4.1 assumption shares.
+10. Re-quote all BLS factsheet language from an unblocked connection (byte-verification of the triangulated quotes).
+11. Begin Phase 0: **hash-commit the G0 plausibility band first**, then assemble the 2008–09 archives (Wayback fee tables, DB1B, Form 41 acct 3906.2).
 
 **September–October:**
-10. Complete the retrospective + one historical re-bundling negative print; publish as the pre-registration note; run gate G0.
-11. Air-travel route panel live by October. (The panel's first fully in-sample 12-month link is **October 2027**; the Q1 2027 print is the archival-denominator exhibit under the pre-registered convention in §4, plus the exact streaming link.) Freeze panel pre-registration only after G0 passes.
+12. Complete the retrospective + one historical re-bundling negative print; publish as the pre-registration note **on the site**; run gate G0.
+13. Air-travel route panel live by October. (The panel's first fully in-sample 12-month link is **October 2027**; the Q1 2027 print is the archival-denominator exhibit under the pre-registered convention in §4, plus the exact streaming link.) Freeze panel pre-registration only after G0 passes.
 
 **Q1 2027:** first Restoration Gap print (archival-denominator air exhibit + streaming + controls), gated on G1.
 
@@ -224,7 +230,72 @@ An independent adversarial review of plan v00.01.00 returned 10 findings (3 bloc
 
 ---
 
+## Appendix C — Cloudflare deployment prompt (run after "go" on P13–P15)
+
+Paste the following into Claude for Chrome while logged into the Cloudflare dashboard. It is written to stop at every irreversible step. Prerequisite: merge the working branch to `main` (or accept the fallback in step 4).
+
+```
+You are operating my Cloudflare dashboard (dash.cloudflare.com — I am already
+logged in). Task: register a domain and deploy a static site from my GitHub
+repo. Work step by step, confirm each numbered step's success before the next,
+and STOP and report if anything deviates.
+
+CONTEXT
+- Domain to register: restorationgap.org (primary). Also register
+  restorationgap.com if it costs ≤ $15/yr.
+- GitHub repo: arthurculang/bpi. The site is plain static HTML in the /site
+  directory. No build step.
+- Production branch: main. If the /site directory does not exist on main yet,
+  use branch claude/inflation-measure-spec-9jjw9o instead and tell me to
+  switch the production branch to main after I merge.
+
+STEPS
+1. REGISTER: Go to Domain Registration → Register Domains. Search
+   "restorationgap.org". If it is NOT available, STOP and report what you
+   found (including suggested alternatives and prices) — do not buy anything
+   else. If available and ≤ $15/yr, register it for 1 year with auto-renew ON,
+   WHOIS redaction/privacy ON (default), using my existing payment method.
+   Do NOT buy any add-ons or upsells.
+2. Repeat for restorationgap.com under the same price cap. If it is taken or
+   over the cap, skip it and note that — do not substitute another TLD.
+3. PAGES PROJECT: Go to Workers & Pages → Create application → Pages →
+   Connect to Git. Authorize GitHub if prompted (I will complete the OAuth
+   popup — pause and ask me when it appears). Select the repository
+   arthurculang/bpi.
+4. Configure the project: project name "restorationgap"; production branch
+   main (fallback per CONTEXT above); Framework preset: None; Build command:
+   (leave empty); Build output directory: site. Save and deploy. Wait for the
+   first deployment to finish and confirm the *.pages.dev preview URL renders
+   a page titled "The Restoration Gap".
+5. CUSTOM DOMAIN: In the Pages project → Custom domains → add
+   restorationgap.org. Accept the DNS records Cloudflare proposes (it manages
+   the zone, so this should be automatic). Then add www.restorationgap.org
+   the same way.
+6. REDIRECTS: Ensure www redirects to the apex. If Cloudflare did not create
+   this automatically, add a Bulk Redirect or a Redirect Rule:
+   https://www.restorationgap.org/* → https://restorationgap.org/$1,
+   status 301. If restorationgap.com was registered, add its zone the same
+   way and 301-redirect https://restorationgap.com/* and www.* to
+   https://restorationgap.org/$1.
+7. VERIFY: Load https://restorationgap.org in a new tab. Confirm: the page
+   renders with a valid certificate (no warnings), the header reads "The
+   Restoration Gap", and the nav links (Coverage, Inclusion Ledger,
+   Exclusion Register, Methods, About) each load.
+8. REPORT: Total charged and for which domains; the pages.dev URL; the
+   production branch in use; any step you had to skip or that needs my
+   follow-up (e.g., switching production branch to main after merge).
+
+CONSTRAINTS
+- Do not modify any other zones, DNS records, Workers, or account settings.
+- Do not enable any paid plan or add-on; everything here fits the free Pages
+  tier plus at-cost domain registration.
+- If any screen asks for something not covered above, stop and ask me.
+```
+
+---
+
 ## Changelog
 
+- **v00.03.00** (2026-07-04 19-17) — Public-artifact pivot: added WS-I (public site & brand); scaffolded the full site in `site/` (home, Gap/releases hub, coverage, Inclusion Ledger seeded with verified events, Exclusion Register, methods, about — placeholders labeled); added decisions P13 (retire "Better Price Index/BPI" for public use — collision scan verdict: blocked by Bank Policy Institute, Bullish Percent Index, ESPN BPI, British Phonographic Industry, and the OECD "Better ___ Index" family — adopt **"The Restoration Gap"**, which scanned clear), P14 (restorationgap.org primary + .com redirect, availability probable but confirmed only at purchase — registry checks blocked from this environment), and P15 (Cloudflare Pages from the repo's `site/` directory, no build step); added Appendix C (Claude-for-Chrome Cloudflare prompt with stop-if-unavailable and price-cap checkpoints); renumbered §9 with the naming/domain/deploy steps in the this-week block.
 - **v00.02.00** (2026-07-04 18-49) — Applied all 10 findings from the adversarial plan review (Appendix B): fixed the three blockers (first-print denominator, composite phasing vs product promise, kill-criterion consistency), added comparator-continuity convention for the Oct 2025 CPI hole, corrected coverage-map arithmetic and added the ≈23% residual row with disposition, split the north star into restoration-priced vs monitored coverage, added WS-H (funding) and data-redistribution rights, resourced and scheduled the rental audit, made G2 operational, and hardened G0 (band pre-committed, hash-timestamped).
 - **v00.01.00** (2026-07-04 18-40) — Initial project plan. Reframed around the holistic goal: coverage map as spine (real CE Table 1101 quintile dollars), three-artifact product with the Exclusion Register first-class, capture-now-publish-later collection posture. Sector rulings: rental housing IN (Phase 2 flagship, panel starts immediately), telecom IN (T-Mobile 7/13/26 flagship, complementarity framing), healthcare OUT (printable ruling). April 2026 bag-fee wave fully verified; R-CPI-I pinned to Dec 2024 vintage; novelty claim reworded against EU Reg 2020/1148; competitor field verified clear. Built on a 5-agent verified research pass.

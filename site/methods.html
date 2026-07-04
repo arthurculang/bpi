@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methods — The Restoration Gap</title>
+<meta name="description" content="The formal object: a conditional replication-cost index in characteristics space, published as a spread over CPI. Formulas, properties, scope test, and limitations.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html">The Restoration&nbsp;<span class="gap">Gap</span></a>
+    <nav class="primary" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="releases.html">The Gap</a>
+      <a href="coverage.html">Coverage</a>
+      <a href="ledger.html">Inclusion Ledger</a>
+      <a href="register.html">Exclusion Register</a>
+      <a href="methods.html" class="active">Methods</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+<div class="status-strip"><div class="inner">methods status: spec v00.01.00 complete · public pre-registration: Oct 2026 · external review before first print</div></div>
+
+<main>
+  <p class="eyebrow">The formal object</p>
+  <h1>Methods</h1>
+  <p class="lede">The Restoration Index is a conditional replication-cost index in characteristics space: freeze the attribute vector of what a household actually bought last year, and price the cheapest bundle on today's same-seller menu that weakly dominates it. The Restoration Gap is that index minus the matching official CPI series.</p>
+
+  <h2>The primitive</h2>
+  <pre class="math">C(z; t) = min over q ≥ 0 of  Σ p_jt·q_j
+          s.t.  Σ a_j·q_j ⪰ z    (attribute-wise weak dominance)
+                same seller       (headline; cross-seller as sensitivity)
+
+link relative   ρ_t(e) = C(z_e; t) / C(z_e; t−1)
+Gap             G_t = Σ w_i [ ρ_t(i) − π_t^CPI(i) ]  + weighting term</pre>
+  <p>No substitution is allowed at the experience level (a Leontief structure over Lancaster characteristics — the carry-on, the ad-free feed, the included trash pickup are coordinates, not vibes). Free substitution is allowed in <em>procurement</em>: if re-bundling or an à-la-carte path restores the experience more cheaply, the min finds it. Weights come from bottom-two-quintile Consumer Expenditure data using BLS's own R-CPI-I recipe, and every release decomposes the Gap into what-is-priced vs whose-basket effects.</p>
+
+  <h2>Properties the design guarantees</h2>
+  <ul>
+    <li><strong>No-event neutrality.</strong> If the menu only changes scalar prices, this is an ordinary matched-model index.</li>
+    <li><strong>Option-introduction invariance.</strong> A new cheap tier beside an unchanged incumbent prints exactly 0%. More options are not inflation; the measure cannot be triggered by menu expansion.</li>
+    <li><strong>Symmetry.</strong> Re-bundling, fee eliminations, and cheaper restoring tiers print negative, on equal footing. Banking is in the launch set because its fees fell.</li>
+    <li><strong>A stated bound, not a discovered flaw.</strong> The index is provably an upper bound on constant-experience cost-of-living growth (Konüs logic). Every release says so. The pair (chained CPI, Restoration Index) brackets the truth only under a stated no-unmeasured-improvements assumption — also printed.</li>
+    <li><strong>Superset conservatism.</strong> When the only restoration route is a tier upgrade that includes extras (the Economy fare also buys seat selection), the line item is published as a flagged interval — the bias runs against our own thesis, and we show it.</li>
+  </ul>
+
+  <h2>The scope test</h2>
+  <p>An attribute is in scope only if today's menu prices it — a named fee, or two configurations differing only in that attribute. No hedonics, no imputation, ever: if the base experience can't be repurchased at any price, the item exits the ledger and the exit is logged in the <a href="register.html">Exclusion Register</a>. Equivalence is defined ex ante in a public codebook (a gate-checked bag is <em>not</em> a carry-on), and restoration routes follow a fixed hierarchy: named fee, then à-la-carte, then tier spread as a bounded interval.</p>
+
+  <h2>Why CPI reads these events differently</h2>
+  <p>Three narrow, documented seams — not a claim that BLS errs. First, a fee is captured only when it attaches to a characteristic inside the priced specification: checked-bag fees are in the CPI airline quote spec (80% of quotes carry one); carry-on rights are, in BLS's own words, "not tracked." Second, when a stripped fare becomes the lowest available fare on the half of the discount sample priced that way, the index records a price decrease with no quality adjustment — there are no hedonic models for airfares, hotels, or restaurants. Third, weights built from average realized spending read coping (trading down, skipping the add-on) as savings. BLS's own Producer Price Index made an explicit unbundling correction in 2009 — worth 1.6% by that December — which is the internal precedent for everything here. Where CPI already handles an event well (packaged-goods shrinkflation, most checked-bag fees), we say so and expect a gap near zero.</p>
+
+  <h2>Limitations, printed every release</h2>
+  <ol>
+    <li>An upper bound on constant-experience cost growth — not "true inflation," and not evidence of aggregate CPI bias in either direction.</li>
+    <li>Priced restorations only; silent degradation is counted in the Register, never priced.</li>
+    <li>Unbundling made light users better off — base fares fell ~$5 when $15–20 bag fees arrived; we cite that at full strength and measure the bundle-replicating population.</li>
+    <li>Reproducible experiences only; permanently discontinued experiences exit, logged.</li>
+    <li>A research series: larger measurement error than official statistics, with the Consumer Expenditure caveats inherited and disclosed.</li>
+  </ol>
+
+  <div class="placeholder">
+    <span class="mono">placeholder</span> — The full specification (formal statement, worked examples with verified fees, fourteen resolved design decisions, hazard register) lives in the working repository pending the public pre-registration: <a href="https://github.com/arthurculang/bpi">github.com/arthurculang/bpi</a>. The codebook, collection protocol, and evidence archive publish with the Phase 0 note (Oct 2026).
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="inner">
+    <p>The Restoration Gap is a research measure in development. Numbers shown pre-launch are verified event data, not index output. The measure is an upper bound on constant-experience cost growth by design; it is published as a spread over official CPI series and reconciled against them in every release.</p>
+    <p><span class="mono">scaffold v0 · 2026-07 ·</span> <a href="https://github.com/arthurculang/bpi">code &amp; working documents</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
