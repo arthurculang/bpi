@@ -1,0 +1,32 @@
+# Snapshot targets v0 — slug <TAB> sector <TAB> urgency <TAB> url
+# urgency: urgent = capture before a dated menu change; standing = monthly cadence
+# T-MOBILE: pre-migration state disappears with bill cycles starting 2026-07-13.
+tmobile-plans	wireless	urgent	https://www.t-mobile.com/cell-phone-plans
+tmobile-migration-support	wireless	urgent	https://www.t-mobile.com/customers/plan-update-vo-b2-2026
+tmobile-retired-one55	wireless	urgent	https://business.t-mobile.com/support/plans-features/one-plan-unlimited-55-plus
+tmoreport-migration-story	wireless	urgent	https://tmo.report/2026/06/breaking-t-mobile-to-force-migrate-over-8-million-customers-to-more-expensive-plans/
+tmoreport-plan-crosswalk	wireless	urgent	https://tmo.report/2026/07/heres-every-t-mobile-experience-migration-plan-along-with-prices/
+att-plans	wireless	standing	https://www.att.com/plans/wireless/
+verizon-plans	wireless	standing	https://www.verizon.com/plans/
+# AIRLINES: bag-fee schedules + basic economy pages (post April-2026 wave state)
+united-checked-bags	air	standing	https://www.united.com/en/us/fly/baggage/checked-bags.html
+united-basic-economy	air	standing	https://www.united.com/en/us/fly/travel/inflight/basic-economy.html
+aa-checked-bags	air	standing	https://www.aa.com/i18n/travel-info/baggage/checked-baggage-policy.jsp
+delta-baggage	air	standing	https://www.delta.com/us/en/baggage/overview
+southwest-travel-fees	air	standing	https://www.southwest.com/html/customer-service/travel-fees.html
+alaska-baggage	air	standing	https://www.alaskaair.com/content/travel-info/policies/baggage
+jetblue-fees	air	standing	https://www.jetblue.com/legal/fees
+spirit-optional-services	air	standing	https://www.spirit.com/optional-services
+frontier-bag-options	air	standing	https://www.flyfrontier.com/travel/travel-info/bag-options/
+# STREAMING: tier menus (posted national prices)
+netflix-plans	streaming	standing	https://help.netflix.com/en/node/24926
+netflix-extra-member	streaming	standing	https://help.netflix.com/en/node/120879
+disneyplus-plans	streaming	standing	https://help.disneyplus.com/article/disneyplus-price
+hulu-plans	streaming	standing	https://www.hulu.com/welcome
+# BROADBAND: FCC label pages (machine-readability faces 2H-2026 rollback — capture now)
+xfinity-broadband-labels	broadband	urgent	https://www.xfinity.com/learn/broadband-labels
+att-broadband-labels	broadband	urgent	https://www.att.com/broadbandlabels/
+spectrum-broadband-labels	broadband	urgent	https://www.spectrum.com/policies/broadband-labels
+# LODGING/RENTAL: listing-level fee capture needs the fixed unit sample from the
+# codebook (Aug); these are the policy/press anchors meanwhile.
+zillow-total-price-launch	rental	standing	https://zillow.mediaroom.com/2025-07-15-Summer-just-got-hotter-Zillow-debuts-five-powerful-new-features

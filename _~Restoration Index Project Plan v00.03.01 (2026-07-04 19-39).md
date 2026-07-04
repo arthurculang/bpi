@@ -1,6 +1,6 @@
 # Restoration Index — Project Plan
 
-`v00.03.00 · 2026-07-04 19-17 · internal working doc · companion to: Restoration Index Spec v00.01.00`
+`v00.03.01 · 2026-07-04 19-39 · internal working doc · companion to: Restoration Index Spec v00.01.00`
 
 ---
 
@@ -164,7 +164,7 @@ Core team of two (one economics/methods, one data engineering), counsel hours fo
 
 ## 8. Decisions
 
-Reply **"go"** to adopt all, or **"go on rows …"** to adopt selectively. (Spec decisions 1–14 stand; these are plan-level.)
+**Status: rows P1–P15 adopted by owner, 2026-07-04** (P1–P12 per plan review; P13–P15 per naming/domain confirmation — public brand is **The Restoration Gap**, domain restorationgap.org). (Spec decisions 1–14 stand; these are plan-level.)
 
 | # | Question | Recommendation | Confidence | Rationale |
 |---|---|---|---|---|
@@ -296,6 +296,7 @@ CONSTRAINTS
 
 ## Changelog
 
+- **v00.03.01** (2026-07-04 19-39) — Decisions P1–P15 recorded as adopted by owner; public brand confirmed as **The Restoration Gap** (restorationgap.org). Sprint 0 execution begun in-repo: snapshot pipeline v0 (`pipeline/`), Inclusion Ledger seed data (`data/ledger-events.json`), DOT NPRM comment draft (`docs/dot-nprm-comment-draft.md`).
 - **v00.03.00** (2026-07-04 19-17) — Public-artifact pivot: added WS-I (public site & brand); scaffolded the full site in `site/` (home, Gap/releases hub, coverage, Inclusion Ledger seeded with verified events, Exclusion Register, methods, about — placeholders labeled); added decisions P13 (retire "Better Price Index/BPI" for public use — collision scan verdict: blocked by Bank Policy Institute, Bullish Percent Index, ESPN BPI, British Phonographic Industry, and the OECD "Better ___ Index" family — adopt **"The Restoration Gap"**, which scanned clear), P14 (restorationgap.org primary + .com redirect, availability probable but confirmed only at purchase — registry checks blocked from this environment), and P15 (Cloudflare Pages from the repo's `site/` directory, no build step); added Appendix C (Claude-for-Chrome Cloudflare prompt with stop-if-unavailable and price-cap checkpoints); renumbered §9 with the naming/domain/deploy steps in the this-week block.
 - **v00.02.00** (2026-07-04 18-49) — Applied all 10 findings from the adversarial plan review (Appendix B): fixed the three blockers (first-print denominator, composite phasing vs product promise, kill-criterion consistency), added comparator-continuity convention for the Oct 2025 CPI hole, corrected coverage-map arithmetic and added the ≈23% residual row with disposition, split the north star into restoration-priced vs monitored coverage, added WS-H (funding) and data-redistribution rights, resourced and scheduled the rental audit, made G2 operational, and hardened G0 (band pre-committed, hash-timestamped).
 - **v00.01.00** (2026-07-04 18-40) — Initial project plan. Reframed around the holistic goal: coverage map as spine (real CE Table 1101 quintile dollars), three-artifact product with the Exclusion Register first-class, capture-now-publish-later collection posture. Sector rulings: rental housing IN (Phase 2 flagship, panel starts immediately), telecom IN (T-Mobile 7/13/26 flagship, complementarity framing), healthcare OUT (printable ruling). April 2026 bag-fee wave fully verified; R-CPI-I pinned to Dec 2024 vintage; novelty claim reworded against EU Reg 2020/1148; competitor field verified clear. Built on a 5-agent verified research pass.
