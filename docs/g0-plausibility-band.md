@@ -67,6 +67,18 @@ Restoration Gap over the matched-fare comparator for the same window.
   refinement. Wording of rationale only — numeric limits, the four tests, the
   profiles, and the comparator window are unchanged (permitted under "MAY").
 
+## Result
+
+- **2026-07-04 — GATE PASSED.** Evaluated at the byte-verified primary anchor
+  (BTS 2007 $325.26 → 2008 $346.38) and primary incidence (45%): line item $30
+  (band [18,42]), one-bag profile event contribution +9.22% (band [+4%,+14%]),
+  incidence-weighted sector gap +4.15pp (band [+1.0,+6.0]), zero-bag EC exactly
+  0%, and the designated negative-print episode (US Airways beverage repeal)
+  −1.21% (≤ 0). All four tests hold. The method reproduces the documented
+  2008–09 unbundling within limits committed before any inputs existed. Full
+  result and sensitivity grid: `data/retro-g0-result-2026-07-04.md`. Phase 1 is
+  unblocked (plan §4, P8).
+
 ## Sign-off
 
 - [x] **Owner reviewed and accepted the band as-is — 2026-07-04** (decision

@@ -57,10 +57,13 @@ price: $20 airport / $15 online.
 
 ## Anchors for the computation
 
-- **Base fares (BTS annual average domestic itinerary):** 2008 = $346 (verified),
-  2009 ≈ $310 (verified); 2007 = **$325 (triangulation-confirmed:** Q2-2008 $352
-  was "an 8.3% increase from the $325 average in 2007", 352/1.083 = 325.0 —
-  CNN/NPR citing BTS; still needs a byte-level pull for exact cents).
+- **Base fares (BTS annual average domestic itinerary, current dollars) —
+  BYTE-VERIFIED 2026-07-04:** 2007 = **$325.26**, 2008 = **$346.38**, 2009 =
+  **$310.35** (BTS "Annual U.S. Domestic Average Itinerary Fare", file
+  `Annual Fares 1995-2026 1Q 2026.xlsx`; 2008 y/y +6.49%). BTS publishes **no
+  national quarterly series** (the interactive tool is city-pair rankings only),
+  so open item 7 resolves as: the annual average is the anchor, Dec-point
+  unavailable.
 - **Bag-fee revenue:** $464M (2007) → >$1.1B (2008) → **$2.7B (2009, confirmed:**
   BTS via CNN 2011, "$3.4B [2010] a 24% increase from $2.7 billion in 2009") →
   $3.4B (2010). Exact-to-the-thousand (~$2.74B) needs the BTS page.
@@ -86,41 +89,47 @@ price: $20 airport / $15 online.
 3. **Purchase-point:** per codebook §2.3, prepaid-online rates are primary
    (end-2009: $15 online at UA/DL/CO/US); airport rates ($20; AA flat $20)
    reported as sensitivity.
-4. **Fare anchors:** BTS average domestic itinerary fares; annual averages as
-   primary pending byte-verification, anchor sensitivity grid **[$250, $400]**
-   (the range the band itself contemplates). Q4/December-point anchors are a
-   refinement to pull (open item 7) since links run Dec-to-Dec.
+4. **Fare anchors (CLOSED):** BTS annual average domestic itinerary fares,
+   byte-verified to cents (2007 $325.26 / 2008 $346.38 / 2009 $310.35); anchor
+   sensitivity grid **[$250, $400]** retained. Q4/December-point anchors: BTS
+   does not publish a national quarterly series, so the annual average is the
+   anchor for the retrospective (a documented limitation, not a gap).
 5. **Materiality:** open items 1–3 and 5–6 (Frontier, JetBlue, Delta second-bag
    step, 2009 split dates, 2009 revenue) do not enter the four band tests,
    which use the modal legacy schedule ($15 first bag end-2008; $15 online/$20
    airport end-2009) — they block full sector coverage in the Phase 0 note, not
    gate evaluation. Items 4 and 7 (fare anchors) are handled by the grid above.
 
-## Open items (status after 2026-07-04 research pass; log every change)
+## Open items (status after 2026-07-04 BTS verification; log every change)
 
 1. Frontier first-bag **date fixed (AirFairs 2008-12-18)**; dollar amount still
-   open (Brueckner Table 1 / Frontier Dec-2008 release via Wayback).
+   open (Brueckner Table 1 / Frontier Dec-2008 release via Wayback). Non-material.
 2. JetBlue second-bag: introduction confirmed, **amount still disputed** ($15 vs
-   $20/$25); 2009 step open. Pull mediaroom 06-30-2008 + FY2008/09 10-Ks.
+   $20/$25); 2009 step open. Non-material.
 3. Delta $25→$50 second-bag step: **RESOLVED** (~2008-07-31 purchase / 2008-08-05
-   travel). Owner spot-check the AP dateline for the exact Thursday.
-4. 2007 average fare: **RESOLVED to $325** by triangulation (still wants a
-   byte-level cents read from the official BTS table).
+   travel).
+4. 2007 average fare: **RESOLVED / byte-verified — $325.26** (BTS annual table).
 5. AA flat $20/$30 **effective date RESOLVED (2009-08-14)**; United's online/
-   airport split announcement date still open (AP/Reuters archive ~Jan 2009).
-6. 2009 bag-fee revenue: **RESOLVED to ~$2.7B**; exact figure wants the BTS page.
-7. Q4/December-point BTS average fares for 2007–2009 — **still open** (links run
-   Dec-to-Dec; the annual averages above carry the mid-2008 fuel spike).
+   airport split announcement date still open. Non-material.
+6. 2009 bag-fee revenue: **RESOLVED to ~$2.7B**. Non-material.
+7. Q4/December-point BTS fares: **RESOLVED — not published** (BTS has no national
+   quarterly series); the annual average is the anchor.
 
-**Gate status unchanged (still DRY RUN):** none of the above alter the four band
-tests — items 1–3, 5–6 are non-material per pinned convention 5; item 4 confirms
-a value ($325) already central on the tested anchor grid, so the dry run is not
-re-run. Official G0 evaluation still waits only on item 7 (December-point fare
-anchors) plus a byte-level read of the item-4 cents — both owner tasks on an
-unblocked connection.
+**GATE STATUS: OFFICIAL G0 PASS (2026-07-04).** Items 4 and 7 — the only
+gate-blocking inputs — are closed; items 1–3, 5–6 are non-material per pinned
+convention 5. `engine/retro_2008.py` evaluated at the byte-verified primary
+anchor ($325.26 → $346.38) and primary incidence (45%): line item $30, profile
+EC +9.22%, sector gap +4.15pp, both sign tests hold — all four band limits
+satisfied. Full result: `data/retro-g0-result-2026-07-04.md`.
 
 ## Amendment log
 
+- 2026-07-04 (BTS verification): fare anchors byte-verified to cents (2007
+  $325.26 / 2008 $346.38 / 2009 $310.35, BTS annual table); open items 4 and 7
+  closed (item 7 resolved as "BTS publishes no national quarterly series"). The
+  verified 2007 anchor ($325.26) sits essentially on the round $325 grid point,
+  so the gate result is unchanged from the dry run — now relabeled OFFICIAL G0
+  PASS. No band limits, tests, profiles, or the comparator window changed.
 - 2026-07-04 (research pass, workflow wx2gjc8p0): **material correction** —
   Frontier AirFairs launch moved from "~2008-09" to 2008-12-18 (ColoradoBiz;
   CBS 2008-12-19; FlyerTalk). Resolved: Delta second-bag $25→$50 (~2008-07-31);
