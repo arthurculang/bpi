@@ -1,6 +1,6 @@
 # Restoration Index — Project Plan
 
-`v00.03.03 · 2026-07-04 22-04 · internal working doc · companion to: Restoration Index Spec v00.02.00`
+`v00.03.04 · 2026-07-04 22-47 · internal working doc · companion to: Restoration Index Spec v00.02.00`
 
 ---
 
@@ -297,6 +297,8 @@ CONSTRAINTS
 ---
 
 ## Changelog
+
+- **v00.03.04** (2026-07-04 22-47) — PR #1 merged to `main` (working branch restarted from it); G0 band signed off by owner and Phase 0 begun: retrospective conventions pinned pre-computation (commit da8f599 — event-contribution interpretation of band tests 2–3, incidence primary 45% grid 35–55%, prepaid-online purchase point, $250–400 anchor grid), harness built (`engine/retro_2008.py`), and the **dry run passes**: T1/T2/T4 everywhere, T3 at the primary point (+4.15pp, band [1.0, 6.0]) and across the grid interior with one extreme corner (55% × $250) honestly over the bound — official gate evaluation awaits fare-anchor byte-verification (inputs items 4/7). MIT + CC BY 4.0 licenses added; single-repo build-in-the-open posture adopted; discussant outreach drafts written (Fox / Greenlees / Jaravel).
 
 - **v00.03.03** (2026-07-04 22-04) — Companion pointer updated to Spec v00.02.00 (P2 refined to menu-expansion monotonicity; engine v0 implements the spec's worked examples as 19 passing tests). Adversarial review of engine + P2 propagation applied in full: two engine blockers fixed (mixed-bundle route classification no longer launders tier upgrades through named fees; tier-gap interval re-baselined on today's menu per trigger rule T3), two serious (requirement-derived quantity bounds; fee-only route fall-through), plus consistency fixes to the codebook (§4 and governing-spec pointer), spec (§6 row 3, §11 row 1), G0 band wording (logged amendment, limits untouched), and the site. Root README and CLAUDE.md added.
 

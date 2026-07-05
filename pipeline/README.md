@@ -27,16 +27,24 @@ hash-commitment record).
 
 ## Bot-blocked sites
 
-Many carrier/retail sites 403 automated fetches. For any target the run marks
-`FAIL`, open the URL in a real browser, save the complete page
-(`File → Save Page As → HTML only` is fine for menus), then register it:
+Many carrier/retail sites 403 automated fetches — and the project sandbox blocks
+them wholesale. Three ways to capture, best evidentiary weight first:
 
-```bash
-python3 pipeline/capture.py --manual saved.html "https://original.url" slug-name
-```
+1. **Run `capture.py` on an unblocked machine** — raw HTML + SHA-256 manifest.
+2. **Manual browser save** — open the URL, `File → Save Page As → Web Page,
+   Complete`, then register the file (raw HTML, hashed):
+   ```bash
+   python3 pipeline/capture.py --manual saved.html "https://original.url" slug-name
+   ```
+3. **Chrome-agent content extraction** — `chrome-capture-prompt.md` drives Claude
+   for Chrome to extract plan menus/prices/crosswalks and return a JSON block.
+   This captures the *content* (not a byte-exact hashed snapshot) and is the
+   fastest way to beat a dated menu change (e.g. the T-Mobile 2026-07-13
+   migration) when the owner can't run the pipeline. Ingested to
+   `data/captures/` with a `browser-agent-extraction` provenance tag.
 
-Manual registrations get their own run directory and hashed manifest entry, so
-they carry the same evidentiary weight.
+Manual (1–2) registrations get their own run directory and hashed manifest
+entry, so they carry full archival weight; (3) is content-grade, labeled.
 
 ## Not yet in v0 (scheduled with the August codebook)
 
