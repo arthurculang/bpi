@@ -1,6 +1,6 @@
 # Restoration Index — Project Plan
 
-`v00.03.04 · 2026-07-04 22-47 · internal working doc · companion to: Restoration Index Spec v00.02.00`
+`v00.03.05 · 2026-07-05 05-06 · internal working doc · companion to: Restoration Index Spec v00.02.00`
 
 ---
 
@@ -188,7 +188,7 @@ Core team of two (one economics/methods, one data engineering), counsel hours fo
 
 ## 9. Next steps (the immediate answer)
 
-**Execution status (2026-07-04):** items 3–4 decided/ready (name adopted; Appendix C prompt awaiting your Cloudflare run); item 5 drafted (`docs/dot-nprm-comment-draft.md` — review and file); item 6 substantially drafted (`docs/codebook-v0.md`); item 7 partially done (major categories byte-verified in `data/cex-b40-quintiles.csv` + reproducible builder; detail cells and renter shares still need unblocked BLS/FRED access); item 8 drafted (`docs/ws-h-budget-memo-draft.md`, `docs/discussant-shortlist.md` with first-approach trio); item 9 partially done (incidence proxy register `data/incidence-proxies.md`; carry-on incidence flagged as a gap); item 11's band **already hash-committed** (`docs/g0-plausibility-band.md`, commit 57581d6, before any retrospective inputs) and the 2008–09 chronology inputs compiled (`data/retro-2008-inputs.md`, negative-print episode designated: US Airways beverage-fee repeal, 2009-03-01). Items 1–2 (captures) and the NPRM filing remain owner actions — the sandbox proxy blocks the target hosts.
+**Execution status (2026-07-05):** items 3–4 decided/ready (name + tagline adopted; **`main` synced via PR #2 — now carries G0 PASS, the T-Mobile captures, and the tagline site**; the Appendix C deploy prompt is finalized against production branch `main` and handed over — awaiting your Cloudflare run); item 5 drafted (`docs/dot-nprm-comment-draft.md` — review and file); item 6 substantially drafted (`docs/codebook-v0.md`); item 7 partially done (major categories byte-verified in `data/cex-b40-quintiles.csv` + reproducible builder; detail cells and renter shares still need unblocked BLS/FRED access); item 8 drafted (`docs/ws-h-budget-memo-draft.md`, `docs/discussant-shortlist.md` with first-approach trio); item 9 partially done (incidence proxy register `data/incidence-proxies.md`; carry-on incidence flagged as a gap); item 11's band **already hash-committed** (`docs/g0-plausibility-band.md`, commit 57581d6, before any retrospective inputs) and the 2008–09 chronology inputs compiled (`data/retro-2008-inputs.md`, negative-print episode designated: US Airways beverage-fee repeal, 2009-03-01). Items 1–2 (captures) and the NPRM filing remain owner actions — the sandbox proxy blocks the target hosts.
 
 **This week (by July 13):**
 1. **Archive the T-Mobile pre-migration state** — legacy plan menus, "(Retired)" plan support pages, the plan-to-plan crosswalk, Experience-tier pricing. The before-state disappears when migration starts on bill cycles July 13. This is the single most time-critical task in the project.
@@ -234,69 +234,72 @@ An independent adversarial review of plan v00.01.00 returned 10 findings (3 bloc
 
 ## Appendix C — Cloudflare deployment prompt (run after "go" on P13–P15)
 
-Paste the following into Claude for Chrome while logged into the Cloudflare dashboard. It is written to stop at every irreversible step. Prerequisite: merge the working branch to `main` (or accept the fallback in step 4).
+Paste the following into Claude for Chrome while logged into the Cloudflare dashboard. It is written to stop at every irreversible step. Prerequisite met 2026-07-05: PR #2 merged the working branch to `main`, so `main` now contains `/site` (with the tagline) — the production branch is `main` with no fallback, and step 7 checks the tagline to confirm the latest build shipped.
 
 ```
 You are operating my Cloudflare dashboard (dash.cloudflare.com — I am already
 logged in). Task: register a domain and deploy a static site from my GitHub
-repo. Work step by step, confirm each numbered step's success before the next,
-and STOP and report if anything deviates.
+repo. Work step by step, confirm each numbered step's success before moving to
+the next, and STOP and report if anything deviates from what's described.
 
 CONTEXT
 - Domain to register: restorationgap.org (primary). Also register
-  restorationgap.com if it costs ≤ $15/yr.
+  restorationgap.com ONLY if it costs ≤ $15/yr.
 - GitHub repo: arthurculang/bpi. The site is plain static HTML in the /site
-  directory. No build step.
-- Production branch: main. If the /site directory does not exist on main yet,
-  use branch claude/inflation-measure-spec-9jjw9o instead and tell me to
-  switch the production branch to main after I merge.
+  directory. There is NO build step.
+- Production branch: main (it already contains /site).
 
 STEPS
 1. REGISTER: Go to Domain Registration → Register Domains. Search
    "restorationgap.org". If it is NOT available, STOP and report what you
-   found (including suggested alternatives and prices) — do not buy anything
-   else. If available and ≤ $15/yr, register it for 1 year with auto-renew ON,
-   WHOIS redaction/privacy ON (default), using my existing payment method.
-   Do NOT buy any add-ons or upsells.
-2. Repeat for restorationgap.com under the same price cap. If it is taken or
-   over the cap, skip it and note that — do not substitute another TLD.
+   found (including any suggested alternatives and their prices) — do not buy
+   anything else. If available and ≤ $15/yr, register it for 1 year with
+   auto-renew ON and WHOIS redaction/privacy ON (the default), using my
+   existing payment method. Do NOT buy any add-ons or upsells.
+2. Repeat for restorationgap.com under the same ≤ $15/yr cap. If it is taken
+   or over the cap, skip it and note that — do not substitute another TLD.
 3. PAGES PROJECT: Go to Workers & Pages → Create application → Pages →
    Connect to Git. Authorize GitHub if prompted (I will complete the OAuth
    popup — pause and ask me when it appears). Select the repository
    arthurculang/bpi.
-4. Configure the project: project name "restorationgap"; production branch
-   main (fallback per CONTEXT above); Framework preset: None; Build command:
-   (leave empty); Build output directory: site. Save and deploy. Wait for the
-   first deployment to finish and confirm the *.pages.dev preview URL renders
-   a page titled "The Restoration Gap".
+4. CONFIGURE: project name "restorationgap"; production branch main;
+   Framework preset: None; Build command: (leave empty); Build output
+   directory: site. Save and deploy. Wait for the first deployment to finish,
+   then open the *.pages.dev preview URL and confirm it renders a page titled
+   "The Restoration Gap".
 5. CUSTOM DOMAIN: In the Pages project → Custom domains → add
    restorationgap.org. Accept the DNS records Cloudflare proposes (it manages
    the zone, so this should be automatic). Then add www.restorationgap.org
    the same way.
 6. REDIRECTS: Ensure www redirects to the apex. If Cloudflare did not create
-   this automatically, add a Bulk Redirect or a Redirect Rule:
-   https://www.restorationgap.org/* → https://restorationgap.org/$1,
-   status 301. If restorationgap.com was registered, add its zone the same
-   way and 301-redirect https://restorationgap.com/* and www.* to
+   this automatically, add a Redirect Rule (or Bulk Redirect):
+   https://www.restorationgap.org/* → https://restorationgap.org/$1, status
+   301. If restorationgap.com was registered, add its zone the same way and
+   301-redirect https://restorationgap.com/* and www.* to
    https://restorationgap.org/$1.
-7. VERIFY: Load https://restorationgap.org in a new tab. Confirm: the page
-   renders with a valid certificate (no warnings), the header reads "The
-   Restoration Gap", and the nav links (Coverage, Inclusion Ledger,
-   Exclusion Register, Methods, About) each load.
+7. VERIFY: Load https://restorationgap.org in a new tab. Confirm ALL of:
+   (a) the page renders with a valid certificate — no browser warnings;
+   (b) the header reads "The Restoration Gap";
+   (c) the tagline "what it costs to keep last year's life" appears under the
+       brand in the header (this confirms the latest build shipped);
+   (d) the nav links (Coverage, Inclusion Ledger, Exclusion Register, Methods,
+       About) each load.
 8. REPORT: Total charged and for which domains; the pages.dev URL; the
-   production branch in use; any step you had to skip or that needs my
-   follow-up (e.g., switching production branch to main after merge).
+   production branch in use; and any step you skipped or that needs my
+   follow-up.
 
 CONSTRAINTS
 - Do not modify any other zones, DNS records, Workers, or account settings.
 - Do not enable any paid plan or add-on; everything here fits the free Pages
   tier plus at-cost domain registration.
-- If any screen asks for something not covered above, stop and ask me.
+- If any screen asks for something not covered above, STOP and ask me.
 ```
 
 ---
 
 ## Changelog
+
+- **v00.03.05** (2026-07-05 05-06) — Deploy handoff. PR #2 merged the working branch to `main` (merge commit 726ca9c), bringing `main` current: G0 PASS, the T-Mobile pre-migration captures, and the tagline site now live on the production branch. Appendix C finalized against production branch `main` (the "/site not yet on main" fallback removed since it now exists there) and its verify step extended to check the tagline "what it costs to keep last year's life" renders — a positive signal that the *latest* build shipped, not a stale commit. Execution-status note updated (P13–P15). No methodology, gate, or numeric change.
 
 - **v00.03.04** (2026-07-04 22-47) — PR #1 merged to `main` (working branch restarted from it); G0 band signed off by owner and Phase 0 begun: retrospective conventions pinned pre-computation (commit da8f599 — event-contribution interpretation of band tests 2–3, incidence primary 45% grid 35–55%, prepaid-online purchase point, $250–400 anchor grid), harness built (`engine/retro_2008.py`), and the **dry run passes**: T1/T2/T4 everywhere, T3 at the primary point (+4.15pp, band [1.0, 6.0]) and across the grid interior with one extreme corner (55% × $250) honestly over the bound — official gate evaluation awaits fare-anchor byte-verification (inputs items 4/7). MIT + CC BY 4.0 licenses added; single-repo build-in-the-open posture adopted; discussant outreach drafts written (Fox / Greenlees / Jaravel).
 
