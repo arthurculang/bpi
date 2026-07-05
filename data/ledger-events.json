@@ -96,7 +96,7 @@
       "superset_flag": true,
       "status": "verified-preprint",
       "verified": "2026-07-04",
-      "evidence_capture": "data/captures/tmobile-premigration-2026-07-04.json (browser-agent content capture; primary-source migration notice confirms up to +$6/line, 5-yr price guarantee on talk/text/5G data, bill in T-Life after 2026-07-13)",
+      "evidence_capture": "M_t (target menu): data/captures/tmobile-premigration-2026-07-04.json (live, AutoPay prices) + Experience list prices via Wayback FCC labels. z (base, retired plans): data/captures/tmobile-legacy-vectors-2026-07-04.json — Simple Choice (2016), ONE+ONE Plus (2017), Essentials/Magenta/Magenta Plus (2019), each with a permanent Wayback citation. Codebook 2.3: headline uses list (no-promo) prices; AutoPay is a sensitivity. Primary-source notice confirms up to +$6/line, 5-yr guarantee on talk/text/5G, bill in T-Life after 2026-07-13.",
       "sources": ["t-mobile.com/customers/plan-update-vo-b2-2026 (primary, captured 2026-07-04)", "t-mobile.com/cell-phone-plans (target menu, captured 2026-07-04)", "tmo.report 2026-06-29 story + 2026-07-01 crosswalk", "Android Authority 2026"]
     },
     {
