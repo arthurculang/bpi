@@ -155,3 +155,49 @@ Put nothing outside the code block except a one-line summary above it.
 On paste-back this is ingested to `data/captures/tmobile-legacy-vectors-<date>.json`
 and becomes the frozen base (z) plan-feature vectors for the wireless module's
 Phase 2 build; the `wayback_url` per plan is its permanent citation.
+
+---
+
+## Follow-up C — BTS fare anchors (flips the G0 dry run to official)
+
+The 2008-09 retrospective (`engine/retro_2008.py`) passes as a **dry run**; it
+becomes an **official G0 pass** once the fare anchors (inputs open items 4 and 7)
+are byte-verified from the primary BTS table. bls.gov/bts.gov block the project
+sandbox, but transtats.bts.gov is reachable from a browser. This is the single
+highest-leverage remaining verification. Prompt for Claude for Chrome:
+
+```
+You are operating my Chrome browser (Claude for Chrome). Task: read the U.S.
+Bureau of Transportation Statistics (BTS) average domestic air fare figures for
+2007, 2008, and 2009 so I can byte-verify anchor values. Read-only; no login.
+
+ENTRY POINTS (try in order; use Google if a page has moved):
+- https://www.transtats.bts.gov/AverageFare/  (interactive average domestic air
+  fare by year and quarter)
+- https://www.bts.gov/content/annual-us-domestic-average-itinerary-fare-current-and-constant-dollars
+  (annual table)
+- Google: "BTS average domestic air fare 2007 2008 2009 quarterly current dollars"
+
+CAPTURE, in CURRENT (nominal) dollars — the "current dollars" column, NOT the
+inflation-adjusted "constant dollars" column:
+  1. ANNUAL average domestic itinerary fare for 2007, 2008, and 2009 — the exact
+     published figure to the dollar and cents (we expect roughly $325 / $346 /
+     $310; confirm the exact values).
+  2. QUARTERLY average for each quarter (Q1-Q4) of 2007, 2008, 2009 if the table
+     provides it — especially the Q4 figure for each year.
+For each figure also note the constant-dollar value if shown beside it, and the
+source page URL.
+
+OUTPUT: return EXACTLY ONE fenced code block (start it with three backticks
+followed by the word json) containing a JSON array of objects with fields:
+year, period ("annual" or "Q1".."Q4"), current_dollar_fare, constant_dollar_fare
+(or null), source_url, notes. Quote numbers exactly as published — do not round.
+If the quarterly breakdown is unavailable, still return the annual figures and
+say so. Put nothing outside the code block except a one-line summary above it.
+```
+
+On paste-back: I close inputs open items 4 and 7 with logged changes, set the
+verified annual anchors (and add the Q4 figures as the documented sensitivity),
+re-run `engine/retro_2008.py`, and — if the four band tests still hold, which the
+dry run indicates they will — **relabel the result from DRY RUN to official G0
+PASS**, clearing the gate and unblocking Phase 1.
