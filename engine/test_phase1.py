@@ -30,6 +30,25 @@ def menu(basic, main):
     ]
 
 
+class TestArchivalGapComposition(unittest.TestCase):
+    """Pre-registration §11 / phase1-inputs §7 worked number: the archival-
+    regime published object is EC over the matched-carrier scalar-fare
+    comparator, with a predicted residual Gap where CPI's quote spec captures
+    the attribute. Executable per the house rule."""
+
+    def test_worked_number(self):
+        dfee, segments = 10.0, 2                 # $10/segment fee step, RT
+        denom_oneway = 325.0                     # route-average one-way fare
+        incidence = 0.17                         # fee-payer administrative ratio
+        cpi_capture = 0.80                       # first bag in ~80% of quotes
+        event_rel = (dfee * segments) / (2 * denom_oneway)
+        self.assertAlmostEqual(event_rel, 0.030769, places=5)      # +3.08%
+        ec_gross_pp = incidence * event_rel * 100
+        self.assertAlmostEqual(ec_gross_pp, 0.52, places=2)        # +0.52pp
+        residual_pp = ec_gross_pp * (1 - cpi_capture)
+        self.assertAlmostEqual(residual_pp, 0.10, places=2)        # +0.10pp
+
+
 class TestPairedQuoteWorkedExample(unittest.TestCase):
     def test_base_wave_gap_and_interval(self):
         rho, rep = link_relative(P1, menu(200.0, 260.0), CARRIER)

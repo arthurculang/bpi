@@ -6,7 +6,10 @@
 
 Gate G1 governs the first public release (target Q1 2027: the archival-denominator
 air exhibit + the exact streaming link + the controls) and the panel's first fully
-in-sample link (October 2027). Tests are named **GA–GD** — deliberately not
+in-sample annual link — **the 2027 link, December 2026 → December 2027, measured
+from the December 2027 wave** (links are December-to-December per codebook §6;
+the panel attains 12 months of live coverage in October 2027, a coverage
+milestone, not a link). Tests are named **GA–GD** — deliberately not
 T1–T4, which would collide with both the codebook's trigger rules (T1–T3) and the
 G0 result file's band-test labels. If a test cannot be passed, the release does
 not ship; a methods note ships instead. The gate is allowed to bite.
@@ -27,8 +30,10 @@ path: failed outreach slips the release date; it never bends the gate.
   12-month-equivalent basis. The live-window print (panel spans ~3 months at
   Q1 2027) is **disclosed with its window length and carries no numeric gate**
   — no annualization of a quarter-length window.
-- **GB-live (gates the first in-sample release, from the October 2027 link):**
-  the first fully in-sample 12-month grocery result satisfies BOTH:
+- **GB-live (gates the first in-sample release — the 2027 link, Dec 2026 →
+  Dec 2027, measured from the December 2027 wave, which is also the first wave
+  to close a full 12-month window on the frozen grocery basket):** the first
+  fully in-sample 12-month grocery result satisfies BOTH:
   - **GB-i (same-basket downsizing wedge):** the per-unit-minus-sticker wedge
     on the frozen basket ∈ **[−0.5pp, +2.0pp]**. Width rationale: GAO-25-107451
     puts the economy-wide downsizing contribution at ~0.06pp over five years;
@@ -58,8 +63,11 @@ invites tuning. The forward quarterly series prints whatever it prints; a flat
 discussant's designee or an independent RA, executor documented in the release)
 reproduces, from the hash-committed archive + public code + the codebook +
 the pre-registration alone:
-1. the route panel and cell list, by re-executing `pipeline/select_routes.py`
-   on the hash-committed T-100 input file;
+1. the route panel and cell list — the script's output on the hash-committed
+   T-100 input file, **plus the logged wave-0 schedule-check additions** (each
+   recorded in `data/phase1-inputs.md`'s amendment log with a registered
+   capture as evidence; the operating cell list = script output ∪ logged
+   additions, and the rerun verifies both parts);
 2. every published event relative and every sensitivity-grid cell from archived
    snapshots + the pinned-inputs file;
 3. the exact streaming link;
@@ -95,7 +103,17 @@ before the sign-off checkbox is checked**, so nothing can be tuned to a result.
 
 ## Amendment log
 
-- (none yet)
+- 2026-07-06 (pre-sign-off, from the adversarial review of the draft package;
+  permitted under the correction window above — no in-scope computation has
+  run): (1) the GB-live anchor "the October 2027 link" corrected to the 2027
+  link (Dec 2026 → Dec 2027, measured from the December 2027 wave) — links are
+  December-to-December per codebook §6, and no October "link" exists under the
+  binding convention; October 2027 is retained only as the coverage milestone.
+  This also fixes GB-live's grocery timing (the basket's first 12-month window
+  closes at the same December 2027 wave). (2) GD item 1 extended to cover the
+  wave-0 schedule-check additions, which the script's output alone can never
+  contain — the rerun now verifies script output ∪ logged additions. No
+  numeric limit, test structure, or pass condition changed.
 
 ## Sign-off
 

@@ -47,22 +47,55 @@ def _band(distance):
     return "LONG"
 
 
+REQUIRED_COLUMNS = ("ORIGIN", "DEST", "UNIQUE_CARRIER", "PASSENGERS", "DISTANCE")
+
+
 def load_routes(csv_path):
-    """Aggregate directional carrier rows into undirected route records."""
+    """Aggregate directional carrier rows into undirected route records.
+
+    Fails loudly on a wrong pull: missing columns, or pax-positive rows with a
+    blank/zero DISTANCE (a partial file would silently drag routes into the
+    wrong band — G1 test GD only re-derives from the hashed file, so the file
+    itself must be validated here). If a CLASS column is present, only
+    scheduled-service rows (CLASS == "F") are counted, and the exclusion is
+    reported so a wrong service-class pull is visible.
+    """
     pax = defaultdict(float)                    # pair -> total passengers
     carrier_pax = defaultdict(lambda: defaultdict(float))
     dist_wsum = defaultdict(float)              # passenger-weighted distance sum
+    bad_distance = 0
+    nonscheduled = 0
     with open(csv_path, newline="") as f:
-        for row in csv.DictReader(f):
+        reader = csv.DictReader(f)
+        missing = [c for c in REQUIRED_COLUMNS if c not in (reader.fieldnames or [])]
+        if missing:
+            raise ValueError(f"input file lacks required columns {missing}; "
+                             f"got {reader.fieldnames} — wrong pull, re-download "
+                             "per data/phase1-inputs.md §1")
+        for row in reader:
             p = float(row["PASSENGERS"] or 0)
             if p <= 0:
+                continue
+            if "CLASS" in row and row["CLASS"] and row["CLASS"].strip() != "F":
+                nonscheduled += 1
+                continue
+            d = float(row["DISTANCE"] or 0)
+            if d <= 0:
+                bad_distance += 1
                 continue
             pair = tuple(sorted((row["ORIGIN"].strip(), row["DEST"].strip())))
             c = row["UNIQUE_CARRIER"].strip()
             c = ROLLUP.get(c, c)
             pax[pair] += p
             carrier_pax[pair][c] += p
-            dist_wsum[pair] += p * float(row["DISTANCE"] or 0)
+            dist_wsum[pair] += p * d
+    if bad_distance:
+        raise ValueError(f"{bad_distance} pax-positive rows have blank/zero "
+                         "DISTANCE — partial or malformed pull; re-download "
+                         "per data/phase1-inputs.md §1")
+    if nonscheduled:
+        print(f"note: {nonscheduled} non-scheduled (CLASS != F) rows excluded",
+              file=sys.stderr)
     routes = []
     for pair, total in pax.items():
         shares = {c: v / total for c, v in carrier_pax[pair].items()}
@@ -131,7 +164,11 @@ def _deficit(selected):
 
 def select_panel(routes):
     """The frozen algorithm: (i) top-3 per band; (ii) constraint walk;
-    (iii) rank fill; (iv) logged relaxation of whatever remains unmet."""
+    (iii) rank fill; (iv) logged relaxation of whatever remains unmet.
+
+    Operates on copies — the caller's route records are never mutated, so
+    repeated calls on the same load_routes() output are identical."""
+    routes = [dict(r, cells=list(r["cells"])) for r in routes]
     audit = []
     selected, chosen = [], set()
     by_band = defaultdict(list)
@@ -174,7 +211,9 @@ def select_panel(routes):
 
     selected.sort(key=lambda r: (-r["pax"], r["route"]))
 
-    # WN manual cap: keep WN cells only on WN's top-4 panel routes by WN pax
+    # WN manual cap: keep WN cells only on WN's top-4 PANEL routes by WN
+    # segment pax (prereg §1 — the cap ranks within the selected panel;
+    # WN's fee-schedule series is covered by its posted pages regardless)
     wn_routes = sorted((r for r in selected if "WN" in r["cells"]),
                        key=lambda r: (-r["wn_pax"], r["route"]))
     for r in wn_routes[WN_MANUAL_CAP:]:
@@ -205,9 +244,10 @@ def main(argv=None):
             "min_routes_per_carrier": MIN_ROUTES_PER_CARRIER,
             "wn_manual_cap": WN_MANUAL_CAP,
         },
-        "panel": [{k: r[k] for k in ("route", "rank", "pax", "distance", "band",
-                                     "top_share", "hub_dominated", "competitive",
-                                     "cells")} for r in panel],
+        "panel": [dict({k: r[k] for k in ("route", "rank", "distance", "band",
+                                          "top_share", "hub_dominated",
+                                          "competitive", "cells")},
+                       pax=int(r["pax"])) for r in panel],
         "wn_manual_routes": wn_manual,
         "n_cells": sum(len(r["cells"]) for r in panel),
         "audit": audit,

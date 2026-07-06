@@ -25,9 +25,10 @@ panel-selection formula as executable code).
 **Ranking source and vintage.** BTS **T-100 Domestic Segment (All Carriers),
 calendar year 2024** — the codebook §13 wording ("top-N T-100 routes") honored
 literally, and the last complete year untouched by the Oct–Nov 2025 federal
-data disruptions (plan P11). DB1B/DB1C is used only for its spec-§8-sanctioned
-purposes — route weights, scalar archival denominators, a unit-value contrast
-column — never for ranking and never as the price concept. The segment-vs-
+data disruptions (plan P11). DB1B/DB1C is used only for its sanctioned
+purposes — route weights and unit-value context per spec §8, and scalar
+archival denominators per the plan-§4 pre-registered convention — never for
+ranking and never as the price concept. The segment-vs-
 market unit tension is dissolved by construction, not amended away: **all
 quotes are nonstop itineraries**, so T-100 segment ≈ O&D market on every panel
 route.
@@ -44,8 +45,9 @@ the script on the hashed input and must reproduce the identical panel.
 Route unit = undirected nonstop airport pair, both directions summed, all
 carriers; selection statistic = 2024 T-100 segment passengers (scheduled
 services); tie-break alphabetical on concatenated airport codes. **N = 18
-routes**, stratified 6 per great-circle distance band (SHORT ≤ 750 mi; MEDIUM
-751–1,500 mi; LONG > 1,500 mi). Algorithm: (i) top-3 pairs per band
+routes**, stratified 6 per great-circle distance band (SHORT ≤ 750 mi;
+MEDIUM > 750 and ≤ 1,500 mi; LONG > 1,500 mi — the boundaries as the
+executable formula applies them, so no distance is unassigned). Algorithm: (i) top-3 pairs per band
 unconditionally; (ii) walk national rank order, adding a pair to its unfilled
 band iff it strictly reduces the total constraint deficit (units missing, as
 defined in the script — unit-counting is what lets a carrier's first
@@ -57,24 +59,32 @@ hub-dominated route (top-carrier share ≥ 60%) and ≥ 1 competitive route
 (≤ 40%), shares computed from the same hashed file.
 
 **Carrier rule.** Frozen 8-carrier list: AA, DL, UA, WN, AS (incl. Hawaiian
-post-merger — logged convention), B6, NK, F9 — exactly the carriers with
-standing `targets.tsv` fee pages and verified 2025–26 ledger events. Cell rule:
+post-merger — logged convention), B6, NK, F9 — the eight largest US marketing
+carriers, all with standing `targets.tsv` fee pages; six of the eight carry
+verified 2025–26 ledger events (NK and F9 have none yet — they are in the
+panel for menu coverage, not because of past events). Cell rule:
 carrier c is quoted on route r iff its 2024 segment share on r ≥ 5%, computed
 after the pinned operating→marketing rollup for wholly-owned regionals
 (`data/phase1-inputs.md`; multi-partner regionals are not rolled up — a
 disclosed limitation). Each listed carrier must qualify on ≥ 2 panel routes
-(a selection constraint). **Wave-0 schedule check (additions only):** if a
-listed carrier sells a nonstop on a panel route on the grid dates but missed
-the 5% bar (regional attribution), the cell is **added** and logged
-`cell-added-schedule-check`; cells are never removed by the check — additions
-expand the census, removals would be discretion. Expected panel size ≈ **45
-carrier-route cells**; the script's actual output governs and the wave prompts
-are sized to it.
+(a selection constraint). **Wave-0 schedule check (additions only; protocol
+pinned):** at wave 0, for every (panel route × listed carrier) pair that is
+not already a cell, the owner checks the carrier's own site for nonstop
+service on the wave-0 grid dates — a one-time, exhaustive sweep of all such
+pairs, not a discretionary sample. Any nonstop found → the cell is **added**,
+logged `cell-added-schedule-check` in `data/phase1-inputs.md`'s amendment log,
+with the search-results page saved and registered via `capture.py --manual` as
+the evidence. Cells are never removed by the check — additions expand the
+census, removals would be discretion — and G1 test GD verifies the operating
+cell list as script output ∪ these logged additions. Expected panel size ≈
+**45 carrier-route cells**; the script's actual output governs and the wave
+prompts are sized to it.
 
 **Southwest exception.** WN is owner-manual, carrier-direct capture only
 (Kiwi.com permanent injunction, 2021; WS-G counsel rule; WN absent from most
-metasearch). WN cells are capped at its **top 4 routes by 2024 WN segment
-passengers** (deterministic; excluded WN cells logged). WN's fee-schedule
+metasearch). WN cells are capped at the **top 4 panel routes by 2024 WN
+segment passengers** (ranked within the selected panel — the formula's
+implementation; deterministic; excluded WN cells logged). WN's fee-schedule
 series is fully covered by its own posted fee pages regardless.
 
 **Channel harmonization.** All headline (H) quotes are carrier-direct on the
@@ -86,27 +96,35 @@ non-evidentiary sanity field, excluded from H and S.
 
 **Expected example routes** (labeled EXPECTED/ILLUSTRATIVE — the script output
 overrides mechanically): LAX–LAS, ATL–MCO, LGA–ORD (short); DEN–ORD, FLL–LGA,
-MCO–PHL (medium); JFK–LAX, SEA–ANC, LAS–EWR (long).
+MCO–PHL (medium); JFK–LAX, ORD–SEA, LAS–EWR (long).
 
 ## 2. Booking grid
 
-- **Wave day:** first Tuesday of each month (federal holiday → next business
-  day, flagged `grid_shift=holiday-waveday`); all air cells captured 12:00–20:00
-  owner local time. **Wave 1 = Tuesday 2026-10-06** (plan §9 item 13). Wave 0 =
-  September 2026 unpublished dry run (§6).
+- **Wave day:** first Tuesday of each month (federal holiday → capture shifts
+  to the next business day, flagged `grid_shift=holiday-waveday`; **the
+  itinerary dates stay anchored to the scheduled first-Tuesday date**, so a
+  shifted capture day never moves the travel window); all air cells captured
+  12:00–20:00 owner local time. **Wave 1 = Tuesday 2026-10-06** (plan §9 item
+  13). Wave 0 = September 2026 unpublished dry run (§6).
 - **Itinerary (one per cell):** round trip, 1 adult, nonstop only, depart the
   Tuesday **21 days** after wave day, return the Tuesday **28 days** after
   (7 nights) — codebook §2.3's at-booking / prepaid-online / 3-week-advance
   convention, deliberately parallel to CPI's fixed trip specification so the
   spread is concept-clean.
-- **Blackout rule.** Frozen windows: Mon–Sun of Thanksgiving week; **Dec 18 –
-  Jan 4**; Jul 1–7. If the departure or return Tuesday falls inside a window,
-  iterate forward to the next Tuesday pair falling **wholly outside all
-  windows**, flag `grid_shift=holiday`. Standing consequence, stated so no
-  reader mistakes it: **the December link wave prices mid-January travel every
-  year.** This is acceptable and disclosed because the December-to-December
-  link compares **menus** (fee schedules and tier structures dated by effective
-  date), not fare levels.
+- **Blackout rule.** Frozen windows, **inclusive of both endpoints**: Mon–Sun
+  of Thanksgiving week; **Dec 18 – Jan 4**; **Jul 1 – 7**. If the departure or
+  return Tuesday falls inside a window, iterate forward to the next Tuesday
+  pair falling **wholly outside all windows**, flag `grid_shift=holiday`.
+  Standing consequence, stated so no reader mistakes it: **the December link
+  wave prices early-to-mid-January travel every year** (e.g., wave day Tue
+  Dec 1, 2026 → depart Jan 5 / return Jan 12; wave day Tue Dec 7, 2027 →
+  depart Jan 11 / return Jan 18). This is acceptable and disclosed for two
+  reasons, each doing its own work: fee-schedule and tier-structure **events**
+  enter the link by effective date regardless of travel dates; and the
+  fare-level component of the in-sample link (regime (ii), §11) compares
+  December waves that both price the same relative travel window under this
+  same rule, so the January-travel offset is common to numerator and
+  denominator rather than a distortion of either.
 - B6/ULCC peak-calendar fee dates are captured and flagged, never dodged
   (codebook §2.3).
 - **Per-cell capture:** the two lowest fare families (lowest Basic-family and
@@ -136,7 +154,7 @@ sum to 100%. Incidence primaries and grids are pinned in
 | AIR-P3-ONEBAG | RT nonstop; carry-on + 1 checked bag (≤ standard size/weight; ≥10% threshold changes are separate attribute events); **named-fee route** (prepaid-online, fare-class-conditional). This is the **Southwest honesty-exhibit profile**: predicted Gap SMALL, because CPI's airfare quote includes the first checked bag on ~80% of designated quotes. A prediction-met print is a headline, never designed away. | `administrative-ratio/usable`: fee-payer ~16–19% of enplanements (BTS Sch. P-1.2 acct 3906.2 ÷ enplanements, blended-fee divisor stated); the ~34–39% check-rate shown alongside. Enplanement reconstructions replaced with official BTS prints before publication (owner task). |
 | AIR-P4-TWOBAG | RT nonstop; carry-on + 2 checked; named-fee route. | `administrative-ratio-derived/usable-with-assumption`: bags-per-checker 1.4–1.6 derivation published; pre-registered fallback to [0%, 100%] if the discussant rules it below the codebook §8 bar. |
 | AIR-ATTR (seat, same-day change) | Not standalone profiles in v1. Both dictionary attributes are recorded in every fare family's base vector at the Dec-2026 Ledger freeze and **priced every wave**, so T1 evidence exists the day any carrier strips them. | Seat: Senate PSI exhibits ($12.4B, 2018–23; DOT data cannot separate seat-fee revenue — Appendix A). Else [0%, 100%] if triggered. |
-| STR-P1/P2/P3 | Cheapest ad-free plan — Netflix / Disney+ / Hulu; posted national monthly rate, no promo, no bundle; Netflix extra-member slot as a standing named-fee line item. | Netflix ~45% ad-tier households (Comscore, stock; household-vs-billing caveat); Disney+ 37% company Aug-2024 (Ampere 14% / survey ~20% as bounds); Hulu `envelope/sanity` [30%, 60%] — the weakest figure, and it says so. |
+| STR-P1/P2/P3 | Cheapest ad-free plan — Netflix / Disney+ / Hulu; posted national monthly rate, no promo, no bundle; Netflix extra-member slot as a standing named-fee line item. | Netflix ~45% ad-tier households (Comscore, stock; household-vs-billing caveat); Disney+ 37% company Aug-2024 (Ampere 14% / survey ~20% as bounds); Hulu: **no seller-specific usable source — [0%, 100%] per the register's rule 1** (the Antenna market-wide 46% envelope is context only, `envelope/sanity`; a seller-specific usable figure upgrades it via a logged amendment). |
 | BNK-P1-CHECKING-OD | Checking account + 1 overdraft incident at the posted standard fee + posted monthly maintenance fee; cash menu, no relationship pricing. | CFPB Data Spotlight 2024-04 (overdraft/NSF revenue −>50% 2019→2023, other fees flat) — `administrative/usable`. |
 | GRO-P1-PERUNIT-BASKET | Fixed 12-item national-brand basket, frozen at UPC + net quantity (basket categories in §9; UPCs freeze at the Dec-2026 Ledger freeze); **divisible-good per-unit convention** (codebook §3): replication cost = current unit price × frozen base quantity. ≥10% size changes are also logged as attribute events. | n/a — CPI-priced null control; **monitored coverage only**, never restoration coverage. |
 
@@ -144,7 +162,12 @@ sum to 100%. Incidence primaries and grids are pinned in
 
 **Identification core.** The paired same-flight, same-session Basic/Main quote
 identifies the tier gap g with route/date/demand scalar volatility differenced
-out exactly. Trigger rule T3's "net of pure scalar moves" is operationalized
+out **to the extent the shock is common to both families on the flight** —
+additively common components cancel in a same-flight, same-session contrast;
+family-specific pricing shocks do not, which is why the gap is published as a
+December-wave reading with the 11 other waves' dispersion shown alongside,
+never dressed in census language it hasn't earned. Trigger rule T3's "net of
+pure scalar moves" is operationalized
 **with no deflator and no estimated decomposition**:
 
 - **Named-fee events** are measured from posted fee schedules dated by
@@ -160,15 +183,27 @@ out exactly. Trigger rule T3's "net of pure scalar moves" is operationalized
   (codebook §5).
 
 **Per cell:** (a) carrier-direct, logged-out search; (b) the grid itinerary;
-(c) **pairing rule** — the nonstop with the lowest Basic-family total,
-tie-break earliest departure; record Basic and Main all-in totals (14 CFR
-399.84) for that same flight from the same results page; if no Basic family is
-sold, record the single-family fare and flag `pair=absent` (a menu fact, not a
-failure); (d) **in-flow ancillary step** for NK/F9/B6 (WN manual): advance only
-to the bag/seat add-on page, record at-booking prices, **abort before any
-passenger-details or payment field**. AA/DL/UA/AS bag fees come from
-fee-schedule pages, verified by a rotating **2-cell in-flow audit subsample**
-per wave.
+(c) **pairing rule (sequential, leg-by-leg — executable on real round-trip
+flows, which price per leg):** on the outbound results display, select the
+nonstop with the lowest displayed Basic-family leg price, tie-break earliest
+departure, and record BOTH families' displayed leg prices for that same flight
+from that same display; then, on the return results display **as presented
+after that outbound selection** (family combinability is conditional on the
+outbound, so the return rule is deliberately sequential, not independent),
+select the return nonstop by the same rule and record both families' displayed
+leg prices the same way. Displayed leg prices are all-in under 14 CFR 399.84
+and are recorded **verbatim, per leg**; the round-trip totals and the tier gap
+(gap = Σ leg gaps) are computed **at ingestion, never by the agent**. Where a
+site also displays a running trip total, it is recorded as a cross-check
+field. If no Basic family is sold, record the single family per leg and flag
+`pair=absent` (a menu fact, not a failure). (d) **in-flow ancillary step** for
+NK/F9/B6 (WN manual): advance only to the bag/seat add-on page, record
+at-booking prices, **abort before any passenger-details or payment field**.
+AA/DL/UA/AS bag fees come from fee-schedule pages, verified by a rotating
+**2-cell in-flow audit subsample** per wave — **rotation deterministic**: the
+legacy cells ordered lexicographically by (carrier, route); wave w audits the
+cells at positions (2w) mod N and (2w+1) mod N in that order. The wave
+worksheet computes it; no per-wave discretion.
 
 **Safety-rail carve-out (stated, never silent).** The frozen wave prompts
 (`pipeline/wave-prompts.md`) explicitly permit: entering routes/dates into
@@ -196,11 +231,27 @@ no-priced-path entry feeding the Exclusion Register. "You only collected fee
 increases" is false by construction: decreases and eliminations flow through
 the identical diff (codebook §4 symmetry).
 
-**Anti-promotion rule.** A fee level enters the December-to-December link only
-if observed on ≥ 2 consecutive waves **or** corroborated by the carrier's own
-document (press release, contract of carriage). Single-wave dips are logged
-`suspected-promotion` and excluded from the min. This also covers levels first
-appearing in the December wave itself.
+**Anti-promotion rule (split by price type; symmetric by construction).**
+- **Schedule-posted fees** (AA/DL/UA/AS/WN named fees; the B6 schedule incl.
+  its peak calendar): a single-wave level change of **either sign** without
+  carrier documentation is logged pending-confirmation — dips as
+  `suspected-promotion`, spikes as `suspected-error` — and held, not entered.
+  The carrier's own hash-captured fee-schedule or contract-of-carriage page in
+  that wave's static capture **counts as the corroborating document** (a
+  genuine quiet decrease lands on the posted schedule; a session-only
+  promotion does not — this is what keeps the rule symmetric rather than a
+  one-way filter against decreases). **The annual link computes after the
+  following January wave completes**, so a December-effective change gets its
+  confirmation wave and still enters the link its effective date assigns it to
+  (codebook §6); a level later disconfirmed as transient triggers a logged
+  re-statement under the pre-committed correction protocol, never a silent
+  edit.
+- **Dynamic in-flow prices** (NK/F9/B6 ancillaries — the observation of
+  record): no multi-wave screen applies, because dynamic prices ARE the menu.
+  Instead the December observation of record is the **median of three
+  same-day sessions** per ULCC cell in the December wave (fixed reconciliation
+  rule, pre-registered; ~+30 min in December), which is what defuses a
+  single-session A/B-test draw without operator judgment.
 
 **Fare-family crosswalk (frozen; renames are label-reshuffle non-events unless
 the attribute vector changes):** UA Basic Economy / Economy; AA Basic / Main
@@ -217,12 +268,16 @@ browser-agent-extraction) + manifest_or_commit_ref; route; marketing_carrier;
 outbound/return flight numbers (the pairing key); depart/return dates + times;
 grid_shift_flag; peak_calendar_flag; fare_family_basic_name_verbatim;
 fare_family_main_name_verbatim; fare-basis/brand codes if displayed;
-total_fare_basic_rt_usd (all-in, verbatim, never rounded);
-total_fare_main_rt_usd (same flight, same session); tier_gap_rt_usd (computed
-at ingestion, never by the agent); pair_status (paired-same-flight |
-pair=absent | pair=not-applicable | basic-soldout | blocked);
+basic_outbound_leg_usd; basic_return_leg_usd; main_outbound_leg_usd;
+main_return_leg_usd (per-leg displayed all-in prices, verbatim, never rounded
+— 14 CFR 399.84); displayed_trip_total_usd (cross-check field where a running
+total is shown); total_fare_basic_rt_usd, total_fare_main_rt_usd and
+tier_gap_rt_usd (all three computed at ingestion from the leg fields, never by
+the agent); pair_status (paired-same-flight | pair=absent |
+pair=not-applicable | basic-soldout | blocked);
 carryon_price_at_booking_usd; first_bag_price_usd + source
-(schedule-prepaid-online | in-flow | airport | gate) + fare_class_conditioning;
+(schedule-prepaid-online | in-flow | airport | gate | gated-behind-pax-info) +
+fare_class_conditioning;
 second_bag_price_usd + source + conditioning;
 bag_size_weight_limits_verbatim (≥10% threshold-event detection);
 cheapest_advance_standard_seat_outbound_usd; same_day_change_terms_verbatim;
@@ -235,17 +290,23 @@ url; loaded (yes | partial | blocked — blocked cells retained); missing_code
 ## 6. Monthly wave runbook and hours
 
 - **Step 0 (T−1, sandbox):** auto-generated wave worksheet (routes × cells,
-  travel dates with blackout iteration applied, WN manual list, audit
-  rotation) — owner review ~15 min.
+  travel dates with blackout iteration applied, WN manual list, deterministic
+  audit rotation per §4) — owner review ~15 min. **Build note:** the worksheet
+  generator and the Step-4 ingestion validator (schema + range checks for air,
+  streaming, and grocery records — the record schemas are §5 and the Prompt
+  B/C field lists) are sandbox deliverables **built and committed with wave-0
+  prep (September 2026)**; wave 0 does not run without them.
 - **Step 1:** `capture.py --sector air`, `--sector streaming` (+ `--sector
   banking` quarterly). Never run unfiltered (the needs-url pitfall). ~20 min
   incl. manifest inspection; failed urgent targets → documented `--manual`
   fallback.
 - **Step 2:** Chrome-agent batch, three prompts (A: UA/AA/DL/AS ≈ 24 cells;
-  B: NK/F9/B6 in-flow ≈ 17 cells; C: streaming + groceries ≈ 28 pages), slug
-  parity with `targets.tsv` enforced. **≈ 41 agent cells × 8 min ≈ 5.5 h** —
-  the honest number, from the measured timing basis, stated rather than hoped
-  down.
+  B: NK/F9/B6 in-flow ≈ 17 cells; C: groceries ≈ 24 pages + streaming
+  **fallback-only** — the streaming observation of record is Step 1's
+  hash-grade `capture.py` snapshot, and Prompt C touches a streaming page only
+  when Step 1 failed for it that wave, flagged), slug parity with
+  `targets.tsv` enforced. **≈ 41 agent cells × 8 min ≈ 5.5 h** — the honest
+  number, from the measured timing basis, stated rather than hoped down.
 - **Step 3:** WN manual, 4 cells, Save-Page-As + `--manual` registration,
   ~45 min.
 - **Step 4:** ingest to `data/captures/<topic>-<YYYY-MM-DD>.json` (`_capture`
@@ -261,16 +322,29 @@ url; loaded (yes | partial | blocked — blocked cells retained); missing_code
   triggers urgent capture within 7 days (the monthly static layer already
   guarantees ≤ 31-day detection).
 
-**Honest totals: ~7.5–8.0 h/wave at 18 routes; ~9 h/month with the press
-watch** — the top of the single-digit envelope. Therefore: **wave 0 (September
-2026) is an unpublished dry run** measuring per-cell timing and validating
-prompts/QC/ingestion. **De-scope order (pre-registered, fires BEFORE wave 1 if
-wave 0 exceeds 8 h; also fires after any two consecutive over-8h waves):**
-(1) shrink the audit subsample; (2) drop the 6th (lowest-ranked) route per band
-→ 15 routes / ≈ 37 cells (~6.5 h/wave); never below any carrier's 2-route
-minimum. Shrinkage is pre-registered, not improvised.
+**Honest totals, all steps counted:** air agent cells ~5.5 h + WN manual
+~45 min + Prompt C ~40 min (grocery — running from the December 2026 wave,
+since the basket's UPCs freeze at the December Ledger freeze, so the
+October–November waves carry no grocery quotes; streaming only as a flagged
+fallback) + the rotating audit's manual saves ~20 min + Steps 0/1/4/5/6
+~1.5 h ≈ **8.4 h/wave at 18 routes from December 2026 (~7.8 h before the
+grocery start); ~9.5 h/month with the press watch.** Above the
+single-digit target's comfortable interior — which is exactly why: **wave 0
+(September 2026) is an unpublished dry run** measuring per-cell timing and
+validating prompts/QC/ingestion, and its wall-clock total (Step-0 start to
+Step-6 end) is **logged in the wave-0 capture JSON and committed** — the
+de-scope trigger reads that committed number, not operator recollection.
+**De-scope order (pre-registered, fires BEFORE wave 1 if the committed wave-0
+total exceeds 9.0 h; also fires after any two consecutive waves whose
+committed totals exceed 9.0 h):** (1) shrink the audit subsample; (2) drop the
+6th (lowest-ranked) route per band → 15 routes / ≈ 37 cells (~7 h/wave) —
+**unless dropping a band's lowest-ranked route would push a carrier below its
+2-route minimum, in which case drop the next-lowest-ranked route in that band
+that does not; if none qualifies, that band keeps 6** (deterministic branch,
+no judgment call). Shrinkage is pre-registered, not improvised.
 
-**December extras (+3–4 h):** the link-wave manual-save upgrade; the annual
+**December extras (+3.5–4.5 h):** the link-wave manual-save upgrade; the
+ULCC median-of-three-sessions capture (§4, ~30 min); the annual
 Ledger re-freeze from attribute records (no superset ratchet, no forgiveness
 drift — codebook §7); incidence refresh; the chained-vs-direct drift
 diagnostic; the transient screen on the December min; concordance /
@@ -321,9 +395,12 @@ Sellers frozen = Netflix, Disney+, Hulu (the standing `targets.tsv` set;
 additions append-only). Streaming attribute dictionary v1 freezes with this
 document: ad-free playback; out-of-household member slot; concurrent-stream /
 resolution tier; posted national monthly price, no promo, no bundle.
-Collection is fully archival: `capture.py` on the four standing pages each wave
-(~15 min inside Step 1), plus Wayback timestamped URLs as third-party-attestable
-corroboration (legitimate for streaming HTML; banned for airline JS pages).
+Collection is fully archival, and **the `capture.py` hash-grade snapshot is
+the observation of record**: the four standing pages each wave (~15 min inside
+Step 1), plus Wayback timestamped URLs as third-party-attestable corroboration
+(legitimate for streaming HTML; banned for airline JS pages). Prompt C's
+streaming section is a flagged fallback for a failed Step-1 target only —
+never a second, competing reading of the same menu.
 Posted national prices make the **2025→2026 link exact**; the Netflix
 March-2026 step is pre-assigned to the 2026 link (codebook §6). **Disney+
 2025-10-21 step ruling (frozen):** it enters the 2025 link as a **scalar move
@@ -353,9 +430,10 @@ covering vintage ships). Live-window honesty: at Q1 2027 the panel spans
 ~3 months; the print labels the window length and shows the GAO archival
 reconciliation — no annualization of a quarter-length window. **The numeric
 pass band appears nowhere in this document — `docs/g1-band.md` is its first
-and only existence.** Collection: 24 quotes/wave inside prompt C (~40 min);
-rotating 2-page full-save audit via `--manual`; targets rows added at the
-December UPC freeze.
+and only existence.** Collection: 24 quotes/wave inside prompt C (~40 min),
+**starting with the December 2026 wave** (no UPCs exist to quote before the
+freeze); rotating 2-page full-save audit via `--manual`; targets rows added at
+the December UPC freeze.
 
 ## 10. Banking control (the G1 negative)
 
@@ -366,8 +444,12 @@ June-2025 vintage, file hash-committed by the owner before computation**
 (expected: Chase, Bank of America, Wells Fargo, Citi, U.S. Bank — the binding
 list is the formula's output). Evidence: the banks' own posted fee schedules
 (Wayback legitimate here) + the CFPB Data Spotlight. The documented
-eliminations and reductions are named-fee decreases: **codebook §4 symmetry
-mechanically produces the negative print** — structural, not tuned. Forward
+eliminations and reductions are named-fee decreases that enter through
+codebook §4's symmetric event grammar, so the series is **expected** to print
+negative — but GC is a real test, not a staged one: if maintenance-fee
+increases at the top-5 outweigh the overdraft declines over the window, the
+blend prints positive, GC fails, and that is reported (the gate is allowed to
+bite here as everywhere). Forward
 series: quarterly `capture.py` on the five banks' fee pages; a flat 2026 live
 link printing 0.0 is a correct zero. Coverage arithmetic: excluded from both
 coverage denominators (not a CEX line item; the nearest CE row is disclosed as
@@ -378,8 +460,9 @@ context only). Effort: ~8 h one-time archival build; ~1 h/quarter standing.
 Bounded by plan P10 (versioned research note + DOI + public code + snapshot
 archive under documented access rules; no composite before G3; no news-cycle
 timing). Title block: **"archival-denominator exhibit,"** and the header
-sentence: *"the panel's first fully in-sample 12-month air link is October
-2027."*
+sentence: *"the panel's first fully in-sample annual air link is the 2027 link
+(December 2026 → December 2027), measured from the December 2027 wave; the
+panel attains 12 months of live coverage in October 2027."*
 
 **(A) Air events (all `verified-preprint` in `data/ledger-events.json`):**
 
@@ -395,9 +478,12 @@ sentence: *"the panel's first fully in-sample 12-month air link is October
   (+$10/bag, 2026-04-09); `air-united-standing` (carry-on) as the
   superset-flagged interval [0, tier gap] with the point at the gap — the gap
   statistic is the **December-2026-wave passenger-weighted median of
-  within-flight Basic/Main spreads** (the panel's first in-sample quarter
-  supplies the gap statistic only, never a denominator). Third-party spread
-  surveys (e.g., NerdWallet) appear only as survey-grade context.
+  within-flight Basic/Main spreads**, weights = 2024 T-100 route passengers
+  from the hash-committed selection file (carrier cells within a route
+  weighted by rolled 2024 carrier-route passengers — no other vintage, no
+  discretion; the panel's first in-sample quarter supplies the gap statistic
+  only, never a denominator). Third-party spread surveys (e.g., NerdWallet)
+  appear only as survey-grade context.
 
 **Denominator convention (pinned in `data/phase1-inputs.md` BEFORE any exhibit
 computation):** the elementary denominator per event = the route-average
@@ -414,17 +500,54 @@ prior year, carrier-route vs panel-pooled} × the G0-style fare-anchor grid
 ($250–$400) × incidence ∈ {primary proxy, stated bounds} × a DB1B/DB1C
 cross-product check where windows overlap. **T3 attribution:** event relative =
 named fee at effective date ÷ the fixed archival denominator; same-seller fare
-drift never enters the numerator. **Denominator handoff (all three regimes
-pinned now):** (i) this archival convention; (ii) from the October 2027 link,
-each cell's t−1 December-wave posted all-in fare at the fixed booking point;
-(iii) the first in-sample release computes the link under BOTH conventions
-side-by-side as the published splice diagnostic, after which the archival
+drift never enters the numerator.
+
+**Archival-regime Gap composition (pinned; mirrored in
+`data/phase1-inputs.md` §7; MAY NOT change after sign-off).** The published
+per-event object is the **incidence-weighted event contribution**
+
+> EC = incidence × (Δfee per segment × profile segments) ÷ (2 × route-average
+> one-way base fare),
+
+which is a Gap **over the matched-carrier scalar-fare comparator** — the same
+object, same wording, as G0's G_air ("over the matched-fare comparator"). It
+is **never inserted into codebook §9's Σw[ρ − π^CPI] as-is**: same-seller fare
+drift is excluded from the RX-side numerator by construction, so subtracting a
+full CPI airfare relative from it would be double-counting on one side and
+nonsense on the other; every exhibit table labels its comparator on the row.
+The CPI-side treatment is pre-registered per attribute component: where the
+attribute sits inside CPI's airfare quote specification (the first checked bag
+on ~80% of designated quotes), the exhibit publishes **both** EC-gross and the
+**predicted residual Gap = EC-gross × (1 − CPI capture share)**, with the
+capture share sourced and labeled — this is the Southwest honesty-exhibit
+machinery generalized, and it is a prediction published before the comparison,
+not a tuning knob. Worked number (executable — `engine/test_phase1.py`): Δfee
+= $10/segment on a 2-segment round trip, denominator $325 one-way, incidence
+17% ⇒ event relative for the checking profile = 20/650 = **+3.08%**, sector
+contribution = **+0.52pp** gross, predicted residual Gap at an 80% capture
+share = **+0.10pp**. No composite index is formed from these contributions
+before Gate G3 (plan P10).
+
+**Denominator handoff (all three regimes
+pinned now):** (i) this archival convention; (ii) from the 2027 link (Dec 2026
+→ Dec 2027, the first fully in-sample annual link) onward, each cell's t−1
+December-wave posted all-in fare at the fixed booking point — for each
+profile, the t−1 fare of the **fare family that prices the profile's
+replication** (Main-family for carry-on profiles, cheapest family + named fees
+for bag profiles), with t−1 named fees included in the profile's t−1
+replication cost exactly as codebook §1 defines C(z; t−1); (iii) the first
+in-sample release computes the link under BOTH conventions side-by-side as the
+published splice diagnostic — expected direction stated now: the archival
+convention's scalar denominators are route-average (all-family) fares, so it
+mechanically prints **smaller** event relatives than the paired-panel
+convention on cheapest-family-anchored profiles — after which the archival
 convention retires.
 
 **(B) Streaming:** the exact 2025→2026 link; the 2025-link Disney+ scalar step;
 the 2022–2025 ladder as a caveated retrospective memo. **(C) Controls:** the
-grocery null (print-time comparator; R-CPI-SC addendum pending) and the banking
-negative — the release's guaranteed negative print. **(D) Apparatus:** both
+grocery null (print-time comparator; R-CPI-SC addendum pending) and the
+banking series — expected negative on the documented fee declines (§10; GC is
+a real test and is allowed to fail). **(D) Apparatus:** both
 coverage numbers (restoration-priced ≈ 2%; monitored ≈ 12%; controls
 segregated); the two-way Gap decomposition per sector + democratic-weight
 sensitivity; the CPI-stratum concordance + exclusive-partition table; H and S
@@ -455,16 +578,16 @@ The paired-quote identification in one number, pinned by
 `engine/test_phase1.py` (run: `python3 -m unittest discover engine`):
 
 Base December wave: Basic $200 (no carry-on), Main $260 (carry-on included),
-same flight — tier gap **$60**. Next December wave: Basic $240, Main $290 —
-fares rose ~20% scalar, tier gap **$50**. For AIR-P1-CARRYON: ρ = 290/260 =
-**+11.5%**, all of it scalar fare movement that also sits in the CPI
-comparator; the menu-structure component — the tier gap — **narrowed** $60→$50,
-and the published attribute interval [0, g] tightens with today's menu
-baseline (trigger rule T3; the interval is baselined on the current wave's
-non-superset floor, never on base-period cost). A naive fee-tracker reads
-"Basic +20%"; the paired design reads "menu structure improved while fares
-rose" — the Gap over the matched CPI series, not the raw relative, is the
-publication object.
+same flight — tier gap **$60**. Next December wave: Basic $240 (+20%), Main
+$290 (+11.5%) — the tier gap **narrowed to $50**. For AIR-P1-CARRYON:
+ρ = 290/260 = **+11.5%**, a scalar fare move that also sits in the CPI
+comparator side of the Gap; the menu-structure component — the tier gap —
+moved **down**, and the published attribute interval [0, g] tightens with
+today's menu baseline (trigger rule T3; the interval is baselined on the
+current wave's non-superset floor, never on base-period cost). A naive
+fee-tracker reads "Basic +20%"; the paired design reads "menu structure
+improved while fares rose" — the Gap over the matched CPI series, not the raw
+relative, is the publication object.
 
 ## 14. Freeze and amendment mechanics (the G0 pattern, copied exactly)
 
@@ -477,10 +600,11 @@ publication object.
    URLs) MAY be corrected with every change logged in the amendment log below.
    The panel formula (`select_routes.py`), N and the stratification, the
    carrier list and cell rule, the booking grid and blackout windows, the
-   profile definitions, the denominator conventions and handoff, the
-   anti-promotion and missingness rules, and the de-scope order MAY NOT change
-   after sign-off; any post-hoc case for changing them is a logged design
-   failure with a methods note, never a quiet re-draw.
+   profile definitions, the pairing rule, the denominator conventions, the
+   archival-regime Gap composition, and the handoff, the anti-promotion and
+   missingness rules, and the de-scope order MAY NOT change after sign-off;
+   any post-hoc case for changing them is a logged design failure with a
+   methods note, never a quiet re-draw.
 3. This document freezes publicly with the Phase 0 note (October 2026);
    amendments are append-only thereafter; no retroactive convention change
    ever applies to a published link.
@@ -489,7 +613,32 @@ publication object.
 
 ## Amendment log
 
-- (none yet)
+- 2026-07-06 (pre-sign-off, from the adversarial review of the draft package —
+  46 confirmed findings across 5 review lenses; no in-scope computation has
+  run, so nothing could be tuned to a result). The load-bearing corrections:
+  (1) all "October 2027 link" language restated to the 2027 link (Dec 2026 →
+  Dec 2027, December-wave-measured) — no October link exists under codebook
+  §6; (2) the archival-regime Gap composition pinned explicitly (§11): EC over
+  the matched-carrier scalar-fare comparator, never inserted into codebook
+  §9's Σw[ρ − π^CPI], with the predicted-residual-Gap machinery and an
+  executable worked number; (3) the anti-promotion rule split by price type
+  and made symmetric (schedule-posted: either-sign single-wave changes held
+  pending confirmation, link computes after the January wave; dynamic in-flow:
+  December = median of three same-day sessions); (4) the pairing rule
+  rewritten sequential leg-by-leg with per-leg verbatim fields (round-trip
+  flows price per leg; totals computed at ingestion); (5) hours restated with
+  every step counted (~8.4 h/wave from Dec 2026), the de-scope trigger moved
+  to a committed wave-0 wall-clock reading vs 9.0 h, and its tie-branch made
+  deterministic; (6) wave-0 schedule-check protocol pinned (exhaustive,
+  additions-only, evidence-registered, GD-verifiable); (7) streaming
+  observation of record = the hash-grade capture.py snapshot, Prompt C
+  fallback-only; (8) Hulu incidence to [0%,100%] per the register's rule 1;
+  (9) blackout windows endpoint-inclusive with worked date traces; the
+  identification-language, banking-expectation, carrier-list-justification,
+  audit-rotation, band-boundary, and example-route corrections. Companion
+  fixes landed in g1-band.md (its own log), phase1-inputs.md, the incidence
+  register, select_routes.py (+6 tests), wave-prompts.md, capture.py, and the
+  plan (v00.03.08).
 
 ## Sign-off
 

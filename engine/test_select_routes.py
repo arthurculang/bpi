@@ -14,7 +14,8 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "pipeline"))
-from select_routes import (_band, load_routes, main, select_panel)  # noqa: E402
+from select_routes import (_band, _deficit, _unmet, load_routes, main,  # noqa: E402
+                           select_panel)
 
 
 def write_csv(rows, path):
@@ -29,7 +30,10 @@ def synthetic_fixture(drop_nk=False, no_hubs=False):
 
     Per band (i = 0..7, pax descending):
       i 0-2: AA 30 / DL 30 / UA 25 / WN 15  -> competitive, WN cell
-      i 3  : UA 70 / AA 20 / DL 10          -> hub-dominated (unless no_hubs)
+      i 3  : UA 70 / AA 20 / DL 10          -> hub-dominated (unless no_hubs);
+             in band L: WN 65 / AA 20 / DL 15 — a WN-dominated hub whose
+             wn_pax EXCEEDS every i0-2 route's, so the WN cap's by-WN-pax
+             ordering is distinguishable from a by-total-pax ordering
       i 4  : NK 40 / F9 30 / B6 30          -> ULCC coverage (NK->F9 if drop_nk)
       i 5  : AS 50 / B6 25 / AA 25          -> AS coverage
       i 6-7: AA 40 / DL 35 / UA 25          -> filler
@@ -46,8 +50,12 @@ def synthetic_fixture(drop_nk=False, no_hubs=False):
             if i <= 2:
                 mix = [("AA", .30), ("DL", .30), ("UA", .25), ("WN", .15)]
             elif i == 3:
-                mix = ([("AA", .40), ("DL", .35), ("UA", .25)] if no_hubs
-                       else [("UA", .70), ("AA", .20), ("DL", .10)])
+                if no_hubs:
+                    mix = [("AA", .40), ("DL", .35), ("UA", .25)]
+                elif b == "L":
+                    mix = [("WN", .65), ("AA", .20), ("DL", .15)]
+                else:
+                    mix = [("UA", .70), ("AA", .20), ("DL", .10)]
             elif i == 4:
                 mix = ([("F9", .70), ("B6", .30)] if drop_nk
                        else [("NK", .40), ("F9", .30), ("B6", .30)])
@@ -100,6 +108,50 @@ class TestAggregationAndRollup(unittest.TestCase):
             routes = load_routes(p)
         self.assertEqual([r["route"] for r in routes], ["AAA-AAB", "ZZA-ZZB"])
 
+    def test_missing_column_fails_loudly(self):
+        with tempfile.TemporaryDirectory() as td:
+            p = Path(td) / "t.csv"
+            with open(p, "w", newline="") as f:
+                w = csv.writer(f)
+                w.writerow(["ORIGIN", "DEST", "CARRIER", "PASSENGERS", "DISTANCE"])
+                w.writerow(["LAX", "JFK", "AA", 100, 2475])
+            with self.assertRaises(ValueError):
+                load_routes(p)
+
+    def test_blank_distance_fails_loudly(self):
+        rows = [["LAX", "JFK", "AA", 100, 2475],
+                ["JFK", "LAX", "AA", 100, ""]]        # pax-positive, no distance
+        with tempfile.TemporaryDirectory() as td:
+            p = Path(td) / "t.csv"
+            write_csv(rows, p)
+            with self.assertRaises(ValueError):
+                load_routes(p)
+
+    def test_class_column_filters_nonscheduled(self):
+        with tempfile.TemporaryDirectory() as td:
+            p = Path(td) / "t.csv"
+            with open(p, "w", newline="") as f:
+                w = csv.writer(f)
+                w.writerow(["ORIGIN", "DEST", "UNIQUE_CARRIER", "PASSENGERS",
+                            "DISTANCE", "CLASS"])
+                w.writerow(["LAX", "JFK", "AA", 1000, 2475, "F"])
+                w.writerow(["JFK", "LAX", "AA", 999999, 2475, "L"])  # charter
+            routes = load_routes(p)
+        self.assertEqual(routes[0]["pax"], 1000)          # L row excluded
+
+    def test_deficit_counts_units_not_items(self):
+        # A carrier's FIRST qualifying route must register as progress toward
+        # its 2-route minimum (prereg §1). Under item-counting (len(_unmet))
+        # the addition below changes nothing; under unit-counting it is -1.
+        base = [{"band": "SHORT", "hub_dominated": True, "competitive": False,
+                 "cells": []},
+                {"band": "SHORT", "hub_dominated": False, "competitive": True,
+                 "cells": []}]
+        extra = {"band": "SHORT", "hub_dominated": False, "competitive": True,
+                 "cells": ["NK"]}
+        self.assertEqual(len(_unmet(base + [extra])), len(_unmet(base)))
+        self.assertEqual(_deficit(base + [extra]), _deficit(base) - 1)
+
 
 class TestPanelSelection(unittest.TestCase):
     def _run(self, **kw):
@@ -136,6 +188,25 @@ class TestPanelSelection(unittest.TestCase):
         # kept cells are exactly the top-4 by WN passengers
         kept = {r["route"] for r in wn_cells}
         self.assertEqual(kept, set(wn_manual))
+
+    def test_wn_cap_orders_by_wn_pax_not_total_pax(self):
+        # L3A-L3B has lower TOTAL pax than every i0-2 route but a 65% WN
+        # share, so its wn_pax exceeds theirs: a wrong-but-plausible
+        # implementation ranking by total pax would drop it and keep S1A-S1B.
+        panel, wn_manual, _ = self._run()
+        self.assertIn("L3A-L3B", wn_manual)
+        self.assertNotIn("S1A-S1B", wn_manual)
+
+    def test_select_panel_does_not_mutate_input(self):
+        with tempfile.TemporaryDirectory() as td:
+            p = Path(td) / "t100.csv"
+            write_csv(synthetic_fixture(), p)
+            routes = load_routes(p)
+        a = select_panel(routes)
+        b = select_panel(routes)                          # same input object
+        self.assertEqual([r["cells"] for r in a[0]], [r["cells"] for r in b[0]])
+        self.assertEqual(a[1], b[1])
+        self.assertEqual(a[2], b[2])                      # incl. wn-cap audit lines
 
     def test_relaxation_is_logged_not_silent(self):
         panel, _, audit = self._run(drop_nk=True)

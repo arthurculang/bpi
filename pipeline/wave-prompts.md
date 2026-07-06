@@ -39,26 +39,40 @@ worksheet — use exactly these dates).
 
 CELLS ({{N_A_CELLS}}): {{CELL_LIST_A}}   [format: CARRIER route, e.g. "UA LAX-EWR"]
 
-PER CELL, record:
-- pairing rule: the nonstop with the LOWEST basic-family total; tie-break
-  earliest departure. On that SAME flight from the SAME results page, record
-  the basic-family and main-family all-in round-trip totals (the advertised
-  total including taxes/fees), fare family names verbatim, and flight numbers.
-- If no basic family is offered: record the single family, pair_status="pair=absent".
+PER CELL, record (round-trip flows price PER LEG — work leg by leg):
+- OUTBOUND: on the outbound results display, find the nonstop with the LOWEST
+  displayed basic-family leg price; tie-break earliest departure. For that
+  SAME flight on that SAME display, record BOTH families' displayed leg
+  prices verbatim, the fare family names verbatim, any fare-basis/brand codes
+  shown, the flight number, and the departure time.
+- RETURN: select that basic outbound to advance, then apply the SAME rule to
+  the return results display as it is then presented (lowest displayed
+  basic-family leg price, tie-break earliest departure) and record the same
+  fields for the return flight. If the site shows a running trip total,
+  record it as displayed_trip_total.
+- Do NOT sum, subtract, or convert any price — leg prices verbatim only; all
+  totals are computed later at ingestion.
+- If no basic family is offered: record the single family per leg,
+  pair_status="pair=absent".
 - If the basic family is sold out on every nonstop: pair_status="basic-soldout".
 - cheapest advance standard seat price (outbound leg, from the seat map if
   reachable without passenger info; else "not-reached").
 - same-day-change terms if displayed on the fare-family comparison, verbatim.
 - any membership/card-conditioned price shown (record it, labeled — it never
   enters the headline).
+- any promotional banner, strikethrough price, or "sale/limited time" wording
+  touching either family: promo_detected=true + the wording verbatim.
 - a Google Flights cross-check total for the same cell (one lookup, recorded
   as sanity only) — do this AFTER all carrier-direct cells, never before.
 
 OUTPUT: EXACTLY ONE fenced JSON block, an array with one object per cell:
-{cell, route, carrier, depart_date, return_date, flight_numbers,
- fare_family_basic_verbatim, total_basic_rt_usd, fare_family_main_verbatim,
- total_main_rt_usd, pair_status, seat_price_usd, same_day_change_verbatim,
- conditioning_notes, gf_crosscheck_usd, loaded, page_title, url, notes}.
+{cell, route, carrier, depart_date, depart_time, return_date, return_time,
+ outbound_flight, return_flight, fare_family_basic_verbatim,
+ fare_family_main_verbatim, fare_basis_codes, basic_outbound_leg_usd,
+ basic_return_leg_usd, main_outbound_leg_usd, main_return_leg_usd,
+ displayed_trip_total_usd, pair_status, seat_price_usd,
+ same_day_change_verbatim, conditioning_notes, promo_detected,
+ promo_text_verbatim, gf_crosscheck_usd, loaded, page_title, url, notes}.
 Prices verbatim as displayed, never rounded, never computed by you.
 ```
 
@@ -85,19 +99,34 @@ Depart {{DEPART_DATE}} · return {{RETURN_DATE}}.
 
 CELLS ({{N_B_CELLS}}): {{CELL_LIST_B}}
 
-PER CELL, record: lowest-fare-family all-in RT total (and the second family's
-total where one exists, same flight — B6 Blue Basic vs Blue; F9 basic vs
-bundle; NK is single-cabin: pair_status="pair=not-applicable"); at-booking
-carry-on price; first and second checked bag prices; cheapest standard seat;
+PER CELL, record: per-leg displayed prices for the lowest fare family (and
+the second family where one exists, same flight — B6 Blue Basic vs Blue; F9
+basic vs bundle; NK is single-cabin: pair_status="pair=not-applicable"),
+flight numbers and departure times per leg; at-booking carry-on price; first
+and second checked bag prices (if bags are only priced after passenger info,
+record "gated-behind-pax-info" and stop that cell); cheapest standard seat;
 B6 peak/off-peak calendar flag if shown; bag size/weight limits verbatim;
-loaded status.
+same-day-change terms if displayed, verbatim; any MEMBER-CONDITIONED price
+shown beside the standard price (NK Saver$ Club, F9 Discount Den — these
+sites display both by default: record BOTH, label which is which; only the
+standard price is headline data); any promotional banner or strikethrough:
+promo_detected=true + wording verbatim; a Google Flights cross-check total
+(after all carrier-direct cells); loaded status.
 
 OUTPUT: EXACTLY ONE fenced JSON block, one object per cell:
-{cell, route, carrier, depart_date, return_date, flight_numbers,
- fare_family_low_verbatim, total_low_rt_usd, fare_family_second_verbatim,
- total_second_rt_usd, pair_status, carryon_usd, bag1_usd, bag2_usd,
- seat_usd, peak_flag, bag_limits_verbatim, loaded, page_title, url, notes}.
+{cell, route, carrier, depart_date, depart_time, return_date, return_time,
+ outbound_flight, return_flight, fare_family_low_verbatim,
+ low_outbound_leg_usd, low_return_leg_usd, fare_family_second_verbatim,
+ second_outbound_leg_usd, second_return_leg_usd, displayed_trip_total_usd,
+ pair_status, carryon_usd, bag1_usd, bag1_source, bag2_usd, bag2_source,
+ seat_usd, peak_flag, bag_limits_verbatim, same_day_change_verbatim,
+ member_price_notes, promo_detected, promo_text_verbatim, gf_crosscheck_usd,
+ loaded, page_title, url, notes}.
 Prices verbatim, never rounded, never computed by you.
+
+DECEMBER LINK WAVE ONLY: run this prompt THREE times same-day per the wave
+worksheet (the observation of record is the per-cell median, computed at
+ingestion, never by you).
 ```
 
 ## Prompt C — streaming tiers + grocery basket (static pages)
@@ -106,7 +135,9 @@ Prices verbatim, never rounded, never computed by you.
 You are operating my Chrome browser. Task: read-only capture of posted prices.
 Do NOT log in, subscribe, add to cart, or enter any personal detail anywhere.
 
-PART 1 — STREAMING ({{N_STREAMING_PAGES}} pages): {{STREAMING_URLS}}
+PART 1 — STREAMING FALLBACK (usually empty — these pages' observation of
+record is the pipeline's hash-grade snapshot; this part lists ONLY pages the
+pipeline failed to capture this wave): {{STREAMING_FALLBACK_URLS}}
 Per page: every plan tier's name and posted monthly price verbatim; which
 tiers include ad-free playback; the extra-member price where posted; loaded
 status; page title; URL.
