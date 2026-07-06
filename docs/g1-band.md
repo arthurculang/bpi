@@ -1,6 +1,6 @@
 # Gate G1 — Pre-committed pass criteria
 
-`v0 · 2026-07-06 · workstream E · STATUS: committed before any Phase 1 in-scope computation (the git hash of this commit is the timestamp of record) · AWAITING owner sign-off`
+`v0 · 2026-07-06 · workstream E · STATUS: committed before any Phase 1 in-scope computation (the git hash of this commit is the timestamp of record) · SIGNED OFF by owner 2026-07-06, accepted as-is (post-adversarial-review text)`
 
 ## What G1 tests
 
@@ -117,4 +117,7 @@ before the sign-off checkbox is checked**, so nothing can be tuned to a result.
 
 ## Sign-off
 
-- [ ] Owner reviewed and accepted the G1 pass criteria as-is — YYYY-MM-DD
+- [x] **Owner reviewed and accepted the G1 pass criteria as-is — 2026-07-06**
+      (decision recorded via session review, after the plain-language decision
+      walkthrough and the adversarial-review amendments). The four tests and
+      their numeric limits are now fully binding under the MAY/MAY-NOT wall.

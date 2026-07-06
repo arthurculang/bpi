@@ -1,6 +1,6 @@
 # Phase 1 pre-registration — air-travel route panel, collection grid, controls
 
-`v0 · 2026-07-06 · workstreams B/E · the codebook-§13 route-panel freeze, unlocked by the G0 pass (2026-07-04) · AWAITING owner sign-off (§14); freezes publicly with the Phase 0 note (Oct 2026)`
+`v0 · 2026-07-06 · workstreams B/E · the codebook-§13 route-panel freeze, unlocked by the G0 pass (2026-07-04) · SIGNED OFF by owner 2026-07-06 (§14) — collection unblocked (wave 0 Sept, wave 1 2026-10-06); freezes publicly with the Phase 0 note (Oct 2026)`
 
 This document pre-registers the Phase 1 live-collection design: the air-travel
 route panel and booking grid, the monthly paired-quote protocol, the streaming
@@ -642,5 +642,7 @@ relative, is the publication object.
 
 ## Sign-off
 
-- [ ] Owner reviewed and accepted the Phase 1 pre-registration as-is —
-      YYYY-MM-DD
+- [x] **Owner reviewed and accepted the Phase 1 pre-registration as-is —
+      2026-07-06** (decision recorded via session review, after the
+      plain-language decision walkthrough and the adversarial-review
+      amendments). §14's MAY-NOT wall is now binding; wave 0 may run.
