@@ -176,7 +176,12 @@ documented per plan P10 (public where rights allow, access-on-request otherwise)
 
 - Rental, wireless, lodging attribute dictionaries (with Phase 2 module designs).
 - Air route-panel definition (top-N T-100 routes, booking-grid) — frozen only
-  after gate G0 passes.
+  after gate G0 passes. **G0 passed 2026-07-04; the panel pre-registration is
+  drafted at `docs/phase1-preregistration.md` (formula:
+  `pipeline/select_routes.py`; pass criteria: `docs/g1-band.md`; pinned inputs:
+  `data/phase1-inputs.md`), binding on owner sign-off.** The streaming
+  attribute dictionary v1 freezes with it (ad-free playback; out-of-household
+  member slot; concurrent-stream/resolution tier).
 - Incidence source register per sector (§8) with the first provenance tags.
 - The G0 plausibility band is committed separately (`docs/g0-plausibility-band.md`)
   and is already binding.

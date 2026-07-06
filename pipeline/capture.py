@@ -76,6 +76,12 @@ def run_capture(sector=None, slug=None):
         targets = [t for t in targets if t["sector"] == sector]
     if slug:
         targets = [t for t in targets if t["slug"] == slug]
+    # needs-url rows are placeholders awaiting owner verification — fetching
+    # them would archive the wrong page under an authoritative-looking hash.
+    skipped = [t for t in targets if t["urgency"] == "needs-url"]
+    for t in skipped:
+        print(f"SKIP needs-url (verify path first): {t['slug']}")
+    targets = [t for t in targets if t["urgency"] != "needs-url"]
     if not targets:
         print("no matching targets")
         return 1

@@ -23,6 +23,7 @@
 | Disney+ ad-tier share of US subs | 37% (company); ~30% global | Aug 2024 | Iger/earnings | **usable** (stock mix); conflicting externals (Ampere 14%, survey ~20%) as bounds |
 | Netflix ad-tier share | ~45% of US Netflix households (Comscore); ad tier ~50% of 2025 US gross signups, 54% Q1 2026 (Antenna) | 2025–Q1 2026 | Comscore/Antenna via trade press | **usable** with the household-vs-billing caveat; signup shares are flow, not stock |
 | Market-wide ad-tier share | 46% of US premium SVOD subs (services offering ads); ad tiers = 57% of Q1 2025 gross adds | Q1 2025 | Antenna | envelope/sanity |
+| Hulu ad-tier share | **no seller-specific public figure found** — only the Antenna market-wide envelope above | — | — | **GAP** — per rule 1, Hulu weights take [0%, 100%] until a usable seller-specific source exists (Phase 1 pinned inputs §6 record this) |
 
 ## Rules of use (binding, per codebook §8)
 

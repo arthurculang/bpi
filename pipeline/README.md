@@ -46,10 +46,20 @@ them wholesale. Three ways to capture, best evidentiary weight first:
 Manual (1–2) registrations get their own run directory and hashed manifest
 entry, so they carry full archival weight; (3) is content-grade, labeled.
 
+## Phase 1 panel (pre-registered 2026-07-06)
+
+- **Route panel:** `select_routes.py` is the frozen selection formula
+  (docs/phase1-preregistration.md §1). The owner pulls the 2024 T-100 Domestic
+  Segment file on an unblocked connection, commits its SHA-256 to
+  `data/phase1-inputs.md`, then the route list is the script's output.
+- **Monthly waves:** first Tuesday; runbook in the pre-registration §6; the
+  three Chrome-agent prompts live in `wave-prompts.md`; WN is owner-manual.
+- **Banking block:** quarterly `capture.py --sector banking` (targets above).
+- Wave 0 (Sept 2026) is an unpublished dry run; wave 1 = 2026-10-06, gated on
+  the pre-registration's owner sign-off.
+
 ## Not yet in v0 (scheduled with the August codebook)
 
 - Rental listing panel (fixed unit sample, Zillow Total Price / Apartments.com
   fee fields, stratified by market and building class).
-- Paired same-flight Basic/Economy fare quotes (route panel goes live October;
-  pre-registration freezes after gate G0).
 - Per-ISP machine-readable label JSON capture (v0 grabs the label landing pages).
