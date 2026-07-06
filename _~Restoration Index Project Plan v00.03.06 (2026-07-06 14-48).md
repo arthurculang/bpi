@@ -1,6 +1,6 @@
 # Restoration Index — Project Plan
 
-`v00.03.05 · 2026-07-05 05-06 · internal working doc · companion to: Restoration Index Spec v00.02.00`
+`v00.03.06 · 2026-07-06 14-48 · internal working doc · companion to: Restoration Index Spec v00.02.00`
 
 ---
 
@@ -188,13 +188,13 @@ Core team of two (one economics/methods, one data engineering), counsel hours fo
 
 ## 9. Next steps (the immediate answer)
 
-**Execution status (2026-07-05):** items 3–4 decided/ready (name + tagline adopted; **`main` synced via PR #2 — now carries G0 PASS, the T-Mobile captures, and the tagline site**; the Appendix C deploy prompt is finalized against production branch `main` and handed over — awaiting your Cloudflare run); item 5 drafted (`docs/dot-nprm-comment-draft.md` — review and file); item 6 substantially drafted (`docs/codebook-v0.md`); item 7 partially done (major categories byte-verified in `data/cex-b40-quintiles.csv` + reproducible builder; detail cells and renter shares still need unblocked BLS/FRED access); item 8 drafted (`docs/ws-h-budget-memo-draft.md`, `docs/discussant-shortlist.md` with first-approach trio); item 9 partially done (incidence proxy register `data/incidence-proxies.md`; carry-on incidence flagged as a gap); item 11's band **already hash-committed** (`docs/g0-plausibility-band.md`, commit 57581d6, before any retrospective inputs) and the 2008–09 chronology inputs compiled (`data/retro-2008-inputs.md`, negative-print episode designated: US Airways beverage-fee repeal, 2009-03-01). Items 1–2 (captures) and the NPRM filing remain owner actions — the sandbox proxy blocks the target hosts.
+**Execution status (2026-07-06):** items 3–4 **DONE** — name + tagline adopted; `main` synced (PR #2) with G0 PASS, the T-Mobile captures, and the tagline site; and **the site is LIVE at https://restorationgap.org** (Cloudflare Pages off `main`, output dir `site`, valid cert; `www.restorationgap.org` 301-redirects to the apex with path/query preserved; Git integration reconnected — the Cloudflare Workers-and-Pages GitHub App was scoped to only `yamorseal` and now includes `arthurculang/bpi`, so pushes to `main` auto-deploy; homepage hero/title/OG copy aligned to the canonical "keep" tagline). The `.com` was **not** registered (deferred; optional defensive buy per P14, 301→.org when done); item 5 drafted (`docs/dot-nprm-comment-draft.md` — review and file); item 6 substantially drafted (`docs/codebook-v0.md`); item 7 partially done (major categories byte-verified in `data/cex-b40-quintiles.csv` + reproducible builder; detail cells and renter shares still need unblocked BLS/FRED access); item 8 drafted (`docs/ws-h-budget-memo-draft.md`, `docs/discussant-shortlist.md` with first-approach trio); item 9 partially done (incidence proxy register `data/incidence-proxies.md`; carry-on incidence flagged as a gap); item 11's band **already hash-committed** (`docs/g0-plausibility-band.md`, commit 57581d6, before any retrospective inputs) and the 2008–09 chronology inputs compiled (`data/retro-2008-inputs.md`, negative-print episode designated: US Airways beverage-fee repeal, 2009-03-01). Items 1–2 (captures) and the NPRM filing remain owner actions — the sandbox proxy blocks the target hosts.
 
 **This week (by July 13):**
 1. **Archive the T-Mobile pre-migration state** — legacy plan menus, "(Retired)" plan support pages, the plan-to-plan crosswalk, Experience-tier pricing. The before-state disappears when migration starts on bill cycles July 13. This is the single most time-critical task in the project.
 2. Stand up the snapshot pipeline v0 (timestamped, hash-committed) and point it at: rental listings (Zillow Total Price / Apartments.com fee fields, fixed unit sample), FCC broadband labels, streaming tier pages, all six carriers' bag-fee pages (B6 with its peak calendar).
 3. **Close the naming decision (P13) and domain (P14)** — "go" on the rows or overrule; site scaffold is live in `site/` and rebrands with a find-and-replace either way.
-4. **Register the domain and deploy the site** — run the Appendix C prompt in Claude for Chrome on the Cloudflare dashboard (registers restorationgap.org/.com, connects Cloudflare Pages to this repo, attaches the domain). Merge the working branch to `main` first, or set the Pages production branch per the prompt's fallback.
+4. ~~**Register the domain and deploy the site**~~ **DONE (2026-07-06)** — restorationgap.org is registered and the site is live on Cloudflare Pages off `main` (output `site/`), with `www`→apex 301 and an auto-deploying Git pipeline. Executed via Claude-for-Chrome with a stop-on-error / idempotent-state-check instrument; the only snag was the Cloudflare GitHub App's repo scope (fixed by granting it `arthurculang/bpi`). Remaining optional: register `.com` defensively and 301 it to `.org`.
 
 **By July 31 (hard deadline):**
 5. **File the DOT NPRM comment** (FR 2026-13294, full-fare advertising flexibility) — the posted all-in airfare is collection infrastructure for this project; say so in the docket.
@@ -298,6 +298,8 @@ CONSTRAINTS
 ---
 
 ## Changelog
+
+- **v00.03.06** (2026-07-06 14-48) — **Site is LIVE (P14/P15 done).** restorationgap.org deployed on Cloudflare Pages off `main` (output `site/`, valid cert); `www`→apex 301 redirect active (path + query preserved); Git integration reconnected — root cause was the Cloudflare Workers-and-Pages GitHub App being scoped to only `yamorseal`, resolved by adding `arthurculang/bpi`, so pushes to `main` now auto-deploy (confirmed by a successful test deployment). Homepage hero, `<title>`, and OG description aligned to the canonical "keep last year's life" tagline (they had read "live"); README opener aligned too. `.com` not yet registered (optional defensive buy, deferred). No methodology, gate, or numeric change.
 
 - **v00.03.05** (2026-07-05 05-06) — Deploy handoff. PR #2 merged the working branch to `main` (merge commit 726ca9c), bringing `main` current: G0 PASS, the T-Mobile pre-migration captures, and the tagline site now live on the production branch. Appendix C finalized against production branch `main` (the "/site not yet on main" fallback removed since it now exists there) and its verify step extended to check the tagline "what it costs to keep last year's life" renders — a positive signal that the *latest* build shipped, not a stale commit. Execution-status note updated (P13–P15). No methodology, gate, or numeric change.
 
