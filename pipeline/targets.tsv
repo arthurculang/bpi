@@ -30,6 +30,16 @@ hulu-plans	streaming	standing	https://www.hulu.com/welcome
 xfinity-broadband-labels	broadband	needs-url	https://www.xfinity.com/learn/broadband-labels
 att-broadband-labels	broadband	needs-url	https://www.att.com/broadbandlabels/
 spectrum-broadband-labels	broadband	needs-url	https://www.spectrum.com/policies/broadband-labels
+# BANKING: G1 negative-control fee schedules (quarterly cadence; seller list =
+# top-5 by domestic deposits, FDIC SoD June-2025 — data/phase1-inputs.md §9).
+# needs-url rows: verify exact fee-schedule paths at the first quarterly run.
+chase-overdraft-services	banking	standing	https://www.chase.com/personal/checking/overdraft-services
+bofa-account-fees	banking	standing	https://www.bankofamerica.com/deposits/account-fees/
+wellsfargo-checking-fees	banking	needs-url	https://www.wellsfargo.com/checking/fees/
+citi-checking-fees	banking	needs-url	https://www.citi.com/banking/checking-account
+usbank-service-fees	banking	needs-url	https://www.usbank.com/bank-accounts/checking-accounts/checking-customer-resources/service-fees.html
+# GROCERY: 24 product-page rows (12 UPCs x walmart.com/target.com) are added at
+# the December 2026 Ledger freeze when the UPC list pins (phase1-inputs.md §8).
 # LODGING/RENTAL: listing-level fee capture needs the fixed unit sample from the
 # codebook (Aug); these are the policy/press anchors meanwhile.
 zillow-total-price-launch	rental	standing	https://zillow.mediaroom.com/2025-07-15-Summer-just-got-hotter-Zillow-debuts-five-powerful-new-features
