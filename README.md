@@ -2,7 +2,7 @@
 
 *what it costs to keep last year's life*
 
-**What does it cost to live last year's life?** A replication-cost price
+**What does it cost to keep last year's life?** A replication-cost price
 measure for bottom-40%-income US households: freeze the consumption experience
 a household actually bought last year — including formerly-included features —
 and price the cheapest way to reproduce it on today's menu. Published as a
