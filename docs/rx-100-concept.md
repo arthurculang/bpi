@@ -1,6 +1,7 @@
 # The Restoration Corridor (RX-100) — a 100%-of-basket concept
 
 `v0 · 2026-07-07 · workstream E · STATUS: CONCEPT / design direction — owner-greenlit 2026-07-06 to document, NOT binding. Any full-basket headline goes through discussant review and a dedicated pre-committed gate first; nothing here touches the signed-off Phase 1 pre-registration, the G0/G1 bands, or the wave schedule. All numbers are illustrative (mock), for shape only.`
+`Formalized for external review as docs/rx-100-proposal.md (2026-07-07) — the estimand + partial-identification version submitted to the August methods packet. This note remains the internal design record; the proposal is the discussant-facing artifact.`
 
 ## Why this exists
 
