@@ -50,4 +50,10 @@
 - Approach with: the spec, the codebook, the G0 band (pre-committed), and the
   honesty exhibits (Southwest gap ≈ small; negative controls) up front — the
   design's self-imposed constraints are the recruiting pitch.
+- **Packet now includes `docs/rx-100-proposal.md`** (the Restoration Corridor —
+  a full-basket partial-identification proposal) as a forward-looking item under
+  review, distinct from the Phase 1 material the review gates. Its §7 asks are
+  pitched to the trio's strengths: the estimand and cross-stratum restrictions
+  for Fox; the A-K/audit-power and "what would make you reject it" for Greenlees
+  (critical prior); the B40 weighting floor for Jaravel.
 - Honorarium per WS-H budget memo line 7.
