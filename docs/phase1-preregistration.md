@@ -291,11 +291,12 @@ url; loaded (yes | partial | blocked — blocked cells retained); missing_code
 
 - **Step 0 (T−1, sandbox):** auto-generated wave worksheet (routes × cells,
   travel dates with blackout iteration applied, WN manual list, deterministic
-  audit rotation per §4) — owner review ~15 min. **Build note:** the worksheet
-  generator and the Step-4 ingestion validator (schema + range checks for air,
-  streaming, and grocery records — the record schemas are §5 and the Prompt
-  B/C field lists) are sandbox deliverables **built and committed with wave-0
-  prep (September 2026)**; wave 0 does not run without them.
+  audit rotation per §4) — owner review ~15 min. **Tooling (built 2026-07):**
+  `pipeline/build_worksheet.py` generates this worksheet from the frozen panel +
+  a wave date (blackout iteration, WN list, deterministic audit rotation, all
+  pinned by `engine/test_wave_tools.py` against the §2 date traces); the Step-4
+  ingestion validator is `pipeline/validate_capture.py` (schema + range + QC-2/3/8
+  checks for air, streaming, and grocery records). Both exist ahead of wave 0.
 - **Step 1:** `capture.py --sector air`, `--sector streaming` (+ `--sector
   banking` quarterly). Never run unfiltered (the needs-url pitfall). ~20 min
   incl. manifest inspection; failed urgent targets → documented `--manual`
@@ -311,7 +312,8 @@ url; loaded (yes | partial | blocked — blocked cells retained); missing_code
   ~45 min.
 - **Step 4:** ingest to `data/captures/<topic>-<YYYY-MM-DD>.json` (`_capture`
   block: method, provenance_grade, gaps_and_follow_ups; git commit =
-  authoritative timestamp); the schema/range validator fails loudly; ~30 min.
+  authoritative timestamp); `pipeline/validate_capture.py` fails loudly on a
+  malformed record; ~30 min.
 - **Step 5:** event triage — automated diff vs the prior wave (fees, crosswalk
   families, attribute vectors, bag size limits); any change drafts a ledger
   entry with T1/T2/T3 checks; decreases flow identically; unrestorable
