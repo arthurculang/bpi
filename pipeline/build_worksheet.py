@@ -31,6 +31,10 @@ DEPART_OFFSET = 21                     # days after wave day
 RETURN_OFFSET = 28
 LEGACY = ("AA", "DL", "UA", "AS")      # fee-schedule carriers, audited in-flow
 WN = "WN"                              # owner-manual
+# Fixed-date federal holidays that can land on a first Tuesday (the floating
+# federal holidays are all Mondays or Thursdays and never can). Per §2, the
+# CAPTURE day shifts to the next business day; travel dates stay anchored.
+FIXED_HOLIDAYS = {(1, 1), (6, 19), (7, 4), (11, 11), (12, 25)}
 
 
 def fourth_thursday_november(year):
@@ -84,6 +88,14 @@ def build(panel, wave_day):
     depart, ret, shifted = grid_dates(wave_day)
     wnum = wave_number(wave_day)
 
+    # §2 holiday-waveday rule: capture shifts to the next business day;
+    # itinerary dates stay anchored to the scheduled first-Tuesday wave day.
+    capture_day = wave_day
+    waveday_shifted = False
+    while (capture_day.month, capture_day.day) in FIXED_HOLIDAYS or capture_day.weekday() >= 5:
+        capture_day += dt.timedelta(days=1)
+        waveday_shifted = True
+
     # deterministic audit rotation over legacy cells
     legacy_cells = [x for x in cells if x["carrier"] in LEGACY]
     audit = []
@@ -97,9 +109,12 @@ def build(panel, wave_day):
         "wave_id": f"wave-{wnum:02d}-{wave_day.isoformat()}",
         "wave_number": wnum,
         "wave_day": wave_day.isoformat(),
+        "capture_day": capture_day.isoformat(),
         "depart_date": depart.isoformat(),
         "return_date": ret.isoformat(),
-        "grid_shift": "holiday" if shifted else "",
+        "grid_shift": ";".join([s for s in (
+            "holiday" if shifted else "",
+            "holiday-waveday" if waveday_shifted else "")] ).strip(";"),
         "agent_cells": [x for x in cells if x["carrier"] != WN],
         "wn_manual_routes": wn_manual,
         "audit_cells": audit,

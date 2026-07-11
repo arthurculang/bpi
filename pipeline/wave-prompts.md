@@ -124,9 +124,11 @@ OUTPUT: EXACTLY ONE fenced JSON block, one object per cell:
  loaded, page_title, url, notes}.
 Prices verbatim, never rounded, never computed by you.
 
-DECEMBER LINK WAVE ONLY: run this prompt THREE times same-day per the wave
-worksheet (the observation of record is the per-cell median, computed at
-ingestion, never by you).
+DECEMBER LINK WAVE ONLY: after the full run, perform TWO additional focused
+re-quote passes same-day over these same cells, recording ONLY the ancillary
+vector per cell (carry-on, first/second bag, seat — not the fares). The
+observation of record for each dynamic ancillary is the per-cell median across
+the three readings, computed at ingestion, never by you.
 ```
 
 ## Prompt C — streaming tiers + grocery basket (static pages)

@@ -22,7 +22,7 @@ This memo conceptualizes that extension: the **Restoration Corridor**, a
 partial-identification interval `[CPI + L, CPI + U]` covering the whole basket,
 published as the full-basket companion to the point-identified covered-sector
 Gap. It never becomes a rival index and never makes a "true inflation" claim
-(codebook §11, spec P4/Knob 3) — it is a spread interval over official CPI.
+(the no-"true-inflation" house rule; the unconditional upper-bound property, spec P4; spread-only publication, Knob 3) — it is a spread interval over official CPI.
 
 ## 1. Two things wrong with "26%", one of them just arithmetic
 
@@ -70,11 +70,11 @@ data, at zero collection cost**: the **weighting effect**,
 weights, applied to the published CPI item relatives (codebook §9 already
 specifies this term). It is an R-CPI-I-style exhibit under this project's pinned
 weight vintage (P11), and it reconciles against the published R-CPI-I
-bottom-quintile series (~0.28pp/yr above CPI-U) as a built-in correctness check.
+lowest-quintile series computed under the pinned vintage rules as a built-in correctness check (the spec's Seam-2 ≈0.28pp/yr figure is the bottom-vs-top quintile gap — an order-of-magnitude anchor for pure reweighting, not this exhibit's expected value against CPI-U).
 It ships as a labeled standing exhibit almost immediately. **Near-term win #2.**
 
 The reweighting term is kept as the corridor's *floor*, never as the product —
-the spec's Seam-2 analysis shows reweighting alone buys only ~0.28pp/yr, so the
+the spec's Seam-2 analysis shows pure reweighting buys effects on the order of ~0.3pp/yr, so the
 novelty must live on the price side. The corridor keeps both, in their correct
 roles.
 
@@ -83,9 +83,11 @@ roles.
 When the **lower bound clears zero**, the release can say (mock):
 
 > *"Across 100% of the CPI basket, keeping last year's life cost a bottom-40%
-> household between CPI + 0.2 and CPI + 1.4 points more over the year — and it
-> exceeded CPI **regardless of what happened in the parts we cannot yet
-> price**, under the stated assumptions."*
+> household between CPI + 0.2 and CPI + 1.4 points more over the year (over
+> the B40-weighted CPI comparator; the headline-CPI-U row adds the
+> point-identified weighting effect) — and it exceeded CPI **regardless of
+> what happened in the parts we cannot yet price**, under the stated
+> assumptions."*
 
 That "regardless of the remainder" clause is *earned*: the possibility that the
 remainder moved the other way is priced into `L`, not assumed away. When the
@@ -103,7 +105,7 @@ silently load-bearing:
 
 - **A-K (outcome space; weakest, always on):** per-stratum `|ρ_i − π_i| ≤ K` per
   link year, K calibrated from observed dispersion (audited-sector gaps,
-  R-CPI-SC, the PPI's 1.6% correction; mock K ≈ 3pp). Falsified the moment any
+  R-CPI-SC, and BLS's 2012 counterfactual estimate that the 2009 scheduled-air PPI would have been 1.6% lower without its fee adjustment; mock K ≈ 3pp). Falsified the moment any
   audited sector prints beyond K — which forces a published K reset and a wider
   corridor. Without *any* outcome-space bound the identified set is vacuous
   (±∞), and the release says so — which is itself the answer to "why not just
@@ -130,7 +132,7 @@ silently load-bearing:
 
 ## 6. House-rule compliance
 
-Spread-only over CPI-U / B40-CPI (never a rival level index — Knob 3 / P5);
+Spread-only over CPI-U / B40-CPI (never a rival level index — Knob 3, spread-only);
 no "true inflation," no cost-of-living claim; RX stays an **upper bound** on
 constant-experience cost growth *within the restoration-priced strata*
 (Assumption Q scoped explicitly to Tier 1); negative and zero prints are
@@ -146,9 +148,7 @@ provenance and its governing assumption printed beside it.
    (healthcare + OER) dominates before the Tier-2 audits land, the first prints
    could straddle zero. The audits are what collapse it — real 2027–28 work,
    not a day-one win.
-3. **Healthcare (~7% OOP) and OER (~19%) are permanent asterisks** — neither can
-   ever be restoration-priced or audited to ≈0, so the corridor always carries
-   irreducible width from them. Stated, not hidden.
+3. **Healthcare (~7% OOP) and OER (~19%) are standing asterisks** — neither can be restoration-priced or audited to ≈0 today, so the corridor carries irreducible width from them for the foreseeable horizon (healthcare has a live revisit trigger — state facility-fee disclosure laws — per plan P7; OER has none). Stated, not hidden.
 4. **"Shadowstats with extra steps" is the reputational risk.** The corridor is
    *more* defensible than the point estimate, not less: it is a spread, it
    prices its own ignorance, and it publicly shows where CPI passes — but the
