@@ -174,7 +174,11 @@ documented per plan P10 (public where rights allow, access-on-request otherwise)
 
 ## 13. Known open items for v1 (freeze deadline: Phase 0 note)
 
-- Rental, wireless, lodging attribute dictionaries (with Phase 2 module designs).
+- Rental, wireless, lodging attribute dictionaries (with Phase 2 module
+  designs). **Rent and wireless module designs drafted 2026-07-11
+  (`docs/phase2-rent-module.md`, `docs/phase2-wireless-module.md`, each with
+  its attribute dictionary v1) — DRAFTS, binding only via their dedicated
+  pre-registrations + band files.** Lodging still pending.
 - Air route-panel definition (top-N T-100 routes, booking-grid) — frozen only
   after gate G0 passes. **G0 passed 2026-07-04; the panel pre-registration is
   drafted at `docs/phase1-preregistration.md` (formula:
