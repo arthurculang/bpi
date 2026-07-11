@@ -94,6 +94,17 @@ class TestWorksheet(unittest.TestCase):
         self.assertTrue(build(panel_fixture(), dt.date(2026, 12, 1))["december_link_wave"])
         self.assertFalse(build(panel_fixture(), dt.date(2026, 10, 6))["december_link_wave"])
 
+    def test_holiday_waveday_shifts_capture_not_travel(self):
+        # July 4, 2028 is the first Tuesday of July 2028 (fixed-date holiday).
+        ws = build(panel_fixture(), dt.date(2028, 7, 4))
+        self.assertEqual(ws["capture_day"], "2028-07-05")     # next business day
+        self.assertIn("holiday-waveday", ws["grid_shift"])
+        self.assertEqual(ws["depart_date"], "2028-07-25")     # anchored to Jul 4 +21
+        # normal wave: capture day == wave day, no flag
+        ws2 = build(panel_fixture(), dt.date(2026, 10, 6))
+        self.assertEqual(ws2["capture_day"], ws2["wave_day"])
+        self.assertNotIn("holiday-waveday", ws2["grid_shift"])
+
 
 class TestCaptureValidator(unittest.TestCase):
     def _air(self, **over):
@@ -125,6 +136,39 @@ class TestCaptureValidator(unittest.TestCase):
     def test_bad_bag_source_fails(self):
         self.assertTrue(any("first_bag_source" in e
                             for e in validate([self._air(first_bag_source="carrier-pigeon")], "air")))
+
+    def test_qc2_exempt_with_pair_broken_code(self):
+        # the frozen rule: a violation is fine IFF flagged with the right code
+        bad = self._air(main_outbound_leg_usd=90.0, main_return_leg_usd=90.0,
+                        missing_code="MISS/PAIR-BROKEN")
+        errs = validate([bad], "air")
+        self.assertFalse(any("QC-2" in e for e in errs))
+
+    def test_qc3_exempt_when_flagged(self):
+        rec = self._air(basic_outbound_leg_usd=None, basic_return_leg_usd=None,
+                        main_outbound_leg_usd=None, main_return_leg_usd=None,
+                        missing_code="MISS/SITE-ERR")
+        errs = validate([rec], "air")
+        self.assertFalse(any("QC-3" in e for e in errs))
+
+    def test_qc8_member_price_collision_detected(self):
+        rec = self._air(member_price_notes="Saver$ Club fare $100.00 shown beside standard")
+        errs = validate([rec], "air")     # basic outbound is 100.0 -> collision
+        self.assertTrue(any("QC-8" in e for e in errs))
+        ok = self._air(member_price_notes="Saver$ Club fare $79.00 shown beside standard")
+        self.assertFalse(any("QC-8" in e for e in validate([ok], "air")))
+
+    def test_ulcc_prompt_fields_canonicalized(self):
+        # Prompt B emits low/second + bag1/bag2 names; the validator must
+        # enforce the same schema through the canonicalization map.
+        rec = {"wave_id": "w1", "route": "LAX-LAS", "carrier": "NK",
+               "pair_status": "pair=not-applicable", "loaded": "yes",
+               "low_outbound_leg_usd": 45.0, "low_return_leg_usd": 49.0,
+               "bag1_usd": 55.0, "bag1_source": "in-flow",
+               "bag2_usd": 65.0, "bag2_source": "in-flow"}
+        self.assertEqual(validate([rec], "air"), [])
+        bad = dict(rec, bag1_source="carrier-pigeon")
+        self.assertTrue(any("first_bag_source" in e for e in validate([bad], "air")))
 
     def test_streaming_and_grocery(self):
         s = {"seller": "Netflix", "tier_name": "Standard", "monthly_price_usd": 17.99,

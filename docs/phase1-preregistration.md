@@ -250,7 +250,9 @@ the identical diff (codebook §4 symmetry).
   record): no multi-wave screen applies, because dynamic prices ARE the menu.
   Instead the December observation of record is the **median of three
   same-day sessions** per ULCC cell in the December wave (fixed reconciliation
-  rule, pre-registered; ~+30 min in December), which is what defuses a
+  rule, pre-registered; executed as two focused ancillary re-quote passes over
+  the ULCC cells after the full run — ≈ +2 h in December, honestly priced at
+  the measured per-cell basis), which is what defuses a
   single-session A/B-test draw without operator judgment.
 
 **Fare-family crosswalk (frozen; renames are label-reshuffle non-events unless
@@ -329,8 +331,9 @@ url; loaded (yes | partial | blocked — blocked cells retained); missing_code
 since the basket's UPCs freeze at the December Ledger freeze, so the
 October–November waves carry no grocery quotes; streaming only as a flagged
 fallback) + the rotating audit's manual saves ~20 min + Steps 0/1/4/5/6
-~1.5 h ≈ **8.4 h/wave at 18 routes from December 2026 (~7.8 h before the
-grocery start); ~9.5 h/month with the press watch.** Above the
+~1.5 h ≈ **8.7 h/wave at 18 routes from December 2026 (~8.1 h before the
+grocery start); ~9.7 h/month with the press watch** — the components sum to
+8.7, and the stated total is the sum, not a rounding-down of it. Above the
 single-digit target's comfortable interior — which is exactly why: **wave 0
 (September 2026) is an unpublished dry run** measuring per-cell timing and
 validating prompts/QC/ingestion, and its wall-clock total (Step-0 start to
@@ -345,8 +348,8 @@ committed totals exceed 9.0 h):** (1) shrink the audit subsample; (2) drop the
 that does not; if none qualifies, that band keeps 6** (deterministic branch,
 no judgment call). Shrinkage is pre-registered, not improvised.
 
-**December extras (+3.5–4.5 h):** the link-wave manual-save upgrade; the
-ULCC median-of-three-sessions capture (§4, ~30 min); the annual
+**December extras (+5–6.5 h):** the link-wave manual-save upgrade; the
+ULCC median-of-three-sessions capture (§4, ≈2 h); the annual
 Ledger re-freeze from attribute records (no superset ratchet, no forgiveness
 drift — codebook §7); incidence refresh; the chained-vs-direct drift
 diagnostic; the transient screen on the December min; concordance /
@@ -525,7 +528,7 @@ capture share sourced and labeled — this is the Southwest honesty-exhibit
 machinery generalized, and it is a prediction published before the comparison,
 not a tuning knob. Worked number (executable — `engine/test_phase1.py`): Δfee
 = $10/segment on a 2-segment round trip, denominator $325 one-way, incidence
-17% ⇒ event relative for the checking profile = 20/650 = **+3.08%**, sector
+17% ⇒ event relative for the bag-checking profile (AIR-P3) = 20/650 = **+3.08%**, sector
 contribution = **+0.52pp** gross, predicted residual Gap at an 80% capture
 share = **+0.10pp**. No composite index is formed from these contributions
 before Gate G3 (plan P10).
@@ -614,6 +617,21 @@ relative, is the publication object.
    below is checked.
 
 ## Amendment log
+
+- 2026-07-10 (post-sign-off input corrections, logged per §14 rule 2 — no
+  MAY-NOT item touched): (1) §6 honest totals restated to the actual component
+  sum — ≈8.7 h/wave from Dec 2026 (~8.1 h pre-grocery; ~9.7 h/month with the
+  press watch); the previous ≈8.4/~7.8/~9.5 understated the document's own
+  arithmetic by ≈0.3 h. The 9.0 h de-scope trigger and the de-scope order are
+  unchanged (both MAY-NOT); the margin to the trigger is thinner and now
+  honestly stated. (2) §4/§6: the December ULCC median-of-three time restated
+  from ~30 min to ≈2 h (two focused ancillary re-quote passes priced at the
+  measured per-cell basis — the prior figure was inconsistent with the
+  document's own timing basis); December extras now +5–6.5 h; the wave-prompts
+  December note re-scoped to ancillary-only re-quote passes. (3) §11 worked
+  number: "the checking profile" disambiguated to "the bag-checking profile
+  (AIR-P3)" (it collided with BNK-P1-CHECKING). Found by the 2026-07-10 deep
+  semantic audit; arithmetic independently re-verified before amending.
 
 - 2026-07-06 (pre-sign-off, from the adversarial review of the draft package —
   46 confirmed findings across 5 review lenses; no in-scope computation has
