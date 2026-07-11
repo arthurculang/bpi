@@ -1,0 +1,113 @@
+{
+  "_schema": {
+    "id": "stable entry id: imp-<stratum-or-sector-slug>-<seller-slug-or-marketwide>-<yyyy[mm]>; the month is included only at verified granularity (yyyy alone until the effective month is byte-verified); a sector slug substitutes where the stratum assignment is pending an owner ruling; ids are immutable once committed even if verification later refines the date, stratum, or seller (stability beats pattern purity; the refinement is logged in the entry)",
+    "stratum": "CPI item stratum per docs/rx-100-tier-map.md naming (needs_verification flags travel with the name until the owner's stratum-list pull)",
+    "tier": "corridor tier of the stratum at entry time: R | A | B | null (pending owner ruling \u2014 corridor_use must then state both branches)",
+    "sector": "coverage-map sector",
+    "seller": "firm, or 'industry-wide' with the aggregation basis stated in the entry",
+    "improvement": "what got better, one sentence \u2014 dated, seller-attributable, menu-adjacent (posted inclusion added / named fee eliminated or reduced / dominating tier introduced); diffuse quality drift and hedonic judgments are NOT registrable",
+    "effective": "ISO date or range",
+    "link_year": "the link year containing the effective date (codebook \u00a76 applied symmetrically); an improvement feeds that link year's I_i ONLY. Entries whose link years precede the corridor's first computed link can never feed live I_i arithmetic and are marked corridor-dead: machinery demonstration / A-Q evidence only",
+    "improvement_type": "re-bundling | fee-elimination | fee-reduction | quality-add | dominating-tier-introduction | access-expansion",
+    "monetization_route": "codebook \u00a75 route hierarchy run in reverse: named-fee-eliminated | a-la-carte-removed | tier-delta-compressed; the route caps the magnitude exactly as it caps degradations; n/a for cross-reference/non-event entries",
+    "superset_route_flag": "true when only a superset-style route prices the improvement \u2014 the interval-and-flag discipline, mirroring the ledger's superset_flag: the magnitude publishes as an interval with the point at the route's cap, flagged, never as a bare point; null until the monetization route is ruled",
+    "magnitude": "monetized annual I contribution with derivation and provenance tag (data/incidence-proxies.md pattern); null until owner-verified \u2014 unverified magnitudes are never asserted; NEVER netted against degradations",
+    "incidence": "utilization share with provenance tag per codebook \u00a78 rules; the published [0%,100%] interval where no usable seller-specific source exists. Role pinned: magnitudes enter I_i incidence-weighted, exactly as M_i events weight (codebook \u00a78) \u2014 the bound formula's I_i is the incidence-weighted sum",
+    "corridor_use": "Tier B: feeds the entry's link-year I_i in the stratum bound [-I_i/E_i, +M_i/E_i] (moves L). Tier R: zero I_i in ALL cases \u2014 where the improvement creates a cheaper weakly-dominating path or eliminates/reduces a named fee it prints through codebook \u00a74 negative-event grammar in the Inclusion Ledger (ledger_crossref required once the event exists); where it is irrelevant to every frozen vector it is a \u00a74 NON-event and ledger_crossref stays null with the non-event ruling cited \u2014 compliant by rule. Tier A: strata are unmeasured, no Inclusion-Ledger path exists \u2014 A-Q evidence only, zero I_i. Tier null: both candidate branches stated pending the owner ruling",
+    "ledger_crossref": "ledger event id in data/ledger-events.json where the same fact is a ledger negative event; null where no event exists \u2014 including permanently, by rule, for Tier-R frozen-vector non-events (ruling cited in corridor_use)",
+    "materiality": "pass/fail against the shared numeric de-minimis floor \u2014 ONE number governing both registers' corridor arithmetic (it gates M_i and I_i entry; the Exclusion census itself stays floor-free for observability), whose first existence is this register's binding G4 commit (never stated in design docs \u2014 first-existence discipline); null until the floor exists",
+    "status": "candidate | verified-preprint | registered | printed",
+    "verified": "date of last owner byte-verification; null for candidates",
+    "evidence_capture": "snapshot manifest hash or capture.py --manual registration + seller's own document + >=1 independent corroboration (codebook \u00a712 format parity with the Exclusion Register); null until captured \u2014 open capture tasks go in owner_tasks, never here",
+    "owner_tasks": "open owner actions for the entry (captures to run, rulings to make, facts to byte-verify); never a substitute for the evidence fields",
+    "sources": "primary or strongest available; full evidence in the archive"
+  },
+  "_rules": [
+    "Structure mirrors data/ledger-events.json's _schema-plus-array pattern with these stated deviations: the array key is 'entries' (ledger: 'events'); added fields link_year, tier, corridor_use, superset_route_flag, materiality, owner_tasks; extended status enum. The mirror claim is scoped to the pattern, not field-for-field.",
+    "Inclusion requires ALL of: documented-and-dated (T1 in reverse), menu-adjacent, monetizable by the reverse route hierarchy, above the shared materiality floor (one number for both registers' corridor arithmetic, set only in this register's binding G4 commit \u2014 no Exclusion-side floor exists before that commit, and the Exclusion census stays floor-free).",
+    "Link-year scoping: an improvement belongs to exactly the link year containing its effective date (codebook \u00a76 applied symmetrically) and feeds that link year's I_i only; entries whose link years precede the corridor's first computed link are corridor-dead (A-Q evidence / machinery demonstration).",
+    "No netting: I_i and M_i are separate sums, published separately; improvements never offset degradations within an entry or a stratum line.",
+    "No double-counting, split by tier: Tier R improvements print through codebook \u00a74 negative-event grammar ONLY where a cheaper weakly-dominating path or named-fee elimination exists (crossref required once the event exists); Tier R improvements irrelevant to every frozen vector are \u00a74 non-events (crossref null by rule, ruling cited); Tier A strata have no Inclusion-Ledger path \u2014 A-Q evidence only. Zero I_i in every non-B case.",
+    "Evidence FORMAT bar is identical to the Exclusion Register's (codebook \u00a712); admissibility is deliberately stricter (menu-adjacency, reverse-route monetizability) \u2014 the residual assumption this creates is named in docs/rx-100-audit-protocols.md \u00a77 as the A-Q residual clause and proposed for the proposal \u00a73 ladder with a sensitivity row.",
+    "Rejection log: every candidate rejected at the menu-adjacency or monetizability test is logged with its reason, and the rejection log publishes as a public artifact.",
+    "Symmetric bounty, extended: a third party documenting a missed improvement is an A-Q hit handled by the correction protocol, exactly as a missed degradation is an A-R hit \u2014 and a third party defensibly monetizing a REJECTED candidate is an A-Q hit too (a rejected candidate was not 'missed'; without this extension it would escape the bounty by construction).",
+    "No entry below status 'verified-preprint' may appear in any public artifact; 'candidate' entries exist only to queue owner verification."
+  ],
+  "entries": [
+    {
+      "id": "imp-newvehicles-industrywide-2023",
+      "stratum": "New vehicles",
+      "tier": "B",
+      "sector": "vehicles",
+      "seller": "industry-wide (basis: US new-vehicle fleet; per-seller decomposition an owner task)",
+      "improvement": "[owner-verify] Automatic emergency braking became standard equipment across substantially all US new vehicles (industry voluntary commitment reported substantially complete circa 2023-24; a federal FMVSS standard was finalized subsequently) \u2014 a documented inclusion added to the posted configuration",
+      "effective": "[owner-verify] ~2023 (commitment completion reporting); federal compliance date later",
+      "link_year": "[owner-verify] ~2023 link (codebook \u00a76 by effective date) \u2014 precedes the corridor's first computed link: CORRIDOR-DEAD, machinery demonstration / A-Q evidence-base entry, never a live I_i feed",
+      "improvement_type": "quality-add",
+      "monetization_route": "a-la-carte-removed ([owner-verify]: prior posted option-package pricing for AEB as the monetization anchor)",
+      "superset_route_flag": null,
+      "magnitude": null,
+      "incidence": "[0%,100%] until a usable source is tagged",
+      "corridor_use": "Tier B in form, but corridor-dead by link year: demonstrates the I_i machinery and feeds the A-Q evidence base; contributes to no live corridor print",
+      "ledger_crossref": null,
+      "materiality": null,
+      "status": "candidate",
+      "verified": null,
+      "evidence_capture": null,
+      "owner_tasks": "byte-verify commitment completion reporting, FMVSS rule number and compliance date, and whether the change is menu-posted per seller or industry-wide; decompose per-seller if per-seller menu posting exists",
+      "sources": [
+        "[owner-verify] NHTSA/IIHS commitment completion reporting; FMVSS final rule (number and dates unverified \u2014 do not cite until byte-verified)"
+      ]
+    },
+    {
+      "id": "imp-medicaloop-otc-contraceptive-2024",
+      "stratum": "Nonprescription drugs is the natural destination name, but the improved experience originates in prescription-gated medical OOP (A-H territory); stratum assignment is an owner ruling at verification",
+      "tier": null,
+      "sector": "healthcare-oop",
+      "seller": "[owner-verify] the OTC daily oral contraceptive's manufacturer",
+      "improvement": "[owner-verify] First over-the-counter daily oral contraceptive launched at a posted national retail price (2024), converting a prescription-gated experience into a posted-price retail path",
+      "effective": "[owner-verify] 2024 (launch date and month unverified \u2014 id carries yyyy granularity per the _schema rule)",
+      "link_year": "[owner-verify] ~2024 link \u2014 precedes the corridor's first computed link: CORRIDOR-DEAD regardless of the tier ruling",
+      "improvement_type": "access-expansion",
+      "monetization_route": "named-fee-eliminated ([owner-verify]: the avoided prescriber-visit path needs a defensible posted-price anchor, else the entry fails the menu-adjacency test and is rejected at verification \u2014 rejection is an acceptable outcome, and it would enter the public rejection log)",
+      "superset_route_flag": null,
+      "magnitude": null,
+      "incidence": "[0%,100%] until a usable source is tagged",
+      "corridor_use": "Pending the owner's stratum/tier ruling, both branches stated: B-stratum ruling (the prescription-gated medical-OOP path, A-H territory) \u2192 I_i machinery demonstration on the A-H upper-bound side's symmetric ledger (corridor-dead by link year, so never a live feed); A-stratum ruling (Nonprescription drugs, Tier A per the tier map) \u2192 A-Q evidence only, zero I_i by the tier rule",
+      "ledger_crossref": null,
+      "materiality": null,
+      "status": "candidate",
+      "verified": null,
+      "evidence_capture": null,
+      "owner_tasks": "stratum/tier ruling at verification; byte-verify launch date and posted national price; menu-adjacency ruling given the persisting prescription path",
+      "sources": [
+        "[owner-verify] FDA approval/launch reporting and posted retail price pages (unverified \u2014 do not cite until byte-verified)"
+      ]
+    },
+    {
+      "id": "imp-wireless-att-202604",
+      "stratum": "Wireless telephone services",
+      "tier": "R",
+      "sector": "wireless",
+      "seller": "AT&T",
+      "improvement": "AT&T's April 2026 legacy-plan price increases were explicitly paired with hotspot-data additions (web-verified in the project plan \u00a72.2) \u2014 a documented quality-add on measured-tier menus",
+      "effective": "2026-04",
+      "link_year": "2026 link (effective 2026-04, codebook \u00a76)",
+      "improvement_type": "quality-add",
+      "monetization_route": "n/a \u2014 non-event cross-reference entry; no I_i monetization is performed (zero I_i by rule)",
+      "superset_route_flag": null,
+      "magnitude": null,
+      "incidence": "n/a \u2014 cross-reference entry",
+      "corridor_use": "Tier R: zero I_i \u2014 and a codebook \u00a74 NON-event under frozen-vector logic (no cheaper weakly-dominating path; extra hotspot is irrelevant to a frozen baseline that lacked it \u2014 plan \u00a72.2: the index correctly ignores it), so ledger_crossref is null BY RULE with this ruling as the citation; the entry exists to demonstrate the register does not launder hedonic offsets into measured strata",
+      "ledger_crossref": null,
+      "materiality": null,
+      "status": "candidate",
+      "verified": null,
+      "evidence_capture": null,
+      "owner_tasks": "capture the AT&T notice pages via capture.py before they rotate (primary evidence for the A-Q evidence base)",
+      "sources": [
+        "Restoration Index Project Plan v00.03.13 \u00a72.2 (fact web-verified there; primary AT&T notice pages still need capture)"
+      ]
+    }
+  ]
+}
