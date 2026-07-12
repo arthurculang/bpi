@@ -1,6 +1,6 @@
 # Restoration Index — Project Plan
 
-`v00.03.16 · 2026-07-12 02-21 · internal working doc · companion to: Restoration Index Spec v00.02.00`
+`v00.03.17 · 2026-07-12 05-10 · internal working doc · companion to: Restoration Index Spec v00.02.00`
 
 ---
 
@@ -299,6 +299,8 @@ CONSTRAINTS
 ---
 
 ## Changelog
+
+- **v00.03.17** (2026-07-12 05-10) — **Byte-grade closure of the weights chain (owner uploaded both XLSX files).** `ce-table1101-quintiles-2024.xlsx` and `r-cpi-i-series-dec2005-dec2024.xlsx` registered in `data/captures/` with SHA-256 (`xlsx-registration-2026-07-12.json`); **every value the coverage restatement used cross-checks against Table 1101 exactly.** R-CPI-I Dec–Dec quintile series extracted (byte-grade: cumulative Dec05–Dec24 Q1 +65.6% vs Q5 +57.5% = +8.1pp, ≈0.43pp/yr — flag: spec Seam-2 cites ≈0.28pp/yr, reconcile window at next spec revision; 2024: Q1 +3.02 vs Q5 +2.90) — the weighting-effect exhibit's validation anchor. Availability finding hardened: Table 1101's hierarchy carries NO airline/cable/internet/trash quintile detail, so the 2023-share conventions stand permanently absent a BLS-API detail pull. §9 item 7 now closed except the R-CPI-I *relative-importance* XLSX (the B40 weight vintage, separate file, still an owner pull).
 
 - **v00.03.16** (2026-07-12 02-21) — **CPI relative-importance capture completed (Dec 2024, 293 items, majors close to 100.000 exactly) and the real-weight computations run** (`pipeline/restate_coverage.py --cpi`, executable). Tier-map join (173/187 strata, 95.97% of the CPI-U basket): **Tier R 17.8% / Tier A 24.3% / Tier B 53.8%** — the mocks (29/33/40) corrected again, chiefly because OER's true CPI-U weight is 26.3%; Tier B's majority share is the honest headline (the corridor's width is structurally OER-dominated under CPI-U weights). Phase-2 restoration-priced composition under real weights: **12.49% CPI-U / 15.28% CPI-W** (+0.7 Admissions R-queued); rent 7.50→10.44 and OER 26.28→21.58 CPI-U→CPI-W shows the direction the pending B40 R-CPI-I vintage pulls (B40 renters 57%/42%). Coverage-restatement doc, tier map, and both RX-100 docs updated with computed values; 14 unmatched tier rows are ✓verify name variants for the owner's byte-verification pass. Remaining owner pulls: R-CPI-I relative-importance XLSX + CE Table 1101 XLSX (--manual registrations).
 
