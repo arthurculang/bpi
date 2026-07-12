@@ -1,6 +1,6 @@
 # Restoration Index — Project Plan
 
-`v00.03.18 · 2026-07-12 14-18 · internal working doc · companion to: Restoration Index Spec v00.02.01`
+`v00.03.19 · 2026-07-12 15-12 · internal working doc · companion to: Restoration Index Spec v00.02.01`
 
 ---
 
@@ -299,6 +299,8 @@ CONSTRAINTS
 ---
 
 ## Changelog
+
+- **v00.03.19** (2026-07-12 15-12) — **Pre-July-31 heavy-lift batch complete (items 1–4).** (1) `docs/discussant-packet-memo.md` — the reviewer-facing reading guide: 11-artifact inventory, per-seat reading orders (Fox/Greenlees/Jaravel), the corrections trail led as the strongest exhibit, GA logistics; outreach drafts bumped v1 (tenses fixed for the G0 pass; memo = lead attachment). (2) `docs/phase0-note-draft.md` — the October release note drafted in full (design→dual-review→revise; 22 findings applied): abstract, method-in-brief, the commit-ordering evidence story stated with what the git graph does and does not prove, the full G0 result with the out-of-band corner disclosed, the what-CPI-captures honesty section, the Phase 1 pre-registration announcement with the corrections trail owned, the events gallery labeled non-index-output, limitations verbatim-adjacent to spec §12; 12 [owner-verify] flags + DOI venue and GA-timing open questions for the owner. (3) **Spec bumped to v00.02.01** (errata: Seam-2 reconciled as a convention difference — geometric-annualized 0.28pp/yr vs simple per-year ≈0.43, same registered series, both byte-verified; grocery comparator synced to the vintage-aware two-stage convention in §4.4/§10); living pointers updated. (4) `docs/phase2-lodging-module.md` — the Phase 2 trio completed (27 findings applied): tight attribute dictionary, small fixed-property panel, OTA-vs-direct channel ruling, and the FTC-rule compression falsification test with honest pre-period-reconstruction limits; band semantics deferred to the Phase 2 band file. Suite 59 green. Workload-estimate discipline in effect (actuals: item 1 ~150k under estimate; items 2+4 combined ~930k subagent tokens, 45 min; item 3 ~80k direct).
 
 - **v00.03.18** (2026-07-12 14-18) — **Weights chain CLOSED: the R-CPI-I relative-importance vintage landed (owner upload) and the true-B40 numbers are computed.** File registered (`r-cpi-i-relative-importance-dec2005-dec2023.xlsx`, sha256 0b6b815b…); B40 weights = expenditure-weighted Q1+Q2 (E1 11.33/E2 14.83, from the file); item-level via the documented within-EC allocation, all 70 ECs matched (`r-cpi-i-b40-weights-dec2023.json`, `b40-weights-joined-2026-07-12.json`). **Final: Tier R 23% / A 28% / B 49% of the true-B40 basket; Phase-2 composition 17.68% (vs 12.49 CPI-U); rent 12.87%; OER 24.04%; airline 0.43%.** B40 weighting recovers ~5pp of coverage over CPI-U; OER remains the corridor's width driver even under correct weights (43–58% of B40 households own), elevating A-O to the review's most consequential question. Restatement doc, tier map, and both RX-100 docs updated to final values; §9 item 7 fully closed. Also this turn: workload-estimate discipline adopted (estimates table precedes any nontrivial task).
 
