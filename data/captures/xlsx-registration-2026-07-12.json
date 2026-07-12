@@ -1,0 +1,64 @@
+{
+  "_capture": {
+    "method": "owner file upload (downloaded from bls.gov by owner, 2026-07-12)",
+    "provenance_grade": "byte-verified (SHA-256 below; original filenames: rcpiidata.xlsx, cu-income-quintiles-before-taxes-2024.xlsx)",
+    "sources": {
+      "r-cpi-i": "bls.gov/cpi/research-series/r-cpi-i.htm",
+      "table1101": "bls.gov/cex/tables (2024)"
+    }
+  },
+  "sha256": {
+    "data/captures/r-cpi-i-series-dec2005-dec2024.xlsx": "978de8ca1057d9d372d36c9712ad6e5b9dbaf65b4c22a9214a119c88f048d16e",
+    "data/captures/ce-table1101-quintiles-2024.xlsx": "05640c17c51547efd7ee9fb4c4e22e5c9062f6988d2c4b75e7013e27ad7ff6b5"
+  },
+  "table1101_key_means_2024": {
+    "Average annual expenditures": {
+      "q1": 35046.0,
+      "q2": 50054.0
+    },
+    "Rented dwellings": {
+      "q1": 5781.0,
+      "q2": 6225.0
+    },
+    "Owned dwellings": {
+      "q1": 2989.0,
+      "q2": 5153.0
+    },
+    "Other lodging": {
+      "q1": 409.0,
+      "q2": 523.0
+    },
+    "Cellular phone service": {
+      "q1": 720.0,
+      "q2": 1084.0
+    },
+    "Residential phone service, VOIP, and phone cards": {
+      "q1": 113.0,
+      "q2": 119.0
+    },
+    "Fees and admissions": {
+      "q1": 197.0,
+      "q2": 324.0
+    },
+    "Audio and visual equipment and services": {
+      "q1": 538.0,
+      "q2": 870.0
+    },
+    "Personal insurance and pensions": {
+      "q1": 711.0,
+      "q2": 2712.0
+    },
+    "Cash contributions": {
+      "q1": 778.0,
+      "q2": 1420.0
+    },
+    "Food away from home": {
+      "q1": 1655.0,
+      "q2": 2448.0
+    },
+    "Public and other transportation": {
+      "q1": 472.0,
+      "q2": 456.0
+    }
+  }
+}

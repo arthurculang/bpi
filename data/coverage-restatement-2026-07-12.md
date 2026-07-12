@@ -78,6 +78,28 @@ without yet licensing a B40 number; (3) the 14 unmatched tier-map rows are
 name variants already ✓verify-flagged (e.g. "Toys, games, hobbies…" vs the
 published "Toys") — they resolve at the owner's byte-verification pass.
 
+## Byte-verification (same day — owner registered both XLSX files)
+
+`data/captures/ce-table1101-quintiles-2024.xlsx` (sha256 05640c17…) and
+`data/captures/r-cpi-i-series-dec2005-dec2024.xlsx` (sha256 978de8ca…) are now
+in-repo with hashes in `data/captures/xlsx-registration-2026-07-12.json`.
+**Every value this file used from the mirror and the FRED capture matches
+Table 1101 exactly** — the chain is byte-grade end to end. Two findings:
+
+- Table 1101's hierarchy bottoms out at "Cellular phone service" / "Other
+  lodging" — **no airline/cable/internet/trash detail exists there either**,
+  so the 2023-share conventions stand permanently unless a BLS-API detail pull
+  supplies UCC-level quintile cells.
+- R-CPI-I Dec–Dec changes by quintile now byte-grade
+  (`data/captures/r-cpi-i-decdec-2026-07-12.json`): cumulative Dec 2005 – Dec
+  2024, Q1 +65.6% vs Q5 +57.5% — a **+8.1pp** bottom-vs-top gap (≈0.43pp/yr;
+  the spec's Seam-2 cites ≈0.28pp/yr — same order, different figure; flag for
+  the spec's next revision to reconcile window/derivation). 2024 alone:
+  Q1 +3.02% vs Q5 +2.90%. This series is the weighting-effect exhibit's
+  validation anchor. The R-CPI-I *relative-importance* XLSX (the B40 weight
+  vintage, a separate file, Dec 2005–Dec 2023) remains the one outstanding
+  owner pull.
+
 ## Changelog
 
 - v0 (2026-07-12) — first computation; supersedes the mock 30–35% hypothesis
