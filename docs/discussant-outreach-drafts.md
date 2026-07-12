@@ -1,7 +1,7 @@
 # Discussant outreach — email drafts
 
-`v0 · 2026-07-04 · workstream F · DRAFTS for owner to personalize and send (August, plan §9 item 8) · honorarium per WS-H memo line 7`
-`Common attachments: spec v00.02.00, codebook v0, the pre-committed G0 band, and the dry-run retrospective — the self-imposed constraints are the pitch`
+`v1 · 2026-07-12 · workstream F · DRAFTS for owner to personalize and send (August, plan §9 item 8) · honorarium per WS-H memo line 7`
+`Common attachments: the packet cover memo (docs/discussant-packet-memo.md — the reading guide, one order per seat) + spec v00.02.01, codebook v0, the pre-committed G0 band AND its PASSED result, the signed Phase 1 pre-registration; RX-100 proposal flagged as forward-looking/under-review. The self-imposed constraints — and the logged self-corrections — are the pitch`
 
 ---
 
@@ -22,10 +22,12 @@ Konüs upper-bound language in every release.
 
 Two design features may interest you specifically: the min-cost operator permits
 procurement substitution while forbidding attribute substitution (a Leontief-in-
-characteristics conditional cost function), and the validation is pre-committed —
-a retrospective of the 2008–09 US checked-bag unbundling must land inside a
-numeric band that was hash-committed to the repository before any inputs or
-results existed. The methodology, engine (worked examples run as unit tests),
+characteristics conditional cost function), and the validation was pre-committed —
+a retrospective of the 2008–09 US checked-bag unbundling was required to land
+inside a numeric band hash-committed to the repository before any inputs or
+results existed. It did (gate passed July 2026; all four band tests hold at a
+byte-verified fare anchor), and the live collection design is now signed and
+frozen ahead of an October start. The methodology, engine (worked examples run as unit tests),
 and all decision records are public in a single repository.
 
 Would you consider a paid formal review (written comments, roughly a referee
@@ -59,9 +61,12 @@ carry-on fees outside the quote specification, and the PPI's 2009 fee adjustment
 is my strongest precedent.
 
 The validation design may appeal to your skepticism: a 2008–09 bag-fee
-retrospective must land inside a numeric plausibility band that was committed
-publicly before any inputs were assembled — if the method can't reproduce that
-documented episode, the project stops. I'd ask you to attack precisely that
+retrospective was required to land inside a numeric plausibility band committed
+publicly before any inputs were assembled — the commit history is the evidence,
+and the gate has since passed at a byte-verified fare anchor. The project has
+also already corrected three of its own published coverage hypotheses downward,
+with logged amendments; the cover memo leads with that trail because it is the
+behavior we are asking you to stress-test. I'd ask you to attack precisely that
 benchmark logic, as someone who knows how CPI and PPI actually handled it from
 the inside. Paid, written, and your criticisms would be published with the
 methods note (with your permission) whether or not they're favorable.
@@ -105,3 +110,5 @@ public in a single repository.
 work; attach or link rather than paste documents; Sichel is the alternate for
 seat 2 if Greenlees is unreachable (shortlist has contact surfaces). All three
 can be approached in parallel — the seats are complementary, not exclusive.*
+
+- v1 (2026-07-12): tenses updated for the G0 pass and Phase 1 sign-off; packet cover memo added as the lead attachment; corrections-trail framing added to the Greenlees letter.
