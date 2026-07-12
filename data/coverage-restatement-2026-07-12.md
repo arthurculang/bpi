@@ -100,6 +100,36 @@ Table 1101 exactly** — the chain is byte-grade end to end. Two findings:
   vintage, a separate file, Dec 2005–Dec 2023) remains the one outstanding
   owner pull.
 
+## True B40 weights (same day — the R-CPI-I relative-importance vintage landed)
+
+The owner registered the third file
+(`data/captures/r-cpi-i-relative-importance-dec2005-dec2023.xlsx`, sha256
+0b6b815b…) — the Dec-2023 vintage P11 pins. B40 weights = expenditure-weighted
+Q1+Q2 combination (E1 11.33 / E2 14.83, from the file itself); item-level B40 =
+CPI-U item weight × (B40 EC ÷ CPI-U EC), the documented within-EC allocation
+(`data/captures/r-cpi-i-b40-weights-dec2023.json`,
+`b40-weights-joined-2026-07-12.json`; all 70 ECs matched). **The final
+numbers:**
+
+| Quantity | CPI-U | CPI-W | **True B40** |
+|---|---|---|---|
+| Phase-2 restoration-priced composition | 12.49% | 15.28% | **17.68%** |
+| Tier R (of matched basket) | 19% | — | **23%** |
+| Tier A | 25% | — | **28%** |
+| Tier B | 56% | — | **49%** |
+| Rent of primary residence | 7.50% | 10.44% | **12.87%** |
+| Owners' equivalent rent | 26.28% | 21.58% | **24.04%** |
+| Airline fares | 0.92% | 0.65% | **0.43%** |
+
+The B40 weighting recovers ~5pp of Phase-2 coverage over CPI-U (rent + connectivity
+are poor-household-heavy; air and hotels shrink — the methods lab is honestly
+tiny for this population, 0.43%). OER stays dominant in Tier B because 43–58%
+of B40 households own — the corridor's width remains OER-led even under the
+right weights, which elevates the A-O bracketing assumption to the single most
+consequential design question for the August review. The weights chain is now
+**closed end to end**: every layer from BLS source files (SHA-256-registered)
+through executable joins to published shares.
+
 ## Changelog
 
 - v0 (2026-07-12) — first computation; supersedes the mock 30–35% hypothesis

@@ -11,8 +11,9 @@ official CPI series. At maturity it restoration-prices a computed **18.9–20.7%
 consumption basket** at the Phase-2 composition (2024 CE data,
 `data/coverage-restatement-2026-07-12.md`; an earlier ~30–35% hypothesis was
 corrected downward when real B40 data showed pensions/insurance are only 6.6%
-of B40 outlays — the correction is logged, and the CPI-weight treatment of
-owners' equivalent rent remains the open piece); the remainder is currently
+of B40 outlays — the correction is logged); under the true B40 weights
+(Dec-2023 R-CPI-I vintage, registered) the Phase-2 composition is **17.7% of
+the B40 CPI basket** and full Tier R is **≈23%**; the remainder is currently
 zero-imputed in the composite.
 We propose to replace that zero-imputation — which is an unacknowledged point
 restriction — with a **partial-identification interval over 100% of the CPI
@@ -84,9 +85,9 @@ discipline) assigns each stratum to one tier:
   `ρ_i − π_i ∈ B_i^R`, the measured point (retaining the measure's existing
   superset `[0, tier-gap]` and incidence `[0%,100%]` sub-intervals where those
   apply). Computed B40 consumption-basket weight at the Phase-2 composition:
-  rent, connectivity, air, lodging ≈ **19–21%** of B40 consumption spending
-  and **17.8% of the CPI-U basket** (Dec-2024 join; 12.5% at the strict
-  Phase-2 composition, 15.3% under CPI-W) (2024 CE data,
+  rent, connectivity, air, lodging: **≈23% of the true-B40 CPI basket**
+  (Dec-2023 R-CPI-I vintage; 17.8% under CPI-U; the strict Phase-2
+  composition is 17.7% B40 / 12.5% CPI-U) (2024 CE data,
   `data/coverage-restatement-2026-07-12.md`; a prior ~30–35% mock corrected
   downward, correction logged).
 
@@ -110,11 +111,12 @@ discipline) assigns each stratum to one tier:
   stratum, and `I_i` is the symmetric magnitude from a proposed **Improvements
   Register** (§5). Illustrative: medical out-of-pocket, owners' equivalent rent,
   apparel/personal-care/misc — computed **53.8% of the CPI-U basket**, of
-  which owners' equivalent rent alone is 26.3% (Dec-2024 join, 2026-07-12;
-  under CPI-W, the closest published proxy toward a B40 weighting, OER falls
-  to 21.6% and rent rises to 10.4% — the B40 R-CPI-I vintage is the open
-  pull). Tier B's majority share under CPI-U weights is the honest headline
-  of the join: the corridor's width is structurally OER-dominated.
+  which owners' equivalent rent alone is 26.3% (Dec-2024 join; **under the
+  registered true-B40 vintage: Tier B 47.6%, OER 24.0%, rent rising to
+  12.9%**). Tier B's near-half share survives the correct weights — 43–58% of
+  B40 households own, so OER stays the corridor's width driver, which makes
+  the A-O bracketing assumption the review's single most consequential
+  question.
 
 An outcome-space restriction applies to the **unmeasured** strata:
 

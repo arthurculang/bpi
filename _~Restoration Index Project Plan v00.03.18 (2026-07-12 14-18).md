@@ -1,6 +1,6 @@
 # Restoration Index — Project Plan
 
-`v00.03.17 · 2026-07-12 05-10 · internal working doc · companion to: Restoration Index Spec v00.02.00`
+`v00.03.18 · 2026-07-12 14-18 · internal working doc · companion to: Restoration Index Spec v00.02.00`
 
 ---
 
@@ -299,6 +299,8 @@ CONSTRAINTS
 ---
 
 ## Changelog
+
+- **v00.03.18** (2026-07-12 14-18) — **Weights chain CLOSED: the R-CPI-I relative-importance vintage landed (owner upload) and the true-B40 numbers are computed.** File registered (`r-cpi-i-relative-importance-dec2005-dec2023.xlsx`, sha256 0b6b815b…); B40 weights = expenditure-weighted Q1+Q2 (E1 11.33/E2 14.83, from the file); item-level via the documented within-EC allocation, all 70 ECs matched (`r-cpi-i-b40-weights-dec2023.json`, `b40-weights-joined-2026-07-12.json`). **Final: Tier R 23% / A 28% / B 49% of the true-B40 basket; Phase-2 composition 17.68% (vs 12.49 CPI-U); rent 12.87%; OER 24.04%; airline 0.43%.** B40 weighting recovers ~5pp of coverage over CPI-U; OER remains the corridor's width driver even under correct weights (43–58% of B40 households own), elevating A-O to the review's most consequential question. Restatement doc, tier map, and both RX-100 docs updated to final values; §9 item 7 fully closed. Also this turn: workload-estimate discipline adopted (estimates table precedes any nontrivial task).
 
 - **v00.03.17** (2026-07-12 05-10) — **Byte-grade closure of the weights chain (owner uploaded both XLSX files).** `ce-table1101-quintiles-2024.xlsx` and `r-cpi-i-series-dec2005-dec2024.xlsx` registered in `data/captures/` with SHA-256 (`xlsx-registration-2026-07-12.json`); **every value the coverage restatement used cross-checks against Table 1101 exactly.** R-CPI-I Dec–Dec quintile series extracted (byte-grade: cumulative Dec05–Dec24 Q1 +65.6% vs Q5 +57.5% = +8.1pp, ≈0.43pp/yr — flag: spec Seam-2 cites ≈0.28pp/yr, reconcile window at next spec revision; 2024: Q1 +3.02 vs Q5 +2.90) — the weighting-effect exhibit's validation anchor. Availability finding hardened: Table 1101's hierarchy carries NO airline/cable/internet/trash quintile detail, so the 2023-share conventions stand permanently absent a BLS-API detail pull. §9 item 7 now closed except the R-CPI-I *relative-importance* XLSX (the B40 weight vintage, separate file, still an owner pull).
 
