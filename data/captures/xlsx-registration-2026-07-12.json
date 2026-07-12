@@ -9,7 +9,8 @@
   },
   "sha256": {
     "data/captures/r-cpi-i-series-dec2005-dec2024.xlsx": "978de8ca1057d9d372d36c9712ad6e5b9dbaf65b4c22a9214a119c88f048d16e",
-    "data/captures/ce-table1101-quintiles-2024.xlsx": "05640c17c51547efd7ee9fb4c4e22e5c9062f6988d2c4b75e7013e27ad7ff6b5"
+    "data/captures/ce-table1101-quintiles-2024.xlsx": "05640c17c51547efd7ee9fb4c4e22e5c9062f6988d2c4b75e7013e27ad7ff6b5",
+    "data/captures/r-cpi-i-relative-importance-dec2005-dec2023.xlsx": "0b6b815b8ba0ffea8486d4c0c61ccfa1f47b3901a3b9b383beb8c0226af992a2"
   },
   "table1101_key_means_2024": {
     "Average annual expenditures": {

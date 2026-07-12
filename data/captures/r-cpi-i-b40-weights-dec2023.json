@@ -1,0 +1,482 @@
+{
+  "_capture": {
+    "source": "R-CPI-I relative importance XLSX (owner upload 2026-07-12), sheet 'R-CPI-I RI 202312' (Dec 2023, the P11-pinned vintage)",
+    "b40_formula": "B40_i = (E1*I1_i + E2*I2_i)/(E1+E2), E1=11.33 E2=14.83 (quintile shares of aggregate expenditure, same sheet)"
+  },
+  "items": {
+    "SA0": {
+      "title": "All Items",
+      "i1": 100.0,
+      "i2": 100.0,
+      "b40": 100.0
+    },
+    "SAA": {
+      "title": "Apparel",
+      "i1": 2.5,
+      "i2": 2.32,
+      "b40": 2.398
+    },
+    "SAE": {
+      "title": "Education and communication",
+      "i1": 5.75,
+      "i2": 4.96,
+      "b40": 5.302
+    },
+    "SAF": {
+      "title": "Food and beverages",
+      "i1": 15.68,
+      "i2": 15.06,
+      "b40": 15.329
+    },
+    "SAG": {
+      "title": "Other goods and services",
+      "i1": 3.59,
+      "i2": 3.02,
+      "b40": 3.267
+    },
+    "SAH": {
+      "title": "Housing",
+      "i1": 48.01,
+      "i2": 46.95,
+      "b40": 47.409
+    },
+    "SAM": {
+      "title": "Medical care",
+      "i1": 7.79,
+      "i2": 8.97,
+      "b40": 8.459
+    },
+    "SAR": {
+      "title": "Recreation",
+      "i1": 3.68,
+      "i2": 4.3,
+      "b40": 4.031
+    },
+    "SAT": {
+      "title": "Transportation",
+      "i1": 13.0,
+      "i2": 14.43,
+      "b40": 13.811
+    },
+    "SEAA": {
+      "title": "Men's apparel",
+      "i1": 0.38,
+      "i2": 0.42,
+      "b40": 0.403
+    },
+    "SEAB": {
+      "title": "Boys' apparel",
+      "i1": 0.14,
+      "i2": 0.17,
+      "b40": 0.157
+    },
+    "SEAC": {
+      "title": "Women's apparel",
+      "i1": 1.16,
+      "i2": 0.78,
+      "b40": 0.945
+    },
+    "SEAD": {
+      "title": "Girls' apparel",
+      "i1": 0.13,
+      "i2": 0.16,
+      "b40": 0.147
+    },
+    "SEAE": {
+      "title": "Footwear",
+      "i1": 0.45,
+      "i2": 0.6,
+      "b40": 0.535
+    },
+    "SEAF": {
+      "title": "Infants' and toddlers' apparel",
+      "i1": 0.16,
+      "i2": 0.12,
+      "b40": 0.137
+    },
+    "SEAG": {
+      "title": "Jewelry and watches",
+      "i1": 0.08,
+      "i2": 0.08,
+      "b40": 0.08
+    },
+    "SEEA": {
+      "title": "Educational books and supplies",
+      "i1": 0.13,
+      "i2": 0.07,
+      "b40": 0.096
+    },
+    "SEEB": {
+      "title": "Tuition, other school fees, and childcare",
+      "i1": 1.79,
+      "i2": 0.96,
+      "b40": 1.319
+    },
+    "SEEC": {
+      "title": "Postage and delivery services",
+      "i1": 0.1,
+      "i2": 0.09,
+      "b40": 0.094
+    },
+    "SEED": {
+      "title": "Telephone services",
+      "i1": 1.87,
+      "i2": 1.87,
+      "b40": 1.87
+    },
+    "SEEE": {
+      "title": "Information technology, hardware and services",
+      "i1": 1.86,
+      "i2": 1.97,
+      "b40": 1.922
+    },
+    "SEFA": {
+      "title": "Cereals and cereal products",
+      "i1": 0.41,
+      "i2": 0.35,
+      "b40": 0.376
+    },
+    "SEFB": {
+      "title": "Bakery products",
+      "i1": 0.97,
+      "i2": 0.87,
+      "b40": 0.913
+    },
+    "SEFC": {
+      "title": "Beef and veal",
+      "i1": 0.68,
+      "i2": 0.56,
+      "b40": 0.612
+    },
+    "SEFD": {
+      "title": "Pork",
+      "i1": 0.43,
+      "i2": 0.42,
+      "b40": 0.424
+    },
+    "SEFE": {
+      "title": "Other meats",
+      "i1": 0.32,
+      "i2": 0.32,
+      "b40": 0.32
+    },
+    "SEFF": {
+      "title": "Poultry",
+      "i1": 0.43,
+      "i2": 0.37,
+      "b40": 0.396
+    },
+    "SEFG": {
+      "title": "Fish and seafood",
+      "i1": 0.36,
+      "i2": 0.28,
+      "b40": 0.315
+    },
+    "SEFH": {
+      "title": "Eggs",
+      "i1": 0.18,
+      "i2": 0.14,
+      "b40": 0.157
+    },
+    "SEFJ": {
+      "title": "Dairy and related products",
+      "i1": 0.96,
+      "i2": 0.89,
+      "b40": 0.92
+    },
+    "SEFK": {
+      "title": "Fresh fruits",
+      "i1": 0.77,
+      "i2": 0.61,
+      "b40": 0.679
+    },
+    "SEFL": {
+      "title": "Fresh vegetables",
+      "i1": 0.62,
+      "i2": 0.54,
+      "b40": 0.575
+    },
+    "SEFM": {
+      "title": "Processed fruits and vegetables",
+      "i1": 0.43,
+      "i2": 0.36,
+      "b40": 0.39
+    },
+    "SEFN": {
+      "title": "Juices and nonalcoholic drinks",
+      "i1": 1.04,
+      "i2": 0.87,
+      "b40": 0.944
+    },
+    "SEFP": {
+      "title": "Beverage materials including coffee and tea",
+      "i1": 0.32,
+      "i2": 0.32,
+      "b40": 0.32
+    },
+    "SEFR": {
+      "title": "Sugar and sweets",
+      "i1": 0.35,
+      "i2": 0.37,
+      "b40": 0.361
+    },
+    "SEFS": {
+      "title": "Fats and oils",
+      "i1": 0.33,
+      "i2": 0.3,
+      "b40": 0.313
+    },
+    "SEFT": {
+      "title": "Other foods",
+      "i1": 2.1,
+      "i2": 1.73,
+      "b40": 1.89
+    },
+    "SEFV": {
+      "title": "Food away from home",
+      "i1": 4.44,
+      "i2": 5.18,
+      "b40": 4.86
+    },
+    "SEFW": {
+      "title": "Alcoholic beverages at home",
+      "i1": 0.41,
+      "i2": 0.35,
+      "b40": 0.376
+    },
+    "SEFX": {
+      "title": "Alcoholic beverages away from home",
+      "i1": 0.14,
+      "i2": 0.21,
+      "b40": 0.18
+    },
+    "SEGA": {
+      "title": "Tobacco and smoking products",
+      "i1": 1.06,
+      "i2": 0.78,
+      "b40": 0.901
+    },
+    "SEGB": {
+      "title": "Personal care products",
+      "i1": 0.69,
+      "i2": 0.75,
+      "b40": 0.724
+    },
+    "SEGC": {
+      "title": "Personal care services",
+      "i1": 0.51,
+      "i2": 0.53,
+      "b40": 0.521
+    },
+    "SEGD": {
+      "title": "Miscellaneous personal services",
+      "i1": 1.13,
+      "i2": 0.83,
+      "b40": 0.96
+    },
+    "SEGE": {
+      "title": "Miscellaneous personal goods",
+      "i1": 0.2,
+      "i2": 0.13,
+      "b40": 0.16
+    },
+    "SEHA": {
+      "title": "Rent of primary residence",
+      "i1": 14.96,
+      "i2": 11.27,
+      "b40": 12.868
+    },
+    "SEHB": {
+      "title": "Lodging away from home",
+      "i1": 0.77,
+      "i2": 0.69,
+      "b40": 0.725
+    },
+    "SEHC": {
+      "title": "Owners' equivalent rent of residences",
+      "i1": 22.52,
+      "i2": 25.2,
+      "b40": 24.039
+    },
+    "SEHD": {
+      "title": "Tenants' and household insurance",
+      "i1": 0.38,
+      "i2": 0.44,
+      "b40": 0.414
+    },
+    "SEHE": {
+      "title": "Fuel oil and other fuels",
+      "i1": 0.11,
+      "i2": 0.16,
+      "b40": 0.138
+    },
+    "SEHF": {
+      "title": "Energy services",
+      "i1": 4.16,
+      "i2": 3.77,
+      "b40": 3.939
+    },
+    "SEHG": {
+      "title": "Water and sewer and trash collection services",
+      "i1": 1.25,
+      "i2": 1.28,
+      "b40": 1.267
+    },
+    "SEHH": {
+      "title": "Window and floor coverings and other linens",
+      "i1": 0.25,
+      "i2": 0.24,
+      "b40": 0.244
+    },
+    "SEHJ": {
+      "title": "Furniture and bedding",
+      "i1": 0.64,
+      "i2": 0.77,
+      "b40": 0.714
+    },
+    "SEHK": {
+      "title": "Appliances",
+      "i1": 0.31,
+      "i2": 0.27,
+      "b40": 0.287
+    },
+    "SEHL": {
+      "title": "Other household equipment and furnishings",
+      "i1": 0.34,
+      "i2": 0.45,
+      "b40": 0.402
+    },
+    "SEHM": {
+      "title": "Tools, hardware, outdoor equipment and supplies",
+      "i1": 0.65,
+      "i2": 0.73,
+      "b40": 0.695
+    },
+    "SEHN": {
+      "title": "Housekeeping supplies",
+      "i1": 1.04,
+      "i2": 0.92,
+      "b40": 0.972
+    },
+    "SEHP": {
+      "title": "Household operations",
+      "i1": 0.65,
+      "i2": 0.76,
+      "b40": 0.712
+    },
+    "SEMC": {
+      "title": "Professional services",
+      "i1": 3.6,
+      "i2": 4.18,
+      "b40": 3.929
+    },
+    "SEMD": {
+      "title": "Hospital and related services",
+      "i1": 2.35,
+      "i2": 2.5,
+      "b40": 2.435
+    },
+    "SEME": {
+      "title": "Health insurance",
+      "i1": 0.37,
+      "i2": 0.53,
+      "b40": 0.461
+    },
+    "SEMF": {
+      "title": "Medicinal drugs",
+      "i1": 1.31,
+      "i2": 1.59,
+      "b40": 1.469
+    },
+    "SEMG": {
+      "title": "Medical equipment and supplies",
+      "i1": 0.16,
+      "i2": 0.18,
+      "b40": 0.171
+    },
+    "SERA": {
+      "title": "Video and audio",
+      "i1": 1.34,
+      "i2": 1.39,
+      "b40": 1.368
+    },
+    "SERB": {
+      "title": "Pets, pet products and services",
+      "i1": 0.94,
+      "i2": 0.87,
+      "b40": 0.9
+    },
+    "SERC": {
+      "title": "Sporting goods",
+      "i1": 0.16,
+      "i2": 0.3,
+      "b40": 0.239
+    },
+    "SERD": {
+      "title": "Photography",
+      "i1": 0.03,
+      "i2": 0.06,
+      "b40": 0.047
+    },
+    "SERE": {
+      "title": "Other recreational goods",
+      "i1": 0.36,
+      "i2": 0.35,
+      "b40": 0.354
+    },
+    "SERF": {
+      "title": "Other recreation services",
+      "i1": 0.76,
+      "i2": 1.25,
+      "b40": 1.038
+    },
+    "SERG": {
+      "title": "Recreational reading materials",
+      "i1": 0.08,
+      "i2": 0.09,
+      "b40": 0.086
+    },
+    "SETA": {
+      "title": "New and used motor vehicles",
+      "i1": 3.75,
+      "i2": 4.83,
+      "b40": 4.362
+    },
+    "SETB": {
+      "title": "Motor fuel",
+      "i1": 3.62,
+      "i2": 3.6,
+      "b40": 3.609
+    },
+    "SETC": {
+      "title": "Motor vehicle parts and equipment",
+      "i1": 0.45,
+      "i2": 0.52,
+      "b40": 0.49
+    },
+    "SETD": {
+      "title": "Motor vehicle maintenance and repair",
+      "i1": 1.2,
+      "i2": 1.22,
+      "b40": 1.211
+    },
+    "SETE": {
+      "title": "Motor vehicle insurance",
+      "i1": 2.86,
+      "i2": 3.14,
+      "b40": 3.019
+    },
+    "SETF": {
+      "title": "Motor vehicle fees",
+      "i1": 0.4,
+      "i2": 0.45,
+      "b40": 0.428
+    },
+    "SETG": {
+      "title": "Public transportation",
+      "i1": 0.72,
+      "i2": 0.67,
+      "b40": 0.692
+    }
+  }
+}

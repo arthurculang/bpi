@@ -34,8 +34,9 @@ Gap. It never becomes a rival index and never makes a "true inflation" claim
   into pensions/insurance/cash contributions, so the scope restatement buys
   ≈1pp — the computed restoration-priced share is 18.9–20.7% of the B40
   consumption basket at the Phase-2 composition.** The bigger CE-vs-CPI-weight
-  wedge runs through the OER treatment (B40 renters: 57%/42% by quintile,
-  captured 2024) and awaits the R-CPI-I relative-importance vintage. The
+  wedge ran through the OER treatment — now computed with the registered
+  Dec-2023 R-CPI-I vintage: Phase-2 composition **17.7% of the true B40
+  basket**, full Tier R ≈23%, OER 24.0% (rent 12.9%). The
   original overstated hypothesis is retained here struck-through in spirit and
   logged, because correcting our own optimistic numbers in public is the
   measure's posture.

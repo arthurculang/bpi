@@ -268,11 +268,11 @@ The owner's capture of the full relative-importance table replaces the mock
 shares: joining this map to the real weights (173/187 strata matched, 95.97%
 of the CPI-U basket; `pipeline/restate_coverage.py --cpi`):
 
-| Tier | Mock (pre-data) | **Computed, CPI-U Dec 2024** |
-|---|---|---|
-| R | ≈29% | **17.8%** |
-| A | ≈33% | **24.3%** |
-| B | ≈40% | **53.8%** (OER alone 26.3%) |
+| Tier | Mock (pre-data) | **CPI-U Dec 2024** | **True B40 (Dec-2023 R-CPI-I vintage)** |
+|---|---|---|---|
+| R | ≈29% | 17.8% | **22.2% raw (23% of matched)** |
+| A | ≈33% | 24.3% | **27.2% (28%)** |
+| B | ≈40% | 53.8% | **47.6% (49%)** — OER alone 24.0% |
 
 The mocks overstated R and A and understated B — mostly because OER's true
 CPI-U weight (26.3%) dwarfs the mock's assumption and because bottom-40-flavored
