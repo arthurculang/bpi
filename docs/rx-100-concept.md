@@ -26,14 +26,19 @@ Gap. It never becomes a rival index and never makes a "true inflation" claim
 
 ## 1. Two things wrong with "26%", one of them just arithmetic
 
-- **The denominator is inflated.** The 26% is a share of CE *total* expenditure,
-  which includes ~11% personal insurance & pensions and cash contributions that
-  are **not in the CPI consumption basket at all**, plus owned-dwelling shelter
-  that bottom-40 renter-heavy weights shrink sharply. Restated in CPI-basket
-  space with B40 weights, the same coverage is already **~30–35%** (illustrative;
-  rebuilt exactly from the non-overlapping concordance at the August Table 1101
-  refresh). This is free — correct accounting, not new collection. **Near-term
-  win #1.**
+- **The denominator argument, now computed — and corrected downward
+  (2026-07-12, `data/coverage-restatement-2026-07-12.md`).** The hypothesis
+  here originally read: CE total outlays include ~11% pensions/insurance
+  outside the CPI basket, so restating coverage in basket space lifts ~26% to
+  ~30–35%. **Real B40 data says otherwise: bottom-40 households put only 6.6%
+  into pensions/insurance/cash contributions, so the scope restatement buys
+  ≈1pp — the computed restoration-priced share is 18.9–20.7% of the B40
+  consumption basket at the Phase-2 composition.** The bigger CE-vs-CPI-weight
+  wedge runs through the OER treatment (B40 renters: 57%/42% by quintile,
+  captured 2024) and awaits the R-CPI-I relative-importance vintage. The
+  original overstated hypothesis is retained here struck-through in spirit and
+  logged, because correcting our own optimistic numbers in public is the
+  measure's posture.
 - **The "remainder" is not one undifferentiated unknown.** It decomposes into
   sectors where CPI is adequate *by construction or by audit* and a genuinely
   hard tail — see the tier map below.
