@@ -1,0 +1,1387 @@
+{
+  "_capture": {
+    "method": "browser-agent-extraction (owner Chrome)",
+    "captured": "2026-07-12",
+    "provenance_grade": "browser-agent-extraction",
+    "source": "bls.gov/cpi/tables/relative-importance/2024.htm \u2014 'Relative importance of components in the CPI, U.S. city average, December 2024' (2023 weights), CPI-U column (CPI-W also available in paste)",
+    "status": "COMPLETE - all three parts received 2026-07-12; item-level strata (special aggregates omitted from this file; available in the paste record)",
+    "note": "hierarchy level not present in the HTML (flat rows) \u2014 hierarchy reconstructed at concordance time from the known CPI structure",
+    "note2": "cpi_w backfilled for housing block + All items; food/beverage rows carry cpi_u only (cpi_w in the paste record if ever needed)"
+  },
+  "cpi_u_relative_importance_dec2024": [
+    {
+      "item": "All items",
+      "cpi_u": "100.000",
+      "cpi_w": "100.000"
+    },
+    {
+      "item": "Food and beverages",
+      "cpi_u": "14.526"
+    },
+    {
+      "item": "Food",
+      "cpi_u": "13.691"
+    },
+    {
+      "item": "Food at home",
+      "cpi_u": "8.043"
+    },
+    {
+      "item": "Cereals and bakery products",
+      "cpi_u": "1.110"
+    },
+    {
+      "item": "Cereals and cereal products",
+      "cpi_u": "0.341"
+    },
+    {
+      "item": "Flour and prepared flour mixes",
+      "cpi_u": "0.029"
+    },
+    {
+      "item": "Breakfast cereal",
+      "cpi_u": "0.148"
+    },
+    {
+      "item": "Rice, pasta, cornmeal",
+      "cpi_u": "0.164"
+    },
+    {
+      "item": "Bakery products",
+      "cpi_u": "0.769"
+    },
+    {
+      "item": "Bread",
+      "cpi_u": "0.142"
+    },
+    {
+      "item": "Fresh biscuits, rolls, muffins",
+      "cpi_u": "0.135"
+    },
+    {
+      "item": "Cakes, cupcakes, and cookies",
+      "cpi_u": "0.213"
+    },
+    {
+      "item": "Other bakery products",
+      "cpi_u": "0.279"
+    },
+    {
+      "item": "Meats, poultry, fish, and eggs",
+      "cpi_u": "1.621"
+    },
+    {
+      "item": "Meats, poultry, and fish",
+      "cpi_u": "1.449"
+    },
+    {
+      "item": "Meats",
+      "cpi_u": "0.919"
+    },
+    {
+      "item": "Beef and veal",
+      "cpi_u": "0.445"
+    },
+    {
+      "item": "Uncooked ground beef",
+      "cpi_u": "0.201"
+    },
+    {
+      "item": "Uncooked beef roasts",
+      "cpi_u": "0.056"
+    },
+    {
+      "item": "Uncooked beef steaks",
+      "cpi_u": "0.128"
+    },
+    {
+      "item": "Uncooked other beef and veal",
+      "cpi_u": "0.060"
+    },
+    {
+      "item": "Pork",
+      "cpi_u": "0.288"
+    },
+    {
+      "item": "Bacon, breakfast sausage, and related products",
+      "cpi_u": "0.102"
+    },
+    {
+      "item": "Ham",
+      "cpi_u": "0.044"
+    },
+    {
+      "item": "Pork chops",
+      "cpi_u": "0.050"
+    },
+    {
+      "item": "Other pork including roasts, steaks, and ribs",
+      "cpi_u": "0.092"
+    },
+    {
+      "item": "Other meats",
+      "cpi_u": "0.186"
+    },
+    {
+      "item": "Poultry",
+      "cpi_u": "0.288"
+    },
+    {
+      "item": "Chicken",
+      "cpi_u": "0.216"
+    },
+    {
+      "item": "Other uncooked poultry including turkey",
+      "cpi_u": "0.072"
+    },
+    {
+      "item": "Fish and seafood",
+      "cpi_u": "0.242"
+    },
+    {
+      "item": "Fresh fish and seafood",
+      "cpi_u": "0.140"
+    },
+    {
+      "item": "Processed fish and seafood",
+      "cpi_u": "0.102"
+    },
+    {
+      "item": "Eggs",
+      "cpi_u": "0.172"
+    },
+    {
+      "item": "Dairy and related products",
+      "cpi_u": "0.741"
+    },
+    {
+      "item": "Milk",
+      "cpi_u": "0.200"
+    },
+    {
+      "item": "Cheese and related products",
+      "cpi_u": "0.255"
+    },
+    {
+      "item": "Ice cream and related products",
+      "cpi_u": "0.132"
+    },
+    {
+      "item": "Other dairy and related products",
+      "cpi_u": "0.154"
+    },
+    {
+      "item": "Fruits and vegetables",
+      "cpi_u": "1.336"
+    },
+    {
+      "item": "Fresh fruits and vegetables",
+      "cpi_u": "1.117"
+    },
+    {
+      "item": "Fresh fruits",
+      "cpi_u": "0.561"
+    },
+    {
+      "item": "Apples",
+      "cpi_u": "0.080"
+    },
+    {
+      "item": "Bananas",
+      "cpi_u": "0.109"
+    },
+    {
+      "item": "Citrus fruits",
+      "cpi_u": "0.063"
+    },
+    {
+      "item": "Other fresh fruits",
+      "cpi_u": "0.310"
+    },
+    {
+      "item": "Fresh vegetables",
+      "cpi_u": "0.555"
+    },
+    {
+      "item": "Potatoes",
+      "cpi_u": "0.082"
+    },
+    {
+      "item": "Lettuce",
+      "cpi_u": "0.071"
+    },
+    {
+      "item": "Tomatoes",
+      "cpi_u": "0.094"
+    },
+    {
+      "item": "Other fresh vegetables",
+      "cpi_u": "0.309"
+    },
+    {
+      "item": "Processed fruits and vegetables",
+      "cpi_u": "0.220"
+    },
+    {
+      "item": "Canned fruits and vegetables",
+      "cpi_u": "0.088"
+    },
+    {
+      "item": "Frozen fruits and vegetables",
+      "cpi_u": "0.067"
+    },
+    {
+      "item": "Other processed fruits and vegetables including dried",
+      "cpi_u": "0.065"
+    },
+    {
+      "item": "Nonalcoholic beverages and beverage materials",
+      "cpi_u": "0.897"
+    },
+    {
+      "item": "Juices and nonalcoholic drinks",
+      "cpi_u": "0.631"
+    },
+    {
+      "item": "Carbonated drinks",
+      "cpi_u": "0.341"
+    },
+    {
+      "item": "Frozen noncarbonated juices and drinks",
+      "cpi_u": "0.003"
+    },
+    {
+      "item": "Nonfrozen noncarbonated juices and drinks",
+      "cpi_u": "0.287"
+    },
+    {
+      "item": "Beverage materials including coffee and tea",
+      "cpi_u": "0.265"
+    },
+    {
+      "item": "Coffee",
+      "cpi_u": "0.134"
+    },
+    {
+      "item": "Other beverage materials including tea",
+      "cpi_u": "0.131"
+    },
+    {
+      "item": "Other food at home",
+      "cpi_u": "2.338"
+    },
+    {
+      "item": "Sugar and sweets",
+      "cpi_u": "0.332"
+    },
+    {
+      "item": "Sugar and sugar substitutes",
+      "cpi_u": "0.028"
+    },
+    {
+      "item": "Candy and chewing gum",
+      "cpi_u": "0.231"
+    },
+    {
+      "item": "Other sweets",
+      "cpi_u": "0.074"
+    },
+    {
+      "item": "Fats and oils",
+      "cpi_u": "0.250"
+    },
+    {
+      "item": "Butter and margarine",
+      "cpi_u": "0.055"
+    },
+    {
+      "item": "Salad dressing",
+      "cpi_u": "0.066"
+    },
+    {
+      "item": "Other fats and oils including peanut butter",
+      "cpi_u": "0.129"
+    },
+    {
+      "item": "Other foods",
+      "cpi_u": "1.756"
+    },
+    {
+      "item": "Soups",
+      "cpi_u": "0.105"
+    },
+    {
+      "item": "Frozen and freeze dried prepared foods",
+      "cpi_u": "0.279"
+    },
+    {
+      "item": "Snacks",
+      "cpi_u": "0.365"
+    },
+    {
+      "item": "Spices, seasonings, condiments, sauces",
+      "cpi_u": "0.383"
+    },
+    {
+      "item": "Baby food and formula",
+      "cpi_u": "0.060"
+    },
+    {
+      "item": "Other miscellaneous foods",
+      "cpi_u": "0.564"
+    },
+    {
+      "item": "Food away from home",
+      "cpi_u": "5.648"
+    },
+    {
+      "item": "Full service meals and snacks",
+      "cpi_u": "2.434"
+    },
+    {
+      "item": "Limited service meals and snacks",
+      "cpi_u": "2.845"
+    },
+    {
+      "item": "Food at employee sites and schools",
+      "cpi_u": "0.072"
+    },
+    {
+      "item": "Food from vending machines and mobile vendors",
+      "cpi_u": "0.055"
+    },
+    {
+      "item": "Other food away from home",
+      "cpi_u": "0.241"
+    },
+    {
+      "item": "Alcoholic beverages",
+      "cpi_u": "0.835"
+    },
+    {
+      "item": "Alcoholic beverages at home",
+      "cpi_u": "0.449"
+    },
+    {
+      "item": "Beer, ale, and other malt beverages at home",
+      "cpi_u": "0.154"
+    },
+    {
+      "item": "Distilled spirits at home",
+      "cpi_u": "0.103"
+    },
+    {
+      "item": "Wine at home",
+      "cpi_u": "0.192"
+    },
+    {
+      "item": "Alcoholic beverages away from home",
+      "cpi_u": "0.387"
+    },
+    {
+      "item": "Housing",
+      "cpi_u": "44.201",
+      "cpi_w": "41.932"
+    },
+    {
+      "item": "Shelter",
+      "cpi_u": "35.483",
+      "cpi_w": "33.186"
+    },
+    {
+      "item": "Rent of primary residence",
+      "cpi_u": "7.499",
+      "cpi_w": "10.438"
+    },
+    {
+      "item": "Lodging away from home",
+      "cpi_u": "1.292",
+      "cpi_w": "0.766"
+    },
+    {
+      "item": "Housing at school, excluding board",
+      "cpi_u": "0.243",
+      "cpi_w": "0.105"
+    },
+    {
+      "item": "Other lodging away from home including hotels and motels",
+      "cpi_u": "1.049",
+      "cpi_w": "0.661"
+    },
+    {
+      "item": "Owners' equivalent rent of residences",
+      "cpi_u": "26.282",
+      "cpi_w": "21.579"
+    },
+    {
+      "item": "Owners' equivalent rent of primary residence",
+      "cpi_u": "25.083",
+      "cpi_w": "21.114"
+    },
+    {
+      "item": "Unsampled owners' equivalent rent of secondary residences",
+      "cpi_u": "1.198",
+      "cpi_w": "0.465"
+    },
+    {
+      "item": "Tenants' and household insurance",
+      "cpi_u": "0.410",
+      "cpi_w": "0.403"
+    },
+    {
+      "item": "Fuels and utilities",
+      "cpi_u": "4.312",
+      "cpi_w": "4.921"
+    },
+    {
+      "item": "Household energy",
+      "cpi_u": "3.233",
+      "cpi_w": "3.740"
+    },
+    {
+      "item": "Fuel oil and other fuels",
+      "cpi_u": "0.139",
+      "cpi_w": "0.123"
+    },
+    {
+      "item": "Fuel oil",
+      "cpi_u": "0.074",
+      "cpi_w": "0.064"
+    },
+    {
+      "item": "Propane, kerosene, and firewood",
+      "cpi_u": "0.065",
+      "cpi_w": "0.059"
+    },
+    {
+      "item": "Energy services",
+      "cpi_u": "3.094",
+      "cpi_w": "3.617"
+    },
+    {
+      "item": "Electricity",
+      "cpi_u": "2.343",
+      "cpi_w": "2.833"
+    },
+    {
+      "item": "Utility (piped) gas service",
+      "cpi_u": "0.750",
+      "cpi_w": "0.784"
+    },
+    {
+      "item": "Water and sewer and trash collection services",
+      "cpi_u": "1.079",
+      "cpi_w": "1.181"
+    },
+    {
+      "item": "Water and sewerage maintenance",
+      "cpi_u": "0.738",
+      "cpi_w": "0.847"
+    },
+    {
+      "item": "Garbage and trash collection",
+      "cpi_u": "0.341",
+      "cpi_w": "0.334"
+    },
+    {
+      "item": "Household furnishings and operations",
+      "cpi_u": "4.406",
+      "cpi_w": "3.824"
+    },
+    {
+      "item": "Window and floor coverings and other linens",
+      "cpi_u": "0.240",
+      "cpi_w": "0.234"
+    },
+    {
+      "item": "Floor coverings",
+      "cpi_u": "0.059",
+      "cpi_w": "0.057"
+    },
+    {
+      "item": "Window coverings",
+      "cpi_u": "0.055",
+      "cpi_w": "0.040"
+    },
+    {
+      "item": "Furniture and bedding",
+      "cpi_u": "0.788",
+      "cpi_w": "0.735"
+    },
+    {
+      "item": "Bedroom furniture",
+      "cpi_u": "0.254",
+      "cpi_w": "0.243"
+    },
+    {
+      "item": "Living room, kitchen, and dining room furniture",
+      "cpi_u": "0.381",
+      "cpi_w": "0.374"
+    },
+    {
+      "item": "Other furniture",
+      "cpi_u": "0.144",
+      "cpi_w": "0.105"
+    },
+    {
+      "item": "Unsampled furniture",
+      "cpi_u": "0.009",
+      "cpi_w": "0.013"
+    },
+    {
+      "item": "Appliances",
+      "cpi_u": "0.214",
+      "cpi_w": "0.279"
+    },
+    {
+      "item": "Major appliances",
+      "cpi_u": "0.068",
+      "cpi_w": "0.108"
+    },
+    {
+      "item": "Other appliances",
+      "cpi_u": "0.143",
+      "cpi_w": "0.164"
+    },
+    {
+      "item": "Unsampled appliances",
+      "cpi_u": "0.003",
+      "cpi_w": "0.008"
+    },
+    {
+      "item": "Other household equipment and furnishings",
+      "cpi_u": "0.491",
+      "cpi_w": "0.458"
+    },
+    {
+      "item": "Clocks, lamps, and decorator items",
+      "cpi_u": "0.286",
+      "cpi_w": "0.268"
+    },
+    {
+      "item": "Indoor plants and flowers",
+      "cpi_u": "0.113",
+      "cpi_w": "0.091"
+    },
+    {
+      "item": "Dishes and flatware",
+      "cpi_u": "0.037",
+      "cpi_w": "0.037"
+    },
+    {
+      "item": "Nonelectric cookware and tableware",
+      "cpi_u": "0.055",
+      "cpi_w": "0.062"
+    },
+    {
+      "item": "Tools, hardware, outdoor equipment and supplies",
+      "cpi_u": "0.837",
+      "cpi_w": "0.706"
+    },
+    {
+      "item": "Tools, hardware and supplies",
+      "cpi_u": "0.240",
+      "cpi_w": "0.205"
+    },
+    {
+      "item": "Outdoor equipment and supplies",
+      "cpi_u": "0.362",
+      "cpi_w": "0.245"
+    },
+    {
+      "item": "Unsampled tools, hardware, outdoor equipment and supplies",
+      "cpi_u": "0.235",
+      "cpi_w": "0.256"
+    },
+    {
+      "item": "Housekeeping supplies",
+      "cpi_u": "0.806",
+      "cpi_w": "0.942"
+    },
+    {
+      "item": "Household cleaning products",
+      "cpi_u": "0.300",
+      "cpi_w": "0.380"
+    },
+    {
+      "item": "Household paper products",
+      "cpi_u": "0.178",
+      "cpi_w": "0.229"
+    },
+    {
+      "item": "Miscellaneous household products",
+      "cpi_u": "0.329",
+      "cpi_w": "0.334"
+    },
+    {
+      "item": "Household operations",
+      "cpi_u": "1.030",
+      "cpi_w": "0.469"
+    },
+    {
+      "item": "Domestic services",
+      "cpi_u": "0.312",
+      "cpi_w": "0.106"
+    },
+    {
+      "item": "Gardening and lawncare services",
+      "cpi_u": "0.336",
+      "cpi_w": "0.153"
+    },
+    {
+      "item": "Moving, storage, freight expense",
+      "cpi_u": "0.127",
+      "cpi_w": "0.091"
+    },
+    {
+      "item": "Repair of household items",
+      "cpi_u": "0.172",
+      "cpi_w": "0.076"
+    },
+    {
+      "item": "Unsampled household operations",
+      "cpi_u": "0.083",
+      "cpi_w": "0.042"
+    },
+    {
+      "item": "Apparel",
+      "cpi_u": "2.480",
+      "cpi_w": "2.751"
+    },
+    {
+      "item": "Men's and boys' apparel",
+      "cpi_u": "0.654",
+      "cpi_w": "0.821"
+    },
+    {
+      "item": "Men's apparel",
+      "cpi_u": "0.526",
+      "cpi_w": "0.645"
+    },
+    {
+      "item": "Men's suits, sport coats, and outerwear",
+      "cpi_u": "0.088",
+      "cpi_w": "0.088"
+    },
+    {
+      "item": "Men's underwear, nightwear, swimwear, and accessories",
+      "cpi_u": "0.140",
+      "cpi_w": "0.161"
+    },
+    {
+      "item": "Men's shirts and sweaters",
+      "cpi_u": "0.149",
+      "cpi_w": "0.181"
+    },
+    {
+      "item": "Men's pants and shorts",
+      "cpi_u": "0.133",
+      "cpi_w": "0.170"
+    },
+    {
+      "item": "Unsampled men's apparel",
+      "cpi_u": "0.015",
+      "cpi_w": "0.045"
+    },
+    {
+      "item": "Boys' apparel",
+      "cpi_u": "0.128",
+      "cpi_w": "0.176"
+    },
+    {
+      "item": "Women's and girls' apparel",
+      "cpi_u": "0.967",
+      "cpi_w": "0.937"
+    },
+    {
+      "item": "Women's apparel",
+      "cpi_u": "0.860",
+      "cpi_w": "0.804"
+    },
+    {
+      "item": "Women's outerwear",
+      "cpi_u": "0.076",
+      "cpi_w": "0.054"
+    },
+    {
+      "item": "Women's dresses",
+      "cpi_u": "0.125",
+      "cpi_w": "0.177"
+    },
+    {
+      "item": "Women's suits and separates",
+      "cpi_u": "0.347",
+      "cpi_w": "0.292"
+    },
+    {
+      "item": "Women's underwear, nightwear, swimwear, and accessories",
+      "cpi_u": "0.301",
+      "cpi_w": "0.269"
+    },
+    {
+      "item": "Unsampled women's apparel",
+      "cpi_u": "0.011",
+      "cpi_w": "0.013"
+    },
+    {
+      "item": "Girls' apparel",
+      "cpi_u": "0.107",
+      "cpi_w": "0.132"
+    },
+    {
+      "item": "Footwear",
+      "cpi_u": "0.578",
+      "cpi_w": "0.700"
+    },
+    {
+      "item": "Men's footwear",
+      "cpi_u": "0.196",
+      "cpi_w": "0.240"
+    },
+    {
+      "item": "Boys' and girls' footwear",
+      "cpi_u": "0.114",
+      "cpi_w": "0.176"
+    },
+    {
+      "item": "Women's footwear",
+      "cpi_u": "0.267",
+      "cpi_w": "0.285"
+    },
+    {
+      "item": "Infants' and toddlers' apparel",
+      "cpi_u": "0.102",
+      "cpi_w": "0.165"
+    },
+    {
+      "item": "Jewelry and watches",
+      "cpi_u": "0.180",
+      "cpi_w": "0.128"
+    },
+    {
+      "item": "Watches",
+      "cpi_u": "0.042",
+      "cpi_w": "0.029"
+    },
+    {
+      "item": "Jewelry",
+      "cpi_u": "0.137",
+      "cpi_w": "0.099"
+    },
+    {
+      "item": "Transportation",
+      "cpi_u": "16.571",
+      "cpi_w": "19.290"
+    },
+    {
+      "item": "Private transportation",
+      "cpi_u": "15.103",
+      "cpi_w": "18.131"
+    },
+    {
+      "item": "New and used motor vehicles",
+      "cpi_u": "7.447",
+      "cpi_w": "8.481"
+    },
+    {
+      "item": "New vehicles",
+      "cpi_u": "4.393",
+      "cpi_w": "4.486"
+    },
+    {
+      "item": "Used cars and trucks",
+      "cpi_u": "2.391",
+      "cpi_w": "3.294"
+    },
+    {
+      "item": "Leased cars and trucks",
+      "cpi_u": "0.397",
+      "cpi_w": "0.400"
+    },
+    {
+      "item": "Car and truck rental",
+      "cpi_u": "0.130",
+      "cpi_w": "0.121"
+    },
+    {
+      "item": "Unsampled new and used motor vehicles",
+      "cpi_u": "0.136",
+      "cpi_w": "0.180"
+    },
+    {
+      "item": "Motor fuel",
+      "cpi_u": "2.983",
+      "cpi_w": "4.046"
+    },
+    {
+      "item": "Gasoline (all types)",
+      "cpi_u": "2.902",
+      "cpi_w": "3.930"
+    },
+    {
+      "item": "Other motor fuels",
+      "cpi_u": "0.081",
+      "cpi_w": "0.116"
+    },
+    {
+      "item": "Motor vehicle parts and equipment",
+      "cpi_u": "0.362",
+      "cpi_w": "0.436"
+    },
+    {
+      "item": "Tires",
+      "cpi_u": "0.297",
+      "cpi_w": "0.345"
+    },
+    {
+      "item": "Vehicle accessories other than tires",
+      "cpi_u": "0.065",
+      "cpi_w": "0.091"
+    },
+    {
+      "item": "Motor vehicle maintenance and repair",
+      "cpi_u": "1.019",
+      "cpi_w": "1.027"
+    },
+    {
+      "item": "Motor vehicle body work",
+      "cpi_u": "0.054",
+      "cpi_w": "0.052"
+    },
+    {
+      "item": "Motor vehicle maintenance and servicing",
+      "cpi_u": "0.508",
+      "cpi_w": "0.518"
+    },
+    {
+      "item": "Motor vehicle repair",
+      "cpi_u": "0.395",
+      "cpi_w": "0.389"
+    },
+    {
+      "item": "Unsampled service policies",
+      "cpi_u": "0.062",
+      "cpi_w": "0.068"
+    },
+    {
+      "item": "Motor vehicle insurance",
+      "cpi_u": "2.796",
+      "cpi_w": "3.637"
+    },
+    {
+      "item": "Motor vehicle fees",
+      "cpi_u": "0.495",
+      "cpi_w": "0.504"
+    },
+    {
+      "item": "State motor vehicle registration and license fees",
+      "cpi_u": "0.284",
+      "cpi_w": "0.319"
+    },
+    {
+      "item": "Parking and other fees",
+      "cpi_u": "0.198",
+      "cpi_w": "0.184"
+    },
+    {
+      "item": "Unsampled motor vehicle fees",
+      "cpi_u": "0.013",
+      "cpi_w": "0.001"
+    },
+    {
+      "item": "Public transportation",
+      "cpi_u": "1.468",
+      "cpi_w": "1.159"
+    },
+    {
+      "item": "Airline fares",
+      "cpi_u": "0.918",
+      "cpi_w": "0.653"
+    },
+    {
+      "item": "Other intercity transportation",
+      "cpi_u": "0.223",
+      "cpi_w": "0.113"
+    },
+    {
+      "item": "Intracity transportation",
+      "cpi_u": "0.322",
+      "cpi_w": "0.380"
+    },
+    {
+      "item": "Unsampled public transportation",
+      "cpi_u": "0.004",
+      "cpi_w": "0.013"
+    },
+    {
+      "item": "Medical care",
+      "cpi_u": "8.273",
+      "cpi_w": "6.946"
+    },
+    {
+      "item": "Medical care commodities",
+      "cpi_u": "1.527",
+      "cpi_w": "1.318"
+    },
+    {
+      "item": "Medicinal drugs",
+      "cpi_u": "1.347",
+      "cpi_w": "1.163"
+    },
+    {
+      "item": "Prescription drugs",
+      "cpi_u": "0.925",
+      "cpi_w": "0.776"
+    },
+    {
+      "item": "Nonprescription drugs",
+      "cpi_u": "0.422",
+      "cpi_w": "0.387"
+    },
+    {
+      "item": "Medical equipment and supplies",
+      "cpi_u": "0.180",
+      "cpi_w": "0.155"
+    },
+    {
+      "item": "Medical care services",
+      "cpi_u": "6.747",
+      "cpi_w": "5.628"
+    },
+    {
+      "item": "Professional services",
+      "cpi_u": "3.702",
+      "cpi_w": "2.913"
+    },
+    {
+      "item": "Physicians' services",
+      "cpi_u": "1.824",
+      "cpi_w": "1.478"
+    },
+    {
+      "item": "Dental services",
+      "cpi_u": "0.944",
+      "cpi_w": "0.762"
+    },
+    {
+      "item": "Eyeglasses and eye care",
+      "cpi_u": "0.335",
+      "cpi_w": "0.276"
+    },
+    {
+      "item": "Services by other medical professionals",
+      "cpi_u": "0.600",
+      "cpi_w": "0.397"
+    },
+    {
+      "item": "Hospital and related services",
+      "cpi_u": "2.252",
+      "cpi_w": "1.930"
+    },
+    {
+      "item": "Hospital services",
+      "cpi_u": "1.932",
+      "cpi_w": "1.757"
+    },
+    {
+      "item": "Nursing homes and adult day services",
+      "cpi_u": "0.165",
+      "cpi_w": "0.084"
+    },
+    {
+      "item": "Care of invalids and elderly at home",
+      "cpi_u": "0.155",
+      "cpi_w": "0.089"
+    },
+    {
+      "item": "Health insurance",
+      "cpi_u": "0.793",
+      "cpi_w": "0.784"
+    },
+    {
+      "item": "Recreation",
+      "cpi_u": "5.292",
+      "cpi_w": "4.499"
+    },
+    {
+      "item": "Video and audio",
+      "cpi_u": "1.060",
+      "cpi_w": "1.040"
+    },
+    {
+      "item": "Televisions",
+      "cpi_u": "0.091",
+      "cpi_w": "0.099"
+    },
+    {
+      "item": "Cable, satellite, and live streaming television service",
+      "cpi_u": "0.653",
+      "cpi_w": "0.632"
+    },
+    {
+      "item": "Other video equipment",
+      "cpi_u": "0.028",
+      "cpi_w": "0.016"
+    },
+    {
+      "item": "Purchase, subscription, and rental of video",
+      "cpi_u": "0.156",
+      "cpi_w": "0.164"
+    },
+    {
+      "item": "Audio equipment",
+      "cpi_u": "0.053",
+      "cpi_w": "0.052"
+    },
+    {
+      "item": "Recorded music and music subscriptions",
+      "cpi_u": "0.075",
+      "cpi_w": "0.072"
+    },
+    {
+      "item": "Unsampled video and audio",
+      "cpi_u": "0.005",
+      "cpi_w": "0.005"
+    },
+    {
+      "item": "Pets, pet products and services",
+      "cpi_u": "1.163",
+      "cpi_w": "1.073"
+    },
+    {
+      "item": "Pets and pet products",
+      "cpi_u": "0.632",
+      "cpi_w": "0.705"
+    },
+    {
+      "item": "Pet services including veterinary",
+      "cpi_u": "0.530",
+      "cpi_w": "0.367"
+    },
+    {
+      "item": "Sporting goods",
+      "cpi_u": "0.480",
+      "cpi_w": "0.386"
+    },
+    {
+      "item": "Sports vehicles including bicycles",
+      "cpi_u": "0.240",
+      "cpi_w": "0.208"
+    },
+    {
+      "item": "Sports equipment",
+      "cpi_u": "0.224",
+      "cpi_w": "0.162"
+    },
+    {
+      "item": "Unsampled sporting goods",
+      "cpi_u": "0.016",
+      "cpi_w": "0.017"
+    },
+    {
+      "item": "Photography",
+      "cpi_u": "0.075",
+      "cpi_w": "0.046"
+    },
+    {
+      "item": "Photographic equipment and supplies",
+      "cpi_u": "0.019",
+      "cpi_w": "0.022"
+    },
+    {
+      "item": "Photographers and photo processing",
+      "cpi_u": "0.055",
+      "cpi_w": "0.022"
+    },
+    {
+      "item": "Unsampled photography",
+      "cpi_u": "0.000",
+      "cpi_w": "0.001"
+    },
+    {
+      "item": "Other recreational goods",
+      "cpi_u": "0.366",
+      "cpi_w": "0.354"
+    },
+    {
+      "item": "Toys",
+      "cpi_u": "0.285",
+      "cpi_w": "0.282"
+    },
+    {
+      "item": "Sewing machines, fabric and supplies",
+      "cpi_u": "0.023",
+      "cpi_w": "0.009"
+    },
+    {
+      "item": "Music instruments and accessories",
+      "cpi_u": "0.044",
+      "cpi_w": "0.034"
+    },
+    {
+      "item": "Unsampled recreation commodities",
+      "cpi_u": "0.014",
+      "cpi_w": "0.029"
+    },
+    {
+      "item": "Other recreation services",
+      "cpi_u": "2.051",
+      "cpi_w": "1.554"
+    },
+    {
+      "item": "Club membership for shopping clubs, fraternal, or other organizations, or participant sports fees",
+      "cpi_u": "0.817",
+      "cpi_w": "0.736"
+    },
+    {
+      "item": "Admissions",
+      "cpi_u": "0.738",
+      "cpi_w": "0.532"
+    },
+    {
+      "item": "Fees for lessons or instructions",
+      "cpi_u": "0.168",
+      "cpi_w": "0.084"
+    },
+    {
+      "item": "Unsampled recreation services",
+      "cpi_u": "0.328",
+      "cpi_w": "0.202"
+    },
+    {
+      "item": "Recreational reading materials",
+      "cpi_u": "0.098",
+      "cpi_w": "0.048"
+    },
+    {
+      "item": "Newspapers and magazines",
+      "cpi_u": "0.053",
+      "cpi_w": "0.020"
+    },
+    {
+      "item": "Recreational books",
+      "cpi_u": "0.045",
+      "cpi_w": "0.027"
+    },
+    {
+      "item": "Unsampled recreational reading materials",
+      "cpi_u": "0.000",
+      "cpi_w": "0.000"
+    },
+    {
+      "item": "Education and communication",
+      "cpi_u": "5.732",
+      "cpi_w": "5.534"
+    },
+    {
+      "item": "Education",
+      "cpi_u": "2.583",
+      "cpi_w": "1.824"
+    },
+    {
+      "item": "Educational books and supplies",
+      "cpi_u": "0.042",
+      "cpi_w": "0.041"
+    },
+    {
+      "item": "Tuition, other school fees, and childcare",
+      "cpi_u": "2.541",
+      "cpi_w": "1.783"
+    },
+    {
+      "item": "College tuition and fees",
+      "cpi_u": "1.324",
+      "cpi_w": "0.981"
+    },
+    {
+      "item": "Elementary and high school tuition and fees",
+      "cpi_u": "0.388",
+      "cpi_w": "0.162"
+    },
+    {
+      "item": "Day care and preschool",
+      "cpi_u": "0.724",
+      "cpi_w": "0.556"
+    },
+    {
+      "item": "Technical and business school tuition and fees",
+      "cpi_u": "0.039",
+      "cpi_w": "0.034"
+    },
+    {
+      "item": "Unsampled tuition, other school fees, and childcare",
+      "cpi_u": "0.066",
+      "cpi_w": "0.050"
+    },
+    {
+      "item": "Communication",
+      "cpi_u": "3.149",
+      "cpi_w": "3.711"
+    },
+    {
+      "item": "Postage and delivery services",
+      "cpi_u": "0.054",
+      "cpi_w": "0.037"
+    },
+    {
+      "item": "Postage",
+      "cpi_u": "0.052",
+      "cpi_w": "0.034"
+    },
+    {
+      "item": "Delivery services",
+      "cpi_u": "0.002",
+      "cpi_w": "0.002"
+    },
+    {
+      "item": "Information and information processing",
+      "cpi_u": "3.094",
+      "cpi_w": "3.674"
+    },
+    {
+      "item": "Telephone services",
+      "cpi_u": "1.450",
+      "cpi_w": "1.845"
+    },
+    {
+      "item": "Wireless telephone services",
+      "cpi_u": "1.281",
+      "cpi_w": "1.702"
+    },
+    {
+      "item": "Residential telephone services",
+      "cpi_u": "0.169",
+      "cpi_w": "0.143"
+    },
+    {
+      "item": "Information technology, hardware and services",
+      "cpi_u": "1.644",
+      "cpi_w": "1.829"
+    },
+    {
+      "item": "Computers, peripherals, and smart home assistants",
+      "cpi_u": "0.262",
+      "cpi_w": "0.221"
+    },
+    {
+      "item": "Computer software and accessories",
+      "cpi_u": "0.027",
+      "cpi_w": "0.023"
+    },
+    {
+      "item": "Internet services and electronic information providers",
+      "cpi_u": "0.926",
+      "cpi_w": "1.050"
+    },
+    {
+      "item": "Telephone hardware, calculators, and other consumer information items",
+      "cpi_u": "0.421",
+      "cpi_w": "0.526"
+    },
+    {
+      "item": "Unsampled information and information processing",
+      "cpi_u": "0.009",
+      "cpi_w": "0.009"
+    },
+    {
+      "item": "Other goods and services",
+      "cpi_u": "2.925",
+      "cpi_w": "3.089"
+    },
+    {
+      "item": "Tobacco and smoking products",
+      "cpi_u": "0.482",
+      "cpi_w": "0.800"
+    },
+    {
+      "item": "Cigarettes",
+      "cpi_u": "0.361",
+      "cpi_w": "0.615"
+    },
+    {
+      "item": "Tobacco products other than cigarettes",
+      "cpi_u": "0.116",
+      "cpi_w": "0.172"
+    },
+    {
+      "item": "Unsampled tobacco and smoking products",
+      "cpi_u": "0.006",
+      "cpi_w": "0.013"
+    },
+    {
+      "item": "Personal care",
+      "cpi_u": "2.443",
+      "cpi_w": "2.289"
+    },
+    {
+      "item": "Personal care products",
+      "cpi_u": "0.649",
+      "cpi_w": "0.623"
+    },
+    {
+      "item": "Hair, dental, shaving, and miscellaneous personal care products",
+      "cpi_u": "0.290",
+      "cpi_w": "0.280"
+    },
+    {
+      "item": "Cosmetics, perfume, bath, nail preparations and implements",
+      "cpi_u": "0.350",
+      "cpi_w": "0.329"
+    },
+    {
+      "item": "Unsampled personal care products",
+      "cpi_u": "0.009",
+      "cpi_w": "0.014"
+    },
+    {
+      "item": "Personal care services",
+      "cpi_u": "0.659",
+      "cpi_w": "0.611"
+    },
+    {
+      "item": "Haircuts and other personal care services",
+      "cpi_u": "0.659",
+      "cpi_w": "0.611"
+    },
+    {
+      "item": "Miscellaneous personal services",
+      "cpi_u": "0.977",
+      "cpi_w": "0.911"
+    },
+    {
+      "item": "Legal services",
+      "cpi_u": "0.343",
+      "cpi_w": "0.241"
+    },
+    {
+      "item": "Funeral expenses",
+      "cpi_u": "0.140",
+      "cpi_w": "0.200"
+    },
+    {
+      "item": "Laundry and dry cleaning services",
+      "cpi_u": "0.164",
+      "cpi_w": "0.202"
+    },
+    {
+      "item": "Apparel services other than laundry and dry cleaning",
+      "cpi_u": "0.027",
+      "cpi_w": "0.023"
+    },
+    {
+      "item": "Financial services",
+      "cpi_u": "0.244",
+      "cpi_w": "0.141"
+    },
+    {
+      "item": "Unsampled items",
+      "cpi_u": "0.059",
+      "cpi_w": "0.104"
+    },
+    {
+      "item": "Miscellaneous personal goods",
+      "cpi_u": "0.158",
+      "cpi_w": "0.143"
+    }
+  ]
+}

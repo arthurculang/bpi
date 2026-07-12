@@ -262,6 +262,26 @@ piped gas, water/sewer/trash tariffs.
 
 **Tier share summary (judge):** ALL FIGURES MOCK (pending owner's CE Table 1101 / R-CPI-I pull). Raw group totals: Food & Bev 16.76 + Housing 47.40 + Transportation 15.10 + Med/Edu/Comm 12.30 + Recreation 3.61 + Apparel/PC/Other 6.26 = 101.43% of the B40 CPI-consumption basket — a +1.4pp overshoot, acceptable at mock precision but must be normalized before any corridor arithmetic; the likeliest shave is Housing (47.4% is the high-side outlier: OER at 17.0pp looks 3-5pp high against the group's own renter-heavy B40 argument, so the overshoot should come mostly out of OER). No wild misallocations found (energy-heavy gasoline 4.0 and electricity 4.0, used-vehicles 3.0, airline 0.4 all match stated B40 priors). Post-correction tier composition, raw pp of the 101.43 (normalized %): R-active 23.11pp (22.8%) — dominated by rent-of-primary-residence 18.5pp, plus wireless 1.8, internet 1.4, hotels 0.5, cable/streaming 0.45, airline 0.4, music subs 0.06; R-queued 5.45pp (5.4%) — limited-service 2.6, full-service 2.2, admissions 0.30, checking/bank 0.25, vehicle rental 0.1; Tier A 32.51pp (32.1%) — food-at-home ~11.5, regulated utility tariffs ~7.1, gasoline+fuels 4.1, tuition strata ~1.05, tobacco 0.95, personal-care products/services 1.4, plus the landline demotion (0.3) and sundry audit strata; Tier B 40.36pp (39.8%) — dominated by OER 17.0 (B-structural), medical services/insurance ~5.9 (B-structural, A-H), vehicles+auto insurance+repair ~9.0, apparel/footwear/jewelry ~3.1, furniture/furnishings ~1.9, plus the TV/toys/tax-prep demotions (0.45). Net effect of corrections: R-queued -0.30pp, A -0.15pp, B +0.45pp vs the submitted tables. Headline (mock, normalized): roughly 23% R-active / 5% R-queued / 32% A / 40% B — i.e. the corridor prices or audits ~60% of the B40 basket and bounds the rest, with the B mass split ~24pp B-structural (OER + medical) vs ~16pp B-register.
 
+## Real-weight normalization (2026-07-12, Dec-2024 CPI-U relative importance)
+
+The owner's capture of the full relative-importance table replaces the mock
+shares: joining this map to the real weights (173/187 strata matched, 95.97%
+of the CPI-U basket; `pipeline/restate_coverage.py --cpi`):
+
+| Tier | Mock (pre-data) | **Computed, CPI-U Dec 2024** |
+|---|---|---|
+| R | ≈29% | **17.8%** |
+| A | ≈33% | **24.3%** |
+| B | ≈40% | **53.8%** (OER alone 26.3%) |
+
+The mocks overstated R and A and understated B — mostly because OER's true
+CPI-U weight (26.3%) dwarfs the mock's assumption and because bottom-40-flavored
+intuitions leaked into what is, under CPI-U, an average-household basket. The
+B40 (R-CPI-I) weighting will move rent up and OER down (CPI-W already shows
+rent 10.4% / OER 21.6%; B40 renters are 57%/42%) — that vintage is the
+remaining owner pull. The 14 unmatched rows are ✓verify name variants,
+resolved at byte-verification.
+
 ## Changelog
 
 - v0 (2026-07-10) — first draft: 6-classifier + judge workflow; judge corrections applied inline; one judge-identified gap row added (motor oil/coolant/fluids). Pre-review; becomes binding only via the proposal §8 governance.

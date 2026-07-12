@@ -1,6 +1,6 @@
 # Restoration Index — Project Plan
 
-`v00.03.15 · 2026-07-12 02-05 · internal working doc · companion to: Restoration Index Spec v00.02.00`
+`v00.03.16 · 2026-07-12 02-21 · internal working doc · companion to: Restoration Index Spec v00.02.00`
 
 ---
 
@@ -299,6 +299,8 @@ CONSTRAINTS
 ---
 
 ## Changelog
+
+- **v00.03.16** (2026-07-12 02-21) — **CPI relative-importance capture completed (Dec 2024, 293 items, majors close to 100.000 exactly) and the real-weight computations run** (`pipeline/restate_coverage.py --cpi`, executable). Tier-map join (173/187 strata, 95.97% of the CPI-U basket): **Tier R 17.8% / Tier A 24.3% / Tier B 53.8%** — the mocks (29/33/40) corrected again, chiefly because OER's true CPI-U weight is 26.3%; Tier B's majority share is the honest headline (the corridor's width is structurally OER-dominated under CPI-U weights). Phase-2 restoration-priced composition under real weights: **12.49% CPI-U / 15.28% CPI-W** (+0.7 Admissions R-queued); rent 7.50→10.44 and OER 26.28→21.58 CPI-U→CPI-W shows the direction the pending B40 R-CPI-I vintage pulls (B40 renters 57%/42%). Coverage-restatement doc, tier map, and both RX-100 docs updated with computed values; 14 unmatched tier rows are ✓verify name variants for the owner's byte-verification pass. Remaining owner pulls: R-CPI-I relative-importance XLSX + CE Table 1101 XLSX (--manual registrations).
 
 - **v00.03.15** (2026-07-12 02-05) — **CE detail refresh (owner FRED pull) + coverage restatement computed — and a logged downward correction of our own hypothesis.** New: `data/captures/fred-cex-quintiles-2026-07-12.json` (2024 quintile detail: cellular $720/$1,084, electricity, gas, water+trash, fees&admissions, other-lodging, phone; **renter shares Q1 57% / Q2 42%**; availability findings — airline/pay-TV/internet/trash detail are NOT published at quintile level; R-CPI-I is XLSX-only) and `pipeline/restate_coverage.py` + `data/coverage-restatement-2026-07-12.md` (executable, anchor-asserting). Computed: restoration-priced share = **18.9–20.7% of the B40 consumption basket** at the Phase-2 composition (17.7–19.3% of CE total; +0.7pp R-queued). This CORRECTS the RX-100 docs' ~30–35% hypothesis downward: B40 pensions/insurance are only 6.6% of outlays, so the scope restatement buys ≈1pp, not 4–9pp — both RX-100 docs amended same day with the correction logged, per the negative-prints-are-features posture. Open: OER/CPI-weight treatment awaits the R-CPI-I relative-importance XLSX (owner --manual task, with CE Table 1101 2024 XLSX `cu-income-quintiles-before-taxes-2024.xlsx`). §9 item 7: detail cells and renter shares now 2024-vintage at quintile level. v4lue4dded mirror found dead (tree empty) — noted. Suite 59 green.
 

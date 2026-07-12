@@ -51,6 +51,33 @@ R-CPI-I is XLSX-only (no HTML table); CE Table 1101 2024 XLSX identified
 (`cu-income-quintiles-before-taxes-2024.xlsx`) — both queued for owner
 `--manual` registration as the byte-grade evidence behind this file.
 
+## CPI-weight space (added same day, on the completed relative-importance capture)
+
+With the full Dec-2024 CPI relative-importance table captured
+(`data/captures/cpi-relative-importance-2026-07-12.json`, 293 items, majors
+close to 100.000 exactly), the same questions computed in **real CPI-weight
+space** (`pipeline/restate_coverage.py --cpi`):
+
+| Quantity | CPI-U | CPI-W |
+|---|---|---|
+| Phase-2 restoration-priced composition (rent + wireless + res-phone + internet + pay-TV/streaming + air + hotels/motels) | **12.49%** | **15.28%** |
+| + R-queued Admissions | +0.74 | +0.53 |
+| Tier R (tier-map join, 173/187 strata matched, 95.97% of basket) | **17.8%** | — |
+| Tier A | **24.3%** | — |
+| Tier B | **53.8%** | — |
+| Owners' equivalent rent (largest Tier-B stratum) | **26.28%** | 21.58% |
+| Rent of primary residence | 7.50% | 10.44% |
+
+Readings: (1) under average-household CPI-U weights the corridor's Tier B is
+the majority of the basket — OER alone is a quarter of it — so the corridor's
+width under CPI-U weighting is structurally wide; (2) CPI-W (a
+wage-earner-household population, the closest published proxy toward B40
+weighting) moves rent +2.9pp and OER −4.7pp, showing the direction the
+R-CPI-I bottom-quintile vintage will pull — renters are 57%/42% of B40 —
+without yet licensing a B40 number; (3) the 14 unmatched tier-map rows are
+name variants already ✓verify-flagged (e.g. "Toys, games, hobbies…" vs the
+published "Toys") — they resolve at the owner's byte-verification pass.
+
 ## Changelog
 
 - v0 (2026-07-12) — first computation; supersedes the mock 30–35% hypothesis
