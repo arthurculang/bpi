@@ -7,10 +7,13 @@
 The Restoration Gap prices a conditional replication cost — the change in the
 minimum-cost, same-seller bundle that weakly dominates a household's frozen
 base-period experience — and publishes it *only* as a spread over the matching
-official CPI series. At maturity it restoration-prices ≈30–35% of the CPI consumption basket under
-bottom-40% weights (≈26% when stated as a share of CE total outlays — two
-denominators, reconciled in §1); the remainder is currently zero-imputed in
-the composite.
+official CPI series. At maturity it restoration-prices a computed **18.9–20.7% of the bottom-40%
+consumption basket** at the Phase-2 composition (2024 CE data,
+`data/coverage-restatement-2026-07-12.md`; an earlier ~30–35% hypothesis was
+corrected downward when real B40 data showed pensions/insurance are only 6.6%
+of B40 outlays — the correction is logged, and the CPI-weight treatment of
+owners' equivalent rent remains the open piece); the remainder is currently
+zero-imputed in the composite.
 We propose to replace that zero-imputation — which is an unacknowledged point
 restriction — with a **partial-identification interval over 100% of the CPI
 consumption basket**: the Restoration Corridor. Every CPI item stratum is
@@ -80,7 +83,10 @@ discipline) assigns each stratum to one tier:
 - **Tier R (measured).** Menu grammar and a commensurable comparator both hold.
   `ρ_i − π_i ∈ B_i^R`, the measured point (retaining the measure's existing
   superset `[0, tier-gap]` and incidence `[0%,100%]` sub-intervals where those
-  apply). Illustrative B40 weight: rent, connectivity, air, lodging ≈ 30–35%.
+  apply). Computed B40 consumption-basket weight at the Phase-2 composition:
+  rent, connectivity, air, lodging ≈ **19–21%** (2024 CE data,
+  `data/coverage-restatement-2026-07-12.md`; a prior ~30–35% mock corrected
+  downward, correction logged).
 
 - **Tier A (audited-adequate).** No contractible grammar, but posted per-unit or
   tariff prices make CPI's *own* concept testable. A pre-committed audit (the
@@ -146,10 +152,14 @@ cost of each.
 | **A-O** (OER bracketing; most fragile with A-H, flagged) | Owner-occupant degradation `∈ [0, measured rent-sector gap]` (HOA-fee/escrow analog of the renter fee stack, no lease-event repricing) | Falsifiable against HOA-fee and insurance-escrow data; sensitivity row with A-O dropped |
 
 Pensions, most insurance, and cash contributions are **excluded from `S` by
-definition of the CPI consumption basket** — not imputed. Stating this in the
-definitions is where the "26% feels apples-to-oranges" discomfort dissolves: the
-26% is a share of CE *total* outlays; restated in CPI-basket space with the
-project's B40 weights it is already ~30–35% before any new work.
+definition of the CPI consumption basket** — not imputed. A computed caveat,
+logged 2026-07-12 (`data/coverage-restatement-2026-07-12.md`): this exclusion
+buys less than originally hypothesized, because bottom-40 households put only
+6.6% of outlays into pensions/insurance/contributions — the computed
+restoration-priced share is **18.9–20.7% of the B40 consumption basket** at
+the Phase-2 composition, not the ~30–35% an earlier mock claimed. The larger
+CE-vs-CPI-weight wedge runs through the OER treatment (B40 renters 57%/42%,
+captured 2024) and resolves with the R-CPI-I relative-importance vintage.
 
 ## 4. The point-identified component (shippable now)
 

@@ -1,0 +1,104 @@
+{
+  "_capture": {
+    "method": "browser-agent-extraction (Claude for Chrome, owner's browser)",
+    "captured": "2026-07-12",
+    "provenance_grade": "browser-agent-extraction",
+    "source": "fred.stlouisfed.org CXU series pages (BLS Consumer Expenditure Surveys, quintiles of income before taxes); bls.gov R-CPI-I and CE tables pages for availability findings",
+    "gaps_and_follow_ups": [
+      "NOT PUBLISHED at quintile level (availability finding, not a miss): airline fares, cable/satellite/streaming detail, internet services detail, trash-collection detail, streaming detail \u2014 parents only (PUBTRANS, TVAUDIO, WATER).",
+      "R-CPI-I: no HTML table; XLSX-only (R-CPI-I Dec2005-Dec2024; relative-importance Dec2005-Dec2023). Owner --manual registration task.",
+      "CE Table 1101 2024 XLSX identified (cu-income-quintiles-before-taxes-2024.xlsx) - owner --manual registration task.",
+      "CPI relative-importance table (Part 2) not returned this run - re-run or fold into the August pull."
+    ]
+  },
+  "series": [
+    {
+      "concept": "Cellular phone service",
+      "q1_2024": 720,
+      "q2_2024": 1084,
+      "q1_2023": 686,
+      "q2_2023": 1005,
+      "series": "CXU270102LB0102M/0103M"
+    },
+    {
+      "concept": "Residential phone/VOIP/phone cards",
+      "q1_2024": 113,
+      "q2_2024": 119,
+      "q1_2023": 119,
+      "q2_2023": 146,
+      "series": "CXURESPHONELB0102M/0103M"
+    },
+    {
+      "concept": "Telephone services (total)",
+      "q1_2024": 834,
+      "q2_2024": 1204,
+      "q1_2023": 805,
+      "q2_2023": 1151,
+      "series": "CXUPHONELB0102M/0103M"
+    },
+    {
+      "concept": "Other lodging (parent of out-of-town trips)",
+      "q1_2024": 409,
+      "q2_2024": 523,
+      "q1_2023": 340,
+      "q2_2023": 517,
+      "series": "CXUOTHLODGELB0102M/0103M"
+    },
+    {
+      "concept": "Water and other public services (incl. trash)",
+      "q1_2024": 474,
+      "q2_2024": 670,
+      "q1_2023": 474,
+      "q2_2023": 659,
+      "series": "CXUWATERLB0102M/0103M"
+    },
+    {
+      "concept": "Electricity",
+      "q1_2024": 1276,
+      "q2_2024": 1674,
+      "q1_2023": 1295,
+      "q2_2023": 1607,
+      "series": "CXUELECTRICLB0102M/0103M"
+    },
+    {
+      "concept": "Natural gas (utility)",
+      "q1_2024": 287,
+      "q2_2024": 410,
+      "q1_2023": 297,
+      "q2_2023": 440,
+      "series": "CXUNATRLGASLB0102M/0103M"
+    },
+    {
+      "concept": "Fees and admissions",
+      "q1_2024": 197,
+      "q2_2024": 324,
+      "q1_2023": 168,
+      "q2_2023": 339,
+      "series": "CXUFEESADMLB0102M/0103M"
+    },
+    {
+      "concept": "Public and other transportation (parent of airline fares)",
+      "q1_2024": 472,
+      "q2_2024": 456,
+      "q1_2023": 354,
+      "q2_2023": 537,
+      "series": "CXUPUBTRANSLB0102M/0103M"
+    },
+    {
+      "concept": "Audio and visual equipment and services (parent of pay-TV/streaming)",
+      "q1_2024": 538,
+      "q2_2024": 870,
+      "q1_2023": 541,
+      "q2_2023": 875,
+      "series": "CXUTVAUDIOLB0102M/0103M"
+    },
+    {
+      "concept": "Percent homeowner",
+      "q1_2024": 43,
+      "q2_2024": 58,
+      "units": "percent",
+      "series": "CXUHOMEOWNLB0102M/0103M",
+      "note": "renter shares: Q1 57%, Q2 42%"
+    }
+  ]
+}
