@@ -109,5 +109,42 @@ def main():
     return {"consumption": consumption, "lo": lo, "hi": hi}
 
 
+def cpi_weight_view():
+    """Tier shares and Phase-2 coverage under REAL Dec-2024 CPI relative
+    importance (data/captures/cpi-relative-importance-2026-07-12.json joined
+    to docs/rx-100-tier-map.md). Run: python3 pipeline/restate_coverage.py --cpi"""
+    import re
+    cap = {r["item"].strip().lower(): float(r["cpi_u"])
+           for r in json.loads((Path(__file__).resolve().parent.parent /
+               "data/captures/cpi-relative-importance-2026-07-12.json").read_text()
+               )["cpi_u_relative_importance_dec2024"]}
+    tiers, share, unmatched = {}, {"R": 0.0, "A": 0.0, "B": 0.0}, []
+    for line in (Path(__file__).resolve().parent.parent / "docs/rx-100-tier-map.md").read_text().splitlines():
+        m = re.match(r"\| (.+?) \| ([RAB]) \| (\S+) \| [\d.]+ \|", line)
+        if m:
+            name = re.sub(r" ✓verify|\*\(expenditure-class level\)\*", "", m.group(1)).strip().lower()
+            tiers[name] = m.group(2)
+    for k, t in tiers.items():
+        if k in cap:
+            share[t] += cap[k]
+        else:
+            unmatched.append(k)
+    tot = sum(share.values())
+    print(f"tier-map join: {len(tiers)-len(unmatched)}/{len(tiers)} matched, {tot:.2f}% of CPI-U covered")
+    for t in "RAB":
+        print(f"  Tier {t}: {share[t]:6.2f}% CPI-U ({share[t]/tot*100:.0f}% of matched)")
+    comp = ["rent of primary residence", "wireless telephone services",
+            "residential telephone services",
+            "internet services and electronic information providers",
+            "cable, satellite, and live streaming television service",
+            "airline fares",
+            "other lodging away from home including hotels and motels"]
+    print(f"Phase-2 restoration-priced composition: {sum(cap[c] for c in comp):.2f}% CPI-U")
+    print(f"OER (largest Tier-B stratum): {cap[chr(111)+chr(119)+chr(110)+chr(101)+chr(114)+chr(115)+chr(39)+' equivalent rent of residences']:.2f}% CPI-U")
+
+
 if __name__ == "__main__":
-    main()
+    if "--cpi" in sys.argv:
+        cpi_weight_view()
+    else:
+        main()

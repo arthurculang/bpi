@@ -84,7 +84,9 @@ discipline) assigns each stratum to one tier:
   `ρ_i − π_i ∈ B_i^R`, the measured point (retaining the measure's existing
   superset `[0, tier-gap]` and incidence `[0%,100%]` sub-intervals where those
   apply). Computed B40 consumption-basket weight at the Phase-2 composition:
-  rent, connectivity, air, lodging ≈ **19–21%** (2024 CE data,
+  rent, connectivity, air, lodging ≈ **19–21%** of B40 consumption spending
+  and **17.8% of the CPI-U basket** (Dec-2024 join; 12.5% at the strict
+  Phase-2 composition, 15.3% under CPI-W) (2024 CE data,
   `data/coverage-restatement-2026-07-12.md`; a prior ~30–35% mock corrected
   downward, correction logged).
 
@@ -94,7 +96,8 @@ discipline) assigns each stratum to one tier:
   audit passes its band, `ρ_i − π_i ∈ [−δ_i, +δ_i]`; if it fails, the stratum
   reverts to the outcome-space bound (below) and is flagged for escalation to
   Tier R candidacy by rule, never silently. Illustrative: food-at-home, motor
-  fuel and household energy, utility tariffs ≈ 28–30%.
+  fuel and household energy, utility tariffs — computed **24.3% of the CPI-U
+  basket** (Dec-2024 relative importance joined to the tier map, 2026-07-12).
 
 - *(A draft classification of the full stratum list under this rule —
   187 strata, six classifier groups harmonized by a cross-group judge — is
@@ -106,7 +109,12 @@ discipline) assigns each stratum to one tier:
   the Exclusion Register's monetized documented-degradation magnitude for the
   stratum, and `I_i` is the symmetric magnitude from a proposed **Improvements
   Register** (§5). Illustrative: medical out-of-pocket, owners' equivalent rent,
-  apparel/personal-care/misc ≈ 35–40%.
+  apparel/personal-care/misc — computed **53.8% of the CPI-U basket**, of
+  which owners' equivalent rent alone is 26.3% (Dec-2024 join, 2026-07-12;
+  under CPI-W, the closest published proxy toward a B40 weighting, OER falls
+  to 21.6% and rent rises to 10.4% — the B40 R-CPI-I vintage is the open
+  pull). Tier B's majority share under CPI-U weights is the honest headline
+  of the join: the corridor's width is structurally OER-dominated.
 
 An outcome-space restriction applies to the **unmeasured** strata:
 

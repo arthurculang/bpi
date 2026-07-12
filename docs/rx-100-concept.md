@@ -63,7 +63,7 @@ identification-progress series: *"the corridor is tightening."*
 
 **Tier 2 is the load-bearing idea.** It converts the grocery null control from a
 *defensive* device ("look, we don't manufacture gaps") into an *offensive*
-instrument ("here are the ~28% of the basket where we tested CPI and it passed").
+instrument ("here are the ~24% of the basket — computed, Dec-2024 CPI-U join — where we tested CPI and it passed").
 Publicly showing where CPI **works** both narrows the corridor and is the
 strongest available inoculation against the "you're just CPI-bashing" attack.
 
