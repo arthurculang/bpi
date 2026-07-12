@@ -1,0 +1,480 @@
+{
+  "_capture": {
+    "method": "browser-agent-extraction (owner Chrome)",
+    "captured": "2026-07-12",
+    "provenance_grade": "browser-agent-extraction",
+    "source": "bls.gov/cpi/tables/relative-importance/2024.htm \u2014 'Relative importance of components in the CPI, U.S. city average, December 2024' (2023 weights), CPI-U column (CPI-W also available in paste)",
+    "status": "PARTIAL \u2014 part 1/3 complete (food+beverages), part 2/3 truncated mid-row after 'Window coverings'; part 3/3 not yet received",
+    "note": "hierarchy level not present in the HTML (flat rows) \u2014 hierarchy reconstructed at concordance time from the known CPI structure"
+  },
+  "cpi_u_relative_importance_dec2024": [
+    {
+      "item": "All items",
+      "cpi_u": "100.000"
+    },
+    {
+      "item": "Food and beverages",
+      "cpi_u": "14.526"
+    },
+    {
+      "item": "Food",
+      "cpi_u": "13.691"
+    },
+    {
+      "item": "Food at home",
+      "cpi_u": "8.043"
+    },
+    {
+      "item": "Cereals and bakery products",
+      "cpi_u": "1.110"
+    },
+    {
+      "item": "Cereals and cereal products",
+      "cpi_u": "0.341"
+    },
+    {
+      "item": "Flour and prepared flour mixes",
+      "cpi_u": "0.029"
+    },
+    {
+      "item": "Breakfast cereal",
+      "cpi_u": "0.148"
+    },
+    {
+      "item": "Rice, pasta, cornmeal",
+      "cpi_u": "0.164"
+    },
+    {
+      "item": "Bakery products",
+      "cpi_u": "0.769"
+    },
+    {
+      "item": "Bread",
+      "cpi_u": "0.142"
+    },
+    {
+      "item": "Fresh biscuits, rolls, muffins",
+      "cpi_u": "0.135"
+    },
+    {
+      "item": "Cakes, cupcakes, and cookies",
+      "cpi_u": "0.213"
+    },
+    {
+      "item": "Other bakery products",
+      "cpi_u": "0.279"
+    },
+    {
+      "item": "Meats, poultry, fish, and eggs",
+      "cpi_u": "1.621"
+    },
+    {
+      "item": "Meats, poultry, and fish",
+      "cpi_u": "1.449"
+    },
+    {
+      "item": "Meats",
+      "cpi_u": "0.919"
+    },
+    {
+      "item": "Beef and veal",
+      "cpi_u": "0.445"
+    },
+    {
+      "item": "Uncooked ground beef",
+      "cpi_u": "0.201"
+    },
+    {
+      "item": "Uncooked beef roasts",
+      "cpi_u": "0.056"
+    },
+    {
+      "item": "Uncooked beef steaks",
+      "cpi_u": "0.128"
+    },
+    {
+      "item": "Uncooked other beef and veal",
+      "cpi_u": "0.060"
+    },
+    {
+      "item": "Pork",
+      "cpi_u": "0.288"
+    },
+    {
+      "item": "Bacon, breakfast sausage, and related products",
+      "cpi_u": "0.102"
+    },
+    {
+      "item": "Ham",
+      "cpi_u": "0.044"
+    },
+    {
+      "item": "Pork chops",
+      "cpi_u": "0.050"
+    },
+    {
+      "item": "Other pork including roasts, steaks, and ribs",
+      "cpi_u": "0.092"
+    },
+    {
+      "item": "Other meats",
+      "cpi_u": "0.186"
+    },
+    {
+      "item": "Poultry",
+      "cpi_u": "0.288"
+    },
+    {
+      "item": "Chicken",
+      "cpi_u": "0.216"
+    },
+    {
+      "item": "Other uncooked poultry including turkey",
+      "cpi_u": "0.072"
+    },
+    {
+      "item": "Fish and seafood",
+      "cpi_u": "0.242"
+    },
+    {
+      "item": "Fresh fish and seafood",
+      "cpi_u": "0.140"
+    },
+    {
+      "item": "Processed fish and seafood",
+      "cpi_u": "0.102"
+    },
+    {
+      "item": "Eggs",
+      "cpi_u": "0.172"
+    },
+    {
+      "item": "Dairy and related products",
+      "cpi_u": "0.741"
+    },
+    {
+      "item": "Milk",
+      "cpi_u": "0.200"
+    },
+    {
+      "item": "Cheese and related products",
+      "cpi_u": "0.255"
+    },
+    {
+      "item": "Ice cream and related products",
+      "cpi_u": "0.132"
+    },
+    {
+      "item": "Other dairy and related products",
+      "cpi_u": "0.154"
+    },
+    {
+      "item": "Fruits and vegetables",
+      "cpi_u": "1.336"
+    },
+    {
+      "item": "Fresh fruits and vegetables",
+      "cpi_u": "1.117"
+    },
+    {
+      "item": "Fresh fruits",
+      "cpi_u": "0.561"
+    },
+    {
+      "item": "Apples",
+      "cpi_u": "0.080"
+    },
+    {
+      "item": "Bananas",
+      "cpi_u": "0.109"
+    },
+    {
+      "item": "Citrus fruits",
+      "cpi_u": "0.063"
+    },
+    {
+      "item": "Other fresh fruits",
+      "cpi_u": "0.310"
+    },
+    {
+      "item": "Fresh vegetables",
+      "cpi_u": "0.555"
+    },
+    {
+      "item": "Potatoes",
+      "cpi_u": "0.082"
+    },
+    {
+      "item": "Lettuce",
+      "cpi_u": "0.071"
+    },
+    {
+      "item": "Tomatoes",
+      "cpi_u": "0.094"
+    },
+    {
+      "item": "Other fresh vegetables",
+      "cpi_u": "0.309"
+    },
+    {
+      "item": "Processed fruits and vegetables",
+      "cpi_u": "0.220"
+    },
+    {
+      "item": "Canned fruits and vegetables",
+      "cpi_u": "0.088"
+    },
+    {
+      "item": "Frozen fruits and vegetables",
+      "cpi_u": "0.067"
+    },
+    {
+      "item": "Other processed fruits and vegetables including dried",
+      "cpi_u": "0.065"
+    },
+    {
+      "item": "Nonalcoholic beverages and beverage materials",
+      "cpi_u": "0.897"
+    },
+    {
+      "item": "Juices and nonalcoholic drinks",
+      "cpi_u": "0.631"
+    },
+    {
+      "item": "Carbonated drinks",
+      "cpi_u": "0.341"
+    },
+    {
+      "item": "Frozen noncarbonated juices and drinks",
+      "cpi_u": "0.003"
+    },
+    {
+      "item": "Nonfrozen noncarbonated juices and drinks",
+      "cpi_u": "0.287"
+    },
+    {
+      "item": "Beverage materials including coffee and tea",
+      "cpi_u": "0.265"
+    },
+    {
+      "item": "Coffee",
+      "cpi_u": "0.134"
+    },
+    {
+      "item": "Other beverage materials including tea",
+      "cpi_u": "0.131"
+    },
+    {
+      "item": "Other food at home",
+      "cpi_u": "2.338"
+    },
+    {
+      "item": "Sugar and sweets",
+      "cpi_u": "0.332"
+    },
+    {
+      "item": "Sugar and sugar substitutes",
+      "cpi_u": "0.028"
+    },
+    {
+      "item": "Candy and chewing gum",
+      "cpi_u": "0.231"
+    },
+    {
+      "item": "Other sweets",
+      "cpi_u": "0.074"
+    },
+    {
+      "item": "Fats and oils",
+      "cpi_u": "0.250"
+    },
+    {
+      "item": "Butter and margarine",
+      "cpi_u": "0.055"
+    },
+    {
+      "item": "Salad dressing",
+      "cpi_u": "0.066"
+    },
+    {
+      "item": "Other fats and oils including peanut butter",
+      "cpi_u": "0.129"
+    },
+    {
+      "item": "Other foods",
+      "cpi_u": "1.756"
+    },
+    {
+      "item": "Soups",
+      "cpi_u": "0.105"
+    },
+    {
+      "item": "Frozen and freeze dried prepared foods",
+      "cpi_u": "0.279"
+    },
+    {
+      "item": "Snacks",
+      "cpi_u": "0.365"
+    },
+    {
+      "item": "Spices, seasonings, condiments, sauces",
+      "cpi_u": "0.383"
+    },
+    {
+      "item": "Baby food and formula",
+      "cpi_u": "0.060"
+    },
+    {
+      "item": "Other miscellaneous foods",
+      "cpi_u": "0.564"
+    },
+    {
+      "item": "Food away from home",
+      "cpi_u": "5.648"
+    },
+    {
+      "item": "Full service meals and snacks",
+      "cpi_u": "2.434"
+    },
+    {
+      "item": "Limited service meals and snacks",
+      "cpi_u": "2.845"
+    },
+    {
+      "item": "Food at employee sites and schools",
+      "cpi_u": "0.072"
+    },
+    {
+      "item": "Food from vending machines and mobile vendors",
+      "cpi_u": "0.055"
+    },
+    {
+      "item": "Other food away from home",
+      "cpi_u": "0.241"
+    },
+    {
+      "item": "Alcoholic beverages",
+      "cpi_u": "0.835"
+    },
+    {
+      "item": "Alcoholic beverages at home",
+      "cpi_u": "0.449"
+    },
+    {
+      "item": "Beer, ale, and other malt beverages at home",
+      "cpi_u": "0.154"
+    },
+    {
+      "item": "Distilled spirits at home",
+      "cpi_u": "0.103"
+    },
+    {
+      "item": "Wine at home",
+      "cpi_u": "0.192"
+    },
+    {
+      "item": "Alcoholic beverages away from home",
+      "cpi_u": "0.387"
+    },
+    {
+      "item": "Housing",
+      "cpi_u": "44.201"
+    },
+    {
+      "item": "Shelter",
+      "cpi_u": "35.483"
+    },
+    {
+      "item": "Rent of primary residence",
+      "cpi_u": "7.499"
+    },
+    {
+      "item": "Lodging away from home",
+      "cpi_u": "1.292"
+    },
+    {
+      "item": "Housing at school, excluding board",
+      "cpi_u": "0.243"
+    },
+    {
+      "item": "Other lodging away from home including hotels and motels",
+      "cpi_u": "1.049"
+    },
+    {
+      "item": "Owners' equivalent rent of residences",
+      "cpi_u": "26.282"
+    },
+    {
+      "item": "Owners' equivalent rent of primary residence",
+      "cpi_u": "25.083"
+    },
+    {
+      "item": "Unsampled owners' equivalent rent of secondary residences",
+      "cpi_u": "1.198"
+    },
+    {
+      "item": "Tenants' and household insurance",
+      "cpi_u": "0.410"
+    },
+    {
+      "item": "Fuels and utilities",
+      "cpi_u": "4.312"
+    },
+    {
+      "item": "Household energy",
+      "cpi_u": "3.233"
+    },
+    {
+      "item": "Fuel oil and other fuels",
+      "cpi_u": "0.139"
+    },
+    {
+      "item": "Fuel oil",
+      "cpi_u": "0.074"
+    },
+    {
+      "item": "Propane, kerosene, and firewood",
+      "cpi_u": "0.065"
+    },
+    {
+      "item": "Energy services",
+      "cpi_u": "3.094"
+    },
+    {
+      "item": "Electricity",
+      "cpi_u": "2.343"
+    },
+    {
+      "item": "Utility (piped) gas service",
+      "cpi_u": "0.750"
+    },
+    {
+      "item": "Water and sewer and trash collection services",
+      "cpi_u": "1.079"
+    },
+    {
+      "item": "Water and sewerage maintenance",
+      "cpi_u": "0.738"
+    },
+    {
+      "item": "Garbage and trash collection",
+      "cpi_u": "0.341"
+    },
+    {
+      "item": "Household furnishings and operations",
+      "cpi_u": "4.406"
+    },
+    {
+      "item": "Window and floor coverings and other linens",
+      "cpi_u": "0.240"
+    },
+    {
+      "item": "Floor coverings",
+      "cpi_u": "0.059"
+    },
+    {
+      "item": "Window coverings",
+      "cpi_u": "0.055"
+    }
+  ]
+}
