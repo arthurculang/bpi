@@ -20,7 +20,7 @@ gated on this review.
 
 | # | Artifact | Role | Status |
 |---|---|---|---|
-| 1 | Spec v00.02.00 | The formal statement (§2), event grammar, worked examples run as unit tests | Frozen; errata queue §13 |
+| 1 | Spec v00.02.01 | The formal statement (§2), event grammar, worked examples run as unit tests | Frozen; errata applied 2026-07-12 |
 | 2 | Codebook v0 | Binding operating rules: equivalence, triggers, links, incidence discipline | Freezes publicly with the Oct note |
 | 3 | G0 band (`docs/g0-plausibility-band.md`) | The pre-commitment instrument — committed before inputs, owner-signed | **Passed**; may not change |
 | 4 | G0 result (`data/retro-g0-result-2026-07-04.md`) | The retrospective: all four band tests hold at the byte-verified primary | Official |
@@ -48,10 +48,11 @@ in public, with logged amendments**, before any reviewer asked:
    the registered true-B40 weights — owners' equivalent rent (24% of the B40
    basket) keeps Tier B near half, which is stated as the corridor's central
    design problem, not hidden.
-3. The spec's Seam-2 reweighting figure (≈0.28pp/yr) does not match our
-   byte-grade computation from the registered R-CPI-I series (bottom-vs-top
-   ≈0.43pp/yr, Dec 2005–Dec 2024) — flagged for reconciliation at the next
-   spec revision rather than papered over.
+3. The spec's Seam-2 reweighting figure (≈0.28pp/yr) initially looked
+   inconsistent with our byte-grade computation (≈0.43pp/yr) — the flag was
+   published, then resolved in spec v00.02.01 as a convention difference
+   (geometric-annualized vs simple per-year, same registered series). The
+   sequence — flag publicly, then reconcile — is the discipline itself.
 
 The Southwest honesty exhibit is the same posture applied forward: CPI
 captures the first checked bag on ~80% of designated quotes, so the measure

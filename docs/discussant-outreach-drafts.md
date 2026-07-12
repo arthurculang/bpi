@@ -1,7 +1,7 @@
 # Discussant outreach — email drafts
 
 `v1 · 2026-07-12 · workstream F · DRAFTS for owner to personalize and send (August, plan §9 item 8) · honorarium per WS-H memo line 7`
-`Common attachments: the packet cover memo (docs/discussant-packet-memo.md — the reading guide, one order per seat) + spec v00.02.00, codebook v0, the pre-committed G0 band AND its PASSED result, the signed Phase 1 pre-registration; RX-100 proposal flagged as forward-looking/under-review. The self-imposed constraints — and the logged self-corrections — are the pitch`
+`Common attachments: the packet cover memo (docs/discussant-packet-memo.md — the reading guide, one order per seat) + spec v00.02.01, codebook v0, the pre-committed G0 band AND its PASSED result, the signed Phase 1 pre-registration; RX-100 proposal flagged as forward-looking/under-review. The self-imposed constraints — and the logged self-corrections — are the pitch`
 
 ---
 

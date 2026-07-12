@@ -1,6 +1,6 @@
 # Restoration Index — Project Plan
 
-`v00.03.18 · 2026-07-12 14-18 · internal working doc · companion to: Restoration Index Spec v00.02.00`
+`v00.03.18 · 2026-07-12 14-18 · internal working doc · companion to: Restoration Index Spec v00.02.01`
 
 ---
 

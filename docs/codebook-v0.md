@@ -3,8 +3,8 @@
 `v0 draft · 2026-07-04 · workstream A · freezes as the public pre-registration with the Phase 0 note (Oct 2026)`
 `Amendment policy: versioned, append-only after pre-registration; no retroactive changes to conventions ever apply to already-published links`
 
-This codebook operationalizes Spec v00.02.00 (P2 refined to menu-expansion
-monotonicity, 2026-07-04). Where the two disagree, the spec's
+This codebook operationalizes Spec v00.02.01 (P2 refined to menu-expansion
+monotonicity 2026-07-04; errata 2026-07-12). Where the two disagree, the spec's
 formal statement governs and the discrepancy is logged as a codebook erratum.
 
 ---

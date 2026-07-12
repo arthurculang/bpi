@@ -93,8 +93,9 @@ Table 1101 exactly** — the chain is byte-grade end to end. Two findings:
 - R-CPI-I Dec–Dec changes by quintile now byte-grade
   (`data/captures/r-cpi-i-decdec-2026-07-12.json`): cumulative Dec 2005 – Dec
   2024, Q1 +65.6% vs Q5 +57.5% — a **+8.1pp** bottom-vs-top gap (≈0.43pp/yr;
-  the spec's Seam-2 cites ≈0.28pp/yr — same order, different figure; flag for
-  the spec's next revision to reconcile window/derivation). 2024 alone:
+  the spec's ≈0.28pp/yr is the geometric-annualized convention of the same
+  series — RECONCILED in spec v00.02.01: two conventions, one series, both
+  byte-verified). 2024 alone:
   Q1 +3.02% vs Q5 +2.90%. This series is the weighting-effect exhibit's
   validation anchor. The R-CPI-I *relative-importance* XLSX (the B40 weight
   vintage, a separate file, Dec 2005–Dec 2023) remains the one outstanding
